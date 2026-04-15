@@ -1,0 +1,233 @@
+<?php
+$slug = $_GET['slug'] ?? '';
+$blog = null;
+$related = [];
+$blogsFile = __DIR__ . '/data/blogs.json';
+if ($slug && file_exists($blogsFile)) {
+    $all = json_decode(file_get_contents($blogsFile), true);
+    if (is_array($all)) {
+        foreach ($all as $b) {
+            if (($b['slug'] ?? '') === $slug && ($b['status'] ?? '') === 'published') {
+                $blog = $b;
+                break;
+            }
+        }
+        if ($blog) {
+            $related = array_values(array_filter($all, function($b) use ($blog) {
+                return ($b['status'] ?? '') === 'published' && ($b['id'] ?? '') !== ($blog['id'] ?? '');
+            }));
+            usort($related, function($a, $b) { return strtotime($b['created_at'] ?? 0) - strtotime($a['created_at'] ?? 0); });
+            $related = array_slice($related, 0, 3);
+        }
+    }
+}
+$blogJson = $blog ? json_encode($blog, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE) : 'null';
+$relatedJson = json_encode($related, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SYNERGATES Blog">
+    <title><?php echo $blog ? (htmlspecialchars($blog['title_fr'] ?? $blog['title_en'] ?? $blog['title'] ?? '') . ' - SYNERGATES') : 'Blog - SYNERGATES'; ?></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css?v=1.0.8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html:not(.i18n-ready) body{opacity:0!important}
+        html.i18n-ready body{opacity:1}
+        .blog-content { font-size: 1.125rem; line-height: 1.8; color: #374151; }
+        .blog-content h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #111827; letter-spacing: -0.02em; }
+        .blog-content h3 { font-size: 1.375rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; color: #111827; }
+        .blog-content p { margin-bottom: 1.5rem; }
+        .blog-content ul, .blog-content ol { margin-bottom: 1.5rem; padding-left: 1.75rem; }
+        .blog-content ul { list-style-type: disc; }
+        .blog-content ol { list-style-type: decimal; }
+        .blog-content li { margin-bottom: 0.75rem; line-height: 1.7; }
+        .blog-content a { color: #1e40af; text-decoration: underline; text-underline-offset: 2px; }
+        .blog-content a:hover { color: #1e3a8a; }
+        .blog-content img { max-width: 100%; height: auto; border-radius: 0.75rem; margin: 2rem 0; box-shadow: 0 4px 20px -4px rgba(0,0,0,0.1); }
+        .blog-content blockquote { border-left: 4px solid #3b82f6; padding: 1rem 1.5rem; margin: 2rem 0; background: #f8fafc; border-radius: 0 0.5rem 0.5rem 0; color: #475569; font-style: italic; font-size: 1.125rem; }
+        .blog-content strong { color: #111827; font-weight: 600; }
+        .blog-content code { background: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.9em; }
+        .featured-image-container { position: relative; }
+        .featured-image-container::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(to top, white, transparent); pointer-events: none; }
+        .share-btn { transition: background-color 0.2s ease, color 0.2s ease; }
+        .related-card { transition: box-shadow 0.2s ease; }
+        .related-card:hover { box-shadow: 0 8px 20px -6px rgba(0,0,0,0.12); }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    </style>
+    <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');if(window.__SITE_BASE__.length&&window.__SITE_BASE__.slice(-1)!=='/')window.__SITE_BASE__+='/';</script>
+    <script>window.__BLOG_PRELOAD__=<?php echo $blogJson; ?>;window.__RELATED_PRELOAD__=<?php echo $relatedJson; ?>;</script>
+    <script>setTimeout(function(){document.documentElement.classList.add('i18n-ready')},1200);</script>
+</head>
+<body class="bg-white">
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <nav class="site-nav nav-over-hero fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <img src="images/websitelogo.png" alt="SYNERGATES" class="nav-logo h-10 w-auto">
+                    </a>
+                </div>
+                <div class="nav-desktop hidden md:flex items-center space-x-5 flex-nowrap">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.home">Accueil</a>
+                    <a href="solutions.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.solutions">Solutions</a>
+                    <a href="projects.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.projects">Projets</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.about">À propos</a>
+                    <a href="blog.php" class="nav-link text-blue-600 font-medium whitespace-nowrap" data-i18n="common.blog">Blog</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.contact">Contact</a>
+                    <a href="faq.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.faq">FAQ</a>
+                    <div class="flex items-center gap-2 ml-1 flex-shrink-0" role="group" aria-label="Language">
+                        <button type="button" data-lang-btn="en" class="lang-btn px-2 py-1 text-sm rounded hover:bg-gray-100">EN</button>
+                        <span class="text-gray-400">|</span>
+                        <button type="button" data-lang-btn="fr" class="lang-btn px-2 py-1 text-sm rounded hover:bg-gray-100">FR</button>
+                    </div>
+                    <a href="tel:+212522096855" class="nav-link ml-2 text-gray-700 hover:text-gray-900 font-medium flex-shrink-0 whitespace-nowrap"><i class="fas fa-phone mr-1"></i>+212 522 09 68 55</a>
+                </div>
+                <button id="mobile-menu-btn" class="nav-mobile-btn md:hidden focus:outline-none p-2" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block px-4 py-2.5 text-gray-700 hover:text-gray-900 text-sm" data-i18n="common.home">Accueil</a>
+                <a href="solutions.html" class="block px-4 py-2.5 text-gray-700 hover:text-gray-900 text-sm" data-i18n="common.solutions">Solutions</a>
+                <a href="projects.html" class="block px-4 py-2.5 text-gray-700 hover:text-gray-900 text-sm" data-i18n="common.projects">Projets</a>
+                <a href="about.html" class="block px-4 py-2.5 text-gray-700 hover:text-gray-900 text-sm" data-i18n="common.about">À propos</a>
+                <a href="blog.php" class="block px-4 py-2.5 text-blue-700 font-medium text-sm" data-i18n="common.blog">Blog</a>
+                <a href="contact.html" class="block px-4 py-2.5 text-gray-700 hover:text-gray-900 text-sm" data-i18n="common.contact">Contact</a>
+                <a href="faq.html" class="block px-4 py-2.5 text-gray-700 hover:text-gray-900 text-sm" data-i18n="common.faq">FAQ</a>
+                <div class="flex justify-center gap-2 py-2">
+                    <button type="button" data-lang-btn="en" class="lang-btn px-3 py-1 text-sm rounded">EN</button>
+                    <button type="button" data-lang-btn="fr" class="lang-btn px-3 py-1 text-sm rounded">FR</button>
+                </div>
+                <a href="tel:+212522096855" class="block px-4 py-2.5 text-center font-medium text-sm">+212 522 09 68 55</a>
+            </div>
+        </div>
+    </nav>
+
+    <article id="main-content" class="pt-20">
+        <div id="blog-loading" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full mb-4">
+                <i class="fas fa-spinner fa-spin text-gray-400"></i>
+            </div>
+            <p class="text-gray-500" data-i18n="blog.loadingArticle">Chargement de l'article...</p>
+        </div>
+        <div id="blog-error" class="hidden max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-6">
+                <i class="fas fa-exclamation text-2xl text-gray-400"></i>
+            </div>
+            <h1 class="text-2xl font-bold text-gray-900 mb-3" data-i18n="blog.articleNotFound">Article introuvable</h1>
+            <p class="text-gray-500 mb-8" data-i18n="blog.articleNotFoundDesc">L'article que vous recherchez n'existe pas ou a été supprimé.</p>
+            <a href="blog.php" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium" data-i18n="blog.backToBlog">
+                <i class="fas fa-arrow-left mr-2"></i>Retour au blog
+            </a>
+        </div>
+        <div id="blog-content" class="hidden"></div>
+        <section id="related-section" class="hidden reveal-up py-16 home-section-soft border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="blog.relatedArticles">Articles similaires</h2>
+                    <p class="text-gray-500" data-i18n="blog.relatedSubtitle">Continuez votre lecture avec ces articles</p>
+                </div>
+                <div id="related-articles" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+            </div>
+        </section>
+    </article>
+
+    <section class="reveal-up cta-strip-premium py-20 md:py-24 bg-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="cta-strip-title text-3xl md:text-4xl font-bold text-white mb-5" data-i18n="blog.needSupport">Besoin d'un accompagnement ?</h2>
+            <p class="text-blue-100 mb-10 max-w-2xl mx-auto" data-i18n="blog.needSupportSub">Notre équipe d'experts est disponible pour répondre à vos questions.</p>
+            <a href="contact.html" class="cta-strip-btn inline-flex items-center justify-center bg-white text-blue-700 px-8 py-3.5 rounded font-semibold hover:bg-gray-50 transition-all text-base" data-i18n="blog.contactUs">
+                Nous contacter
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <footer class="home-footer-dark border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+                <div><div class="flex items-center space-x-3 mb-4"><img src="images/websitelogo.png" alt="SYNERGATES" class="h-8 w-auto"></div>
+                    <p class="text-gray-500 mb-5 text-sm leading-relaxed" data-i18n="common.footerDesc">Intégrateur de solutions technologiques au Maroc et en Afrique.</p></div>
+                <div><h3 class="text-gray-900 font-semibold text-sm mb-4" data-i18n="common.quickLinks">Liens rapides</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="solutions.html" class="text-gray-500 hover:text-gray-700" data-i18n="common.solutions">Solutions</a></li>
+                        <li><a href="projects.html" class="text-gray-500 hover:text-gray-700" data-i18n="common.projects">Projets</a></li>
+                        <li><a href="about.html" class="text-gray-500 hover:text-gray-700" data-i18n="common.about">À propos</a></li>
+                        <li><a href="blog.php" class="text-gray-500 hover:text-gray-700" data-i18n="common.blog">Blog</a></li>
+                    </ul></div>
+                <div><h3 class="text-gray-900 font-semibold text-sm mb-4" data-i18n="common.solutions">Solutions</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="solutions.html" class="text-gray-500 hover:text-gray-700" data-i18n="about.expertise1">Vidéosurveillance</a></li>
+                        <li><a href="solutions.html" class="text-gray-500 hover:text-gray-700" data-i18n="about.expertise2">Contrôle d'accès</a></li>
+                        <li><a href="solutions.html" class="text-gray-500 hover:text-gray-700" data-i18n="about.expertise4">Infrastructure réseau</a></li>
+                    </ul></div>
+                <div><h3 class="text-gray-900 font-semibold text-sm mb-4" data-i18n="common.contact">Contact</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center"><i class="fas fa-phone mr-2 text-gray-400 text-xs"></i><a href="tel:+212522096855" class="text-gray-500 hover:text-gray-700">+212 522 09 68 55</a></li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-2 text-gray-400 text-xs"></i><a href="mailto:info@synergates.ma" class="text-gray-500 hover:text-gray-700">info@synergates.ma</a></li>
+                    </ul></div>
+            </div>
+            <div class="border-t border-gray-200 pt-6"><p class="text-xs text-gray-400" data-i18n="footer.copyright">© 2025 SYNERGATES. Tous droits réservés.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        const STORAGE_KEY = 'synergates-lang';
+        function getLang() { return localStorage.getItem(STORAGE_KEY) || document.documentElement.lang || 'fr'; }
+        function getByLang(blog, key) {
+            const isFr = getLang() === 'fr';
+            const frVal = blog[key + '_fr'], enVal = blog[key + '_en'], leg = blog[key];
+            return isFr ? (frVal || enVal || leg) : (enVal || frVal || leg);
+        }
+        function escapeHtml(t) { const d = document.createElement('div'); d.textContent = t || ''; return d.innerHTML; }
+        function getReadingTime(c) { if (!c) return 1; const t = (''+c).replace(/<[^>]*>/g,''); return Math.max(1, Math.ceil((t.split(/\s+/).length||1)/200)); }
+
+        const blog = window.__BLOG_PRELOAD__;
+        const related = Array.isArray(window.__RELATED_PRELOAD__) ? window.__RELATED_PRELOAD__ : [];
+
+        if (blog) {
+            document.getElementById('blog-loading').classList.add('hidden');
+            const content = document.getElementById('blog-content');
+            content.classList.remove('hidden');
+            const title = getByLang(blog, 'title');
+            const excerpt = getByLang(blog, 'excerpt');
+            const body = getByLang(blog, 'content');
+            const t = (window.i18n && window.i18n.t) ? window.i18n.t.bind(window.i18n) : (k)=>k;
+            const locale = getLang() === 'fr' ? 'fr-FR' : 'en-US';
+            const readTime = getReadingTime(body);
+            const dateStr = new Date(blog.created_at).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
+            const url = encodeURIComponent(window.location.href);
+            const titleEnc = encodeURIComponent(title);
+
+            content.innerHTML = '<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4"><a href="blog.php" class="inline-flex items-center text-gray-500 hover:text-gray-700 text-sm transition-colors" data-i18n="blog.backToBlog"><i class="fas fa-arrow-left mr-2 text-xs"></i>Retour au blog</a></div><header class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8"><div class="flex items-center gap-3 mb-6"><span id="blog-category" class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded uppercase tracking-wider">' + escapeHtml(blog.category) + '</span><span class="text-gray-400">•</span><span id="blog-read-time" class="text-sm text-gray-500">' + readTime + ' ' + t('blog.minRead') + '</span></div><h1 id="blog-title" class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">' + escapeHtml(title) + '</h1>' + (excerpt ? '<p id="blog-excerpt" class="text-xl text-gray-500 leading-relaxed mb-8">' + escapeHtml(excerpt) + '</p>' : '') + '<div class="flex items-center justify-between flex-wrap gap-4 pb-8 border-b border-gray-200"><div class="flex items-center gap-4"><div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center"><i class="fas fa-user text-white"></i></div><div><p id="blog-author" class="text-gray-900 font-medium">' + escapeHtml(blog.author) + '</p><p id="blog-date" class="text-gray-500 text-sm">' + dateStr + '</p></div></div><div class="flex gap-2"><a href="https://www.linkedin.com/sharing/share-offsite/?url=' + url + '" target="_blank" class="share-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-blue-600 hover:text-white rounded-full text-gray-600 transition-all"><i class="fab fa-linkedin-in"></i></a><a href="https://twitter.com/intent/tweet?url=' + url + '&text=' + titleEnc + '" target="_blank" class="share-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-900 hover:text-white rounded-full text-gray-600 transition-all"><i class="fab fa-x-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" class="share-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-blue-700 hover:text-white rounded-full text-gray-600 transition-all"><i class="fab fa-facebook-f"></i></a></div></div></header>' + (blog.image ? '<div class="featured-image-container max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-8"><img src="' + escapeHtml(blog.image) + '" alt="' + escapeHtml(title) + '" class="w-full rounded-2xl shadow-xl"></div>' : '') + '<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-12"><div id="blog-body" class="blog-content">' + body + '</div></div>';
+
+            if (related.length > 0) {
+                document.getElementById('related-section').classList.remove('hidden');
+                const html = related.map(b => {
+                    const relTitle = getByLang(b, 'title');
+                    const relContent = getByLang(b, 'content');
+                    const img = b.image || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 225%22%3E%3Crect fill=%22%23f1f5f9%22 width=%22400%22 height=%22225%22/%3E%3C/svg%3E';
+                    const rt = getReadingTime(relContent);
+                    const d = new Date(b.created_at).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' });
+                    return '<article class="related-card bg-white rounded-xl overflow-hidden shadow-sm"><a href="blog-detail.php?slug=' + b.slug + '" class="block"><div class="relative aspect-[16/10] overflow-hidden bg-gray-100"><img src="' + escapeHtml(img) + '" alt="' + escapeHtml(relTitle) + '" class="w-full h-full object-cover"><div class="absolute top-3 left-3"><span class="inline-block px-2 py-1 bg-white/95 text-gray-700 text-xs font-semibold rounded uppercase">' + escapeHtml(b.category) + '</span></div></div></a><div class="p-5"><div class="flex items-center gap-2 text-xs text-gray-400 mb-2"><span>' + d + '</span><span>•</span><span>' + rt + ' ' + t('blog.minRead') + '</span></div><a href="blog-detail.php?slug=' + b.slug + '" class="block"><h3 class="font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors line-clamp-2">' + escapeHtml(relTitle) + '</h3></a><a href="blog-detail.php?slug=' + b.slug + '" class="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1">' + t('blog.read') + ' <i class="fas fa-arrow-right text-xs"></i></a></div></article>';
+                }).join('');
+                document.getElementById('related-articles').innerHTML = html;
+            }
+        } else {
+            document.getElementById('blog-loading').classList.add('hidden');
+            document.getElementById('blog-error').classList.remove('hidden');
+        }
+
+        document.addEventListener('languageChanged', function() { if (blog) location.reload(); });
+    </script>
+    <script src="js/i18n.js?v=1.0.1"></script>
+    <script src="js/main.js?v=1.0.2"></script>
+</body>
+</html>

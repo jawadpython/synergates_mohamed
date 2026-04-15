@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FAQ - Synergates, questions fréquentes sur nos solutions technologiques au Maroc et en Afrique.">
+    <title>FAQ - Synergates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css?v=1.0.11">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>html:not(.i18n-ready) body{opacity:0!important}html.i18n-ready body{opacity:1}</style>
+    <script>setTimeout(function(){document.documentElement.classList.add('i18n-ready')},1200);</script>
+</head>
+<body class="bg-white">
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <!-- Navigation: fixed size, same 6 links + EN/FR + phone on all pages -->
+    <nav class="site-nav nav-over-hero fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <img src="images/websitelogo.png" alt="SYNERGATES" class="nav-logo h-10 w-auto">
+                    </a>
+                </div>
+                <div class="nav-desktop hidden md:flex items-center space-x-5 flex-nowrap">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.home">Accueil</a>
+                    <a href="solutions.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.solutions">Solutions</a>
+                    <a href="projects.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.projects">Projets</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.about">À propos</a>
+                    <a href="blog.php" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.blog">Blog</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.contact">Contact</a>
+                    <a href="faq.html" class="nav-link text-blue-600 font-medium whitespace-nowrap" data-i18n="common.faq">FAQ</a>
+                    <div class="flex items-center gap-2 ml-1 flex-shrink-0" role="group" aria-label="Language">
+                        <button type="button" data-lang-btn="en" class="lang-btn px-2 py-1 text-sm rounded hover:bg-gray-100">EN</button>
+                        <span class="text-gray-400">|</span>
+                        <button type="button" data-lang-btn="fr" class="lang-btn px-2 py-1 text-sm rounded hover:bg-gray-100">FR</button>
+                    </div>
+                    <a href="tel:+212522096855" class="nav-link ml-2 text-gray-700 hover:text-gray-900 font-medium flex-shrink-0 whitespace-nowrap"><i class="fas fa-phone mr-1"></i><span class="nav-phone">+212 522 09 68 55</span></a>
+                </div>
+                <button id="mobile-menu-btn" class="nav-mobile-btn md:hidden focus:outline-none p-2" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.home">Accueil</a>
+                <a href="solutions.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.solutions">Solutions</a>
+                <a href="projects.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.projects">Projets</a>
+                <a href="about.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.about">À propos</a>
+                <a href="blog.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.blog">Blog</a>
+                <a href="contact.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.contact">Contact</a>
+                <a href="faq.html" class="block px-4 py-3 text-blue-600 bg-blue-50 rounded-lg font-medium" data-i18n="common.faq">FAQ</a>
+                <div class="flex justify-center gap-2 py-2">
+                    <button type="button" data-lang-btn="en" class="lang-btn px-3 py-1 text-sm rounded">EN</button>
+                    <button type="button" data-lang-btn="fr" class="lang-btn px-3 py-1 text-sm rounded">FR</button>
+                </div>
+                <a href="tel:+212522096855" class="block px-4 py-3 text-center font-medium">+212 522 09 68 55</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section id="main-content" class="reveal-up pt-20 pb-4 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-sm text-gray-500" data-i18n="faq.breadcrumb">SYNERGATES &gt; FAQ</p>
+        </div>
+    </section>
+
+    <!-- FAQ intro -->
+    <section class="reveal-up home-section-soft py-12 md:py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6" data-i18n="faq.title">FAQ - Questions fréquentes sur nos solutions technologiques</h1>
+            <p class="text-gray-600 leading-relaxed" data-i18n="faq.intro">Bienvenue sur notre espace FAQ. Vous trouverez ici les réponses aux questions les plus fréquentes concernant nos solutions technologiques et nos services. Chez Synergates, nous mettons un point d'honneur à accompagner nos clients du secteur pétrolier, industriel et tertiaire en leur offrant des solutions fiables et conformes aux normes internationales. Si vous ne trouvez pas la réponse à votre question, n'hésitez pas à nous <a href="contact.html" class="text-blue-600 hover:underline">contacter directement</a> : notre équipe est à votre écoute.</p>
+        </div>
+    </section>
+
+    <!-- Questions -->
+    <section class="reveal-up py-16 md:py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-6" data-i18n="faq.questionsTitle">Questions fréquemment posées</h2>
+            <div id="faq-items" class="space-y-6">
+                <div class="flex justify-center py-8">
+                    <i class="fas fa-spinner fa-spin text-2xl text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="home-footer-dark border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-white/10 rounded flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">S</span>
+                        </div>
+                        <span class="text-xl font-semibold text-white">SYNERGATES</span>
+                    </div>
+                    <a href="#" class="block text-gray-400 hover:text-white text-sm mb-1" data-i18n="footer.developpementDurable">Développement durable</a>
+                    <a href="about.html" class="block text-gray-400 hover:text-white text-sm mb-1" data-i18n="footer.aPropos">À propos de nous</a>
+                    <a href="mailto:info@synergates.ma" class="block text-gray-400 hover:text-white text-sm">info@synergates.ma</a>
+                </div>
+                <div>
+                    <a href="blog.php" class="block text-gray-400 hover:text-white text-sm mb-1" data-i18n="footer.blog">Blog</a>
+                    <a href="#" class="block text-gray-400 hover:text-white text-sm" data-i18n="footer.infos">Infos</a>
+                </div>
+                <div class="flex flex-col items-start md:items-end">
+                    <div class="flex gap-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white" aria-label="Facebook"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white" aria-label="Twitter"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
+                    </div>
+                    <a href="contact.html" class="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-500 text-white px-5 py-2.5 rounded-lg font-medium transition-colors text-sm">
+                        <i class="fas fa-envelope"></i> <span data-i18n="footer.contactezNous">Contactez-nous</span>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-600 pt-6 text-center text-sm text-gray-500">
+                <p data-i18n="footer.copyright">© 2025 par SYNERGATES.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');</script>
+    <script src="js/i18n.js?v=1.0.1"></script>
+    <script src="js/main.js?v=1.0.2"></script>
+    <script src="js/prefetch-solutions.js?v=1.0.8"></script>
+    <script>
+        (function() {
+            const STORAGE_KEY = 'synergates-lang';
+            let cachedFaqs = [];
+            function getLang() { return localStorage.getItem(STORAGE_KEY) || 'fr'; }
+            function getBase() { return (typeof window.__SITE_BASE__ === 'string' ? window.__SITE_BASE__ : '') || window.location.pathname.replace(/\/[^/]*$/, '/') || '/'; }
+            function escapeHtml(t) { if (!t) return ''; const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+            function renderFaqItems(faqs, lang) {
+                const el = document.getElementById('faq-items');
+                if (!el) return;
+                const isFr = lang === 'fr';
+                if (!faqs || faqs.length === 0) {
+                    el.innerHTML = '<p class="text-gray-500 text-sm">Aucune question pour le moment.</p>';
+                    return;
+                }
+                el.innerHTML = faqs.map(function(f) {
+                    const q = isFr ? (f.question_fr || f.question_en) : (f.question_en || f.question_fr);
+                    const a = isFr ? (f.answer_fr || f.answer_en) : (f.answer_en || f.answer_fr);
+                    return '<div class="border border-gray-200 rounded-lg p-6"><h3 class="font-bold text-gray-900 mb-3">' + escapeHtml(q) + '</h3><p class="text-gray-600 text-sm leading-relaxed">' + escapeHtml(a) + '</p></div>';
+                }).join('');
+            }
+            async function loadFaqItems() {
+                const lang = getLang();
+                if (cachedFaqs.length === 0) {
+                    try {
+                        const base = getBase();
+                        const url = (base.charAt(base.length - 1) === '/' ? base : base + '/') + 'api/faq.php';
+                        const res = await fetch(url);
+                        const data = await res.json();
+                        cachedFaqs = (data && data.success && data.faqs) ? data.faqs : [];
+                    } catch (e) { cachedFaqs = []; }
+                }
+                renderFaqItems(cachedFaqs, lang);
+            }
+            document.addEventListener('DOMContentLoaded', loadFaqItems);
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('[data-lang-btn]').forEach(function(btn) {
+                    btn.addEventListener('click', function() { setTimeout(loadFaqItems, 150); });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

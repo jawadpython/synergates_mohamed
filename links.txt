@@ -1,0 +1,29 @@
+# Hikvision Solution Pages - URL | Scenario | Buttons (verified)
+# Each page should have this many section buttons on TechSec solution-detail page
+
+https://www.hikvision.com/en/solutions/solutions-by-scenario/factory/ | factories | 6
+https://www.hikvision.com/en/solutions/solutions-by-scenario/classroom-hub/ | classroom-hub | 4
+https://www.hikvision.com/en/solutions/solutions-by-scenario/urban-roadways/ | urban-roadways | 7
+https://www.hikvision.com/en/solutions/solutions-by-scenario/office-buildings/ | offices | 8
+https://www.hikvision.com/en/solutions/solutions-by-scenario/store/ | stores | 6
+https://www.hikvision.com/en/solutions/solutions-by-scenario/bus-stop/ | bus-stop | 5
+https://www.hikvision.com/en/solutions/solutions-by-scenario/car-dealerships/ | car-dealerships | 6
+https://www.hikvision.com/en/solutions/solutions-by-scenario/conference-rooms/ | conference-rooms | 2
+https://www.hikvision.com/en/solutions/solutions-by-scenario/construction-site/ | construction-site | 6
+https://www.hikvision.com/en/solutions/solutions-by-scenario/electrical-substations/ | electrical-substations | 3
+https://www.hikvision.com/en/solutions/solutions-by-scenario/gas-stations/ | gas-stations | 7
+https://www.hikvision.com/en/solutions/solutions-by-scenario/highways/ | highways | 6
+https://www.hikvision.com/en/solutions/solutions-by-scenario/hotels/ | hotels | 8
+https://www.hikvision.com/en/solutions/solutions-by-scenario/monitoring-center/ | monitoring-center | 3
+https://www.hikvision.com/en/solutions/solutions-by-scenario/parking-lots/ | parking-lots | 4
+https://www.hikvision.com/en/solutions/solutions-by-scenario/schools/ | schools | 6
+https://www.hikvision.com/en/solutions/solutions-by-scenario/shopping-malls/ | shopping-malls | 4
+https://www.hikvision.com/en/solutions/solutions-by-scenario/transit-bus-on-board/ | transit-bus-onboard | 4
+https://www.hikvision.com/en/solutions/solutions-by-scenario/warehouses/ | warehouses | 4
+https://www.hikvision.com/en/solutions/solutions-by-scenario/onshore-oilfields/ | onshore-oilfields | 5
+https://www.hikvision.com/en/solutions/solutions-by-scenario/supermarkets/ | supermarkets | 6
+https://www.hikvision.com/en/solutions/solutions-by-scenario/offshore-oil-platform/ | offshore-oil-platform | 3
+https://www.hikvision.com/en/solutions/solutions-by-scenario/transmission-line-inspection/ | transmission-line-inspection | 4
+https://www.hikvision.com/en/solutions/solutions-by-scenario/pipeline-inspection/ | pipeline-inspection | 4
+https://www.hikvision.com/en/solutions/solutions-by-scenario/solar-farms/ | solar-farms | 4
+https://www.hikvision.com/en/solutions/solutions-by-scenario/hydroelectric-power-plants/ | hydroelectric-power-plants | 5

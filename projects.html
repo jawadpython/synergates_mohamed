@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our successful technology and security solution projects across various industries.">
+    <meta name="keywords" content="projects, case studies, success stories, technology implementations, security projects">
+    <title>Projects - Synergates</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles - ?v= cache-busting; bump on deploy -->
+    <link rel="stylesheet" href="css/styles.css?v=1.0.11">
+    
+    <!-- Font Awesome (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Image cache busting: version bumped when admin replaces images -->
+    <script src="js/image-cache-bust.js?v=1.0.8"></script>
+    <style>html:not(.i18n-ready) body{opacity:0!important}html.i18n-ready body{opacity:1}</style>
+    <script>setTimeout(function(){document.documentElement.classList.add('i18n-ready')},1200);</script>
+</head>
+<body class="bg-white">
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <!-- Navigation: fixed size, same 6 links + EN/FR + phone on all pages -->
+    <nav class="site-nav nav-over-hero fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <img src="images/websitelogo.png" alt="SYNERGATES" class="nav-logo h-10 w-auto">
+                    </a>
+                </div>
+                <div class="nav-desktop hidden md:flex items-center space-x-5 flex-nowrap">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.home">Accueil</a>
+                    <a href="solutions.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.solutions">Solutions</a>
+                    <a href="projects.html" class="nav-link text-blue-600 font-medium whitespace-nowrap" data-i18n="common.projects">Projets</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.about">À propos</a>
+                    <a href="blog.php" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.blog">Blog</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.contact">Contact</a>
+                    <a href="faq.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.faq">FAQ</a>
+                    <div class="flex items-center gap-2 ml-1 flex-shrink-0" role="group" aria-label="Language">
+                        <button type="button" data-lang-btn="en" class="lang-btn px-2 py-1 text-sm rounded hover:bg-gray-100">EN</button>
+                        <span class="text-gray-400">|</span>
+                        <button type="button" data-lang-btn="fr" class="lang-btn px-2 py-1 text-sm rounded hover:bg-gray-100">FR</button>
+                    </div>
+                    <a href="tel:+212522096855" class="nav-link ml-2 text-gray-700 hover:text-gray-900 font-medium flex-shrink-0 whitespace-nowrap"><i class="fas fa-phone mr-1"></i><span class="nav-phone">+212 522 09 68 55</span></a>
+                </div>
+                <button id="mobile-menu-btn" class="nav-mobile-btn md:hidden focus:outline-none p-2" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.home">Accueil</a>
+                <a href="solutions.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.solutions">Solutions</a>
+                <a href="projects.html" class="block px-4 py-3 text-blue-600 bg-blue-50 rounded-lg font-medium" data-i18n="common.projects">Projets</a>
+                <a href="about.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.about">À propos</a>
+                <a href="blog.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.blog">Blog</a>
+                <a href="contact.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.contact">Contact</a>
+                <a href="faq.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.faq">FAQ</a>
+                <div class="flex justify-center gap-2 py-2">
+                    <button type="button" data-lang-btn="en" class="lang-btn px-3 py-1 text-sm rounded">EN</button>
+                    <button type="button" data-lang-btn="fr" class="lang-btn px-3 py-1 text-sm rounded">FR</button>
+                </div>
+                <a href="tel:+212522096855" class="block px-4 py-3 text-center font-medium">+212 522 09 68 55</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section id="main-content" class="reveal-up pt-16 md:pt-20 lg:pt-24 pb-12 md:pb-16 bg-slate-900 text-white page-hero">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-white drop-shadow-sm" data-i18n="projects.title">Success Stories & Project Portfolio</h1>
+                <p class="text-base md:text-lg text-slate-200 max-w-2xl mx-auto drop-shadow-sm" data-i18n="projects.subtitle">Explore our proven track record of successful implementations across diverse industries, showcasing our expertise and commitment to delivering exceptional results</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="reveal-up py-20 md:py-28 home-section-soft">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="projects.sectionTitle">Proven Results Across Industries</h2>
+                <p class="text-base text-gray-600 max-w-2xl mx-auto" data-i18n="projects.sectionDesc">Real-world implementations demonstrating our expertise in delivering enterprise-grade technology and security solutions</p>
+            </div>
+            
+            <div id="projects-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <p id="projects-loading" class="text-center text-gray-500 py-12 col-span-full">Loading projects…</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="reveal-up py-16 md:py-20 bg-white border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">500+</div>
+                    <div class="text-gray-600 text-sm" data-i18n="projects.statsProjects">Projects Completed</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">50+</div>
+                    <div class="text-gray-600 text-sm" data-i18n="projects.statsIndustries">Industries Served</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">99.9%</div>
+                    <div class="text-gray-600 text-sm" data-i18n="projects.statsSatisfaction">Client Satisfaction</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">10+</div>
+                    <div class="text-gray-600 text-sm" data-i18n="projects.statsExperience">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="reveal-up cta-strip-premium py-20 md:py-24 bg-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="cta-strip-title text-3xl md:text-4xl lg:text-5xl font-bold mb-6" data-i18n="projects.ctaTitle">Ready to Start Your Project?</h2>
+                <p class="text-base md:text-lg text-blue-100 mb-10 max-w-2xl mx-auto" data-i18n="projects.ctaSubtitle">Join our portfolio of successful clients. Let's discuss how we can deliver exceptional results for your organization.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="contact.html" class="cta-strip-btn inline-flex items-center justify-center bg-white text-blue-700 px-8 py-3.5 rounded font-semibold hover:bg-gray-50 transition-all text-base" data-i18n="projects.getStartedToday">Get Started Today</a>
+                    <a href="solutions.html" class="cta-strip-btn inline-flex items-center justify-center bg-transparent text-white border-2 border-white/50 px-8 py-3.5 rounded font-semibold hover:border-white hover:bg-white/10 transition-all text-base" data-i18n="projects.viewOurSolutions">View Our Solutions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="home-footer-dark border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Company Info -->
+                <div>
+<div class="flex items-center space-x-3 mb-4">
+                        <img src="images/websitelogo.png" alt="SYNERGATES" class="h-10 w-auto brightness-0 invert">
+                    </div>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed" data-i18n="common.footerDesc">Leading provider of advanced technology and security solutions for businesses worldwide.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n-attr="aria-label:common.ariaLinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin text-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n-attr="aria-label:common.ariaTwitter" aria-label="Twitter"><i class="fab fa-twitter text-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n-attr="aria-label:common.ariaFacebook" aria-label="Facebook"><i class="fab fa-facebook text-lg"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-semibold text-base mb-4" data-i18n="common.quickLinks">Quick Links</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="common.solutions">Solutions</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="common.projects">Projects</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="common.aboutUs">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="common.contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Solutions -->
+                <div>
+                    <h3 class="text-white font-semibold text-base mb-4" data-i18n="common.solutions">Solutions</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="controle-acces.html" class="text-gray-400 hover:text-white transition-colors">Contrôle d'accès</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="common.enterpriseSolutions">Enterprise Solutions</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="common.retailSolutions">Retail Solutions</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="common.manufacturing">Manufacturing</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="common.education">Education</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Details -->
+                <div>
+                    <h3 class="text-white font-semibold text-base mb-4" data-i18n="common.contact">Contact</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1 text-gray-500"></i>
+                            <span class="text-gray-400">144 Rue M Smiha, Casablanca, Maroc</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-gray-500"></i>
+                            <a href="tel:+212660307007" class="text-gray-400 hover:text-white transition-colors">+212 660 30 70 07</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-gray-500"></i>
+                            <a href="tel:+212522096855" class="text-gray-400 hover:text-white transition-colors">+212 522 09 68 55</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gray-500"></i>
+                            <a href="mailto:info@synergates.ma" class="text-gray-400 hover:text-white transition-colors">info@synergates.ma</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                    <p data-i18n="footer.copyright">© 2025 par SYNERGATES.</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-gray-300 transition-colors" data-i18n="common.privacyPolicy">Privacy Policy</a>
+                        <a href="#" class="hover:text-gray-300 transition-colors" data-i18n="common.termsOfService">Terms of Service</a>
+                        <a href="#" class="hover:text-gray-300 transition-colors" data-i18n="common.cookiePolicy">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');</script>
+    <script src="js/i18n.js?v=1.0.1"></script>
+    <script src="js/main.js?v=1.0.2"></script>
+    <script src="js/prefetch-solutions.js?v=1.0.8"></script>
+    <script>
+    (function(){
+        var grid = document.getElementById('projects-grid');
+        var loading = document.getElementById('projects-loading');
+        var imgUrl = function(u){ return (typeof window.imgUrl==='function') ? window.imgUrl(u) : (u+(u.indexOf('?')>=0?'&':'?')+'v='+(window.IMAGE_VERSION||Date.now())); };
+        fetch('api/projects.php', { cache: 'no-store' })
+            .then(function(r){ return r.json(); })
+            .then(function(data){
+                loading.style.display='none';
+                var projects = data.projects || [];
+                if (!projects.length) { grid.innerHTML='<p class="text-center text-gray-500 py-12 col-span-full">No projects yet.</p>'; return; }
+                grid.innerHTML = projects.map(function(p, i){
+                    var imgSrc = imgUrl(p.imagePath || ('images/projects/'+i+'.jpg'));
+                    var title = p.client + (p.date ? ' – ' + p.date : (p.status ? ' – ' + p.status : ''));
+                    var locs = (p.locations || []).length ? ('<div class="flex items-start"><i class="fas fa-map-marker-alt text-blue-600 mr-3 mt-1 flex-shrink-0"></i><div><p class="text-sm font-semibold text-gray-700">Location</p><p class="text-sm text-gray-600">'+escapeHtml((p.locations||[]).join(', '))+'</p></div></div>') : '';
+                    var services = (p.services || []).map(function(s){ return '<li class="flex items-center text-sm text-gray-600"><i class="fas fa-check-circle text-blue-600 mr-2"></i><span>'+escapeHtml(s)+'</span></li>'; }).join('');
+                    var servicesBlock = services ? '<div class="border-t border-gray-200 pt-4"><p class="text-sm font-semibold text-gray-700 mb-3">Solutions Implemented:</p><ul class="space-y-2">'+services+'</ul></div>' : '';
+                    return '<div class="bg-white rounded border border-gray-200 hover:border-gray-300 transition-colors overflow-hidden"><div class="h-48 bg-gray-800 relative overflow-hidden"><img src="'+escapeHtml(imgSrc)+'" alt="'+escapeHtml(title)+'" class="w-full h-full object-cover" loading="lazy"><div class="absolute inset-0 bg-gray-900/40"></div><div class="absolute top-4 right-4"><span class="bg-white/90 text-gray-900 text-xs font-medium px-3 py-1 rounded">'+escapeHtml(p.client)+'</span></div></div><div class="p-8"><h3 class="text-xl font-bold text-gray-900 mb-3">'+escapeHtml(title)+'</h3><div class="space-y-4 mb-6">'+locs+servicesBlock+'</div></div></div>';
+                }).join('');
+            })
+            .catch(function(){ loading.style.display='none'; grid.innerHTML='<p class="text-center text-red-500 py-12 col-span-full">Failed to load projects.</p>'; });
+        function escapeHtml(s){ var d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
+    })();
+    </script>
+</body>
+</html>

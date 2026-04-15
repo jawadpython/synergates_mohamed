@@ -1,0 +1,4 @@
+# Allow direct access to uploaded images (no PHP execution)
+<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+    Require all granted
+</FilesMatch>

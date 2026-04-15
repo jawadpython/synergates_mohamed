@@ -1,0 +1,2 @@
+1.0.0
+# Update this when deploying; then find-replace ?v=OLD with ?v=NEW in all HTML files.

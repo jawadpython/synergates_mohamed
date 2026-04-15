@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SYNERGATES - Intégrateur de solutions technologiques et de sécurité au Maroc. Découvrez notre histoire, notre mission et notre équipe.">
+    <title>À propos - SYNERGATES</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css?v=1.0.11">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/image-cache-bust.js?v=1.0.8"></script>
+    <style>html:not(.i18n-ready) body{opacity:0!important}html.i18n-ready body{opacity:1}</style>
+    <script>setTimeout(function(){document.documentElement.classList.add('i18n-ready')},1200);</script>
+</head>
+<body class="bg-white">
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <!-- Navigation -->
+    <nav class="site-nav nav-over-hero fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <img src="images/websitelogo.png" alt="SYNERGATES" class="nav-logo h-10 w-auto">
+                    </a>
+                </div>
+                <div class="nav-desktop hidden md:flex items-center space-x-5 flex-nowrap">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.home">Accueil</a>
+                    <a href="solutions.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.solutions">Solutions</a>
+                    <a href="projects.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.projects">Projets</a>
+                    <a href="about.html" class="nav-link text-blue-600 font-medium whitespace-nowrap" data-i18n="common.about">À propos</a>
+                    <a href="blog.php" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.blog">Blog</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.contact">Contact</a>
+                    <a href="faq.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.faq">FAQ</a>
+                    <div class="flex items-center gap-2 ml-1 flex-shrink-0" role="group" aria-label="Language">
+                        <button type="button" data-lang-btn="en" class="lang-btn px-2 py-1 text-sm rounded hover:bg-gray-100">EN</button>
+                        <span class="text-gray-400">|</span>
+                        <button type="button" data-lang-btn="fr" class="lang-btn px-2 py-1 text-sm rounded hover:bg-gray-100">FR</button>
+                    </div>
+                    <a href="tel:+212522096855" class="nav-link ml-2 text-gray-700 hover:text-gray-900 font-medium flex-shrink-0 whitespace-nowrap"><i class="fas fa-phone mr-1"></i><span class="nav-phone">+212 522 09 68 55</span></a>
+                </div>
+                <button id="mobile-menu-btn" class="nav-mobile-btn md:hidden focus:outline-none p-2" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block px-4 py-2.5 text-gray-700 hover:text-gray-900 text-sm" data-i18n="common.home">Accueil</a>
+                <a href="solutions.html" class="block px-4 py-2.5 text-gray-700 hover:text-gray-900 text-sm" data-i18n="common.solutions">Solutions</a>
+                <a href="projects.html" class="block px-4 py-2.5 text-gray-700 hover:text-gray-900 text-sm" data-i18n="common.projects">Projets</a>
+                <a href="about.html" class="block px-4 py-2.5 text-blue-700 font-medium text-sm" data-i18n="common.about">À propos</a>
+                <a href="blog.php" class="block px-4 py-2.5 text-gray-700 hover:text-gray-900 text-sm" data-i18n="common.blog">Blog</a>
+                <a href="contact.html" class="block px-4 py-2.5 text-gray-700 hover:text-gray-900 text-sm" data-i18n="common.contact">Contact</a>
+                <a href="faq.html" class="block px-4 py-2.5 text-gray-700 hover:text-gray-900 text-sm" data-i18n="common.faq">FAQ</a>
+                <div class="flex justify-center gap-2 py-2">
+                    <button type="button" data-lang-btn="en" class="lang-btn px-3 py-1 text-sm rounded">EN</button>
+                    <button type="button" data-lang-btn="fr" class="lang-btn px-3 py-1 text-sm rounded">FR</button>
+                </div>
+                <a href="tel:+212522096855" class="block px-4 py-3 text-center font-medium">+212 522 09 68 55</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="main-content" class="reveal-up pt-24 pb-16 bg-gray-900 text-white page-hero">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <p class="text-sm text-slate-300 mb-4 drop-shadow-sm" data-i18n="about.breadcrumb">Accueil / À propos</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-sm" data-i18n="about.heroTitle">Votre partenaire technologique de confiance</h1>
+                <p class="text-lg text-slate-200 leading-relaxed drop-shadow-sm" data-i18n="about.heroSubtitle">Depuis notre création, nous accompagnons les entreprises marocaines et africaines dans leur transformation numérique et la sécurisation de leurs infrastructures.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="reveal-up py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6" data-i18n="about.whoWeAre">Qui sommes-nous ?</h2>
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p data-i18n="about.story1">SYNERGATES est un intégrateur de solutions technologiques basé à Casablanca. Fondée par des ingénieurs passionnés, notre entreprise s'est construite sur une expertise technique solide et une connaissance approfondie des besoins locaux.</p>
+                        <p data-i18n="about.story2">Nous concevons, installons et maintenons des systèmes de vidéosurveillance, contrôle d'accès, alarme intrusion, et infrastructure réseau pour des clients dans les secteurs industriel, tertiaire, hôtelier et pétrolier.</p>
+                        <p data-i18n="about.story3">Notre approche se distingue par un accompagnement personnalisé : de l'étude initiale jusqu'à la maintenance, nous restons à vos côtés pour garantir la performance de vos installations.</p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="images/about/office-building.jpg" alt="Bureaux SYNERGATES" class="w-full rounded border border-gray-200" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                    <div class="hidden w-full aspect-video bg-gray-100 rounded border border-gray-200 flex items-center justify-center">
+                        <i class="fas fa-building text-5xl text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Numbers -->
+    <section class="reveal-up py-16 home-section-soft border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl font-semibold text-gray-900 mb-1">10+</div>
+                    <div class="text-gray-500 text-sm" data-i18n="about.yearsExperience">Années d'expérience</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-semibold text-gray-900 mb-1">200+</div>
+                    <div class="text-gray-500 text-sm" data-i18n="about.projectsDelivered">Projets livrés</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-semibold text-gray-900 mb-1">15+</div>
+                    <div class="text-gray-500 text-sm" data-i18n="about.teamMembers">Collaborateurs</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-semibold text-gray-900 mb-1">98%</div>
+                    <div class="text-gray-500 text-sm" data-i18n="about.clientSatisfaction">Clients satisfaits</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Values -->
+    <section class="reveal-up py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="about.missionValuesTitle">Notre mission et nos valeurs</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Mission -->
+                <div class="lg:col-span-3 bg-gray-900 text-white p-10 rounded mb-4">
+                    <div class="max-w-3xl mx-auto text-center">
+                        <i class="fas fa-bullseye text-2xl mb-5 text-gray-400"></i>
+                        <h3 class="text-xl font-semibold mb-3" data-i18n="about.ourMission">Notre mission</h3>
+                        <p class="text-gray-300 leading-relaxed" data-i18n="about.missionText">Fournir des solutions technologiques fiables et adaptées aux besoins spécifiques de chaque client, tout en assurant un service de proximité et un support technique réactif.</p>
+                    </div>
+                </div>
+                
+                <!-- Values -->
+                <div class="expertise-card bg-white p-6 rounded border border-gray-200 block">
+                    <div class="expertise-card-icon w-10 h-10 bg-gray-100 rounded flex items-center justify-center mb-4">
+                        <i class="fas fa-handshake text-gray-600 text-lg"></i>
+                    </div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-2" data-i18n="about.valueProximity">Proximité</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed" data-i18n="about.valueProximityDesc">Un interlocuteur dédié et une équipe disponible pour répondre à vos besoins rapidement.</p>
+                </div>
+                
+                <div class="expertise-card bg-white p-6 rounded border border-gray-200 block">
+                    <div class="expertise-card-icon w-10 h-10 bg-gray-100 rounded flex items-center justify-center mb-4">
+                        <i class="fas fa-cogs text-gray-600 text-lg"></i>
+                    </div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-2" data-i18n="about.valueExpertise">Expertise</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed" data-i18n="about.valueExpertiseDesc">Des techniciens formés et certifiés sur les équipements des plus grandes marques.</p>
+                </div>
+                
+                <div class="expertise-card bg-white p-6 rounded border border-gray-200 block">
+                    <div class="expertise-card-icon w-10 h-10 bg-gray-100 rounded flex items-center justify-center mb-4">
+                        <i class="fas fa-check-double text-gray-600 text-lg"></i>
+                    </div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-2" data-i18n="about.valueQuality">Qualité</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed" data-i18n="about.valueQualityDesc">Des équipements de marque et des installations conformes aux normes en vigueur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Areas -->
+    <section class="reveal-up py-20 home-section-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="about.expertiseTitle">Nos domaines d'expertise</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="about.expertiseSubtitle">Des solutions complètes pour sécuriser et moderniser vos infrastructures</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block">
+                    <div class="expertise-card-icon inline-flex w-10 h-10 bg-gray-100 rounded items-center justify-center mb-3">
+                        <i class="fas fa-video text-gray-600 text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-2" data-i18n="about.expertise1">Vidéosurveillance</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="about.expertise1Desc">Caméras IP, enregistreurs, vidéo analytique et supervision centralisée.</p>
+                </div>
+                
+                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block">
+                    <div class="expertise-card-icon inline-flex w-10 h-10 bg-gray-100 rounded items-center justify-center mb-3">
+                        <i class="fas fa-id-card text-gray-600 text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-2" data-i18n="about.expertise2">Contrôle d'accès</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="about.expertise2Desc">Badges, biométrie, tourniquets et gestion des visiteurs.</p>
+                </div>
+                
+                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block">
+                    <div class="expertise-card-icon inline-flex w-10 h-10 bg-gray-100 rounded items-center justify-center mb-3">
+                        <i class="fas fa-bell text-gray-600 text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-2" data-i18n="about.expertise3">Alarme intrusion</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="about.expertise3Desc">Détection périmétrique, centrales d'alarme et télésurveillance.</p>
+                </div>
+                
+                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block">
+                    <div class="expertise-card-icon inline-flex w-10 h-10 bg-gray-100 rounded items-center justify-center mb-3">
+                        <i class="fas fa-network-wired text-gray-600 text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-2" data-i18n="about.expertise4">Infrastructure réseau</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="about.expertise4Desc">Câblage structuré, switches, WiFi et fibre optique.</p>
+                </div>
+                
+                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block">
+                    <div class="expertise-card-icon inline-flex w-10 h-10 bg-gray-100 rounded items-center justify-center mb-3">
+                        <i class="fas fa-car text-gray-600 text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-2" data-i18n="about.expertise5">Gestion de parking</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="about.expertise5Desc">Barrières automatiques, lecture de plaques et billetterie.</p>
+                </div>
+                
+                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block">
+                    <div class="expertise-card-icon inline-flex w-10 h-10 bg-gray-100 rounded items-center justify-center mb-3">
+                        <i class="fas fa-building text-gray-600 text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-2" data-i18n="about.expertise6">Smart Building</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="about.expertise6Desc">Automatisation, gestion technique du bâtiment et efficacité énergétique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sectors -->
+    <section class="reveal-up py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="about.sectorsTitle">Secteurs d'activité</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="about.sectorsSubtitle">Une expérience reconnue dans différents secteurs d'activité</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-5">
+                    <div class="w-12 h-12 bg-gray-100 rounded flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-industry text-gray-500 text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-800" data-i18n="about.sectorIndustry">Industrie</h3>
+                </div>
+                
+                <div class="text-center p-5">
+                    <div class="w-12 h-12 bg-gray-100 rounded flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-gas-pump text-gray-500 text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-800" data-i18n="about.sectorOilGas">Pétrole & Gaz</h3>
+                </div>
+                
+                <div class="text-center p-5">
+                    <div class="w-12 h-12 bg-gray-100 rounded flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-hotel text-gray-500 text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-800" data-i18n="about.sectorHotel">Hôtellerie</h3>
+                </div>
+                
+                <div class="text-center p-5">
+                    <div class="w-12 h-12 bg-gray-100 rounded flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-building text-gray-500 text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-800" data-i18n="about.sectorTertiary">Tertiaire</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients - Infinite Marquee Slider -->
+    <section class="reveal-up trusted-by-section py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+            <h2 class="trusted-by-title text-center text-sm font-semibold text-gray-500 uppercase tracking-[0.2em] mb-2" data-i18n="about.ourClients">ILS NOUS FONT CONFIANCE</h2>
+            <p class="text-center text-gray-600 text-base" data-i18n="about.clientsDesc">Des entreprises de divers secteurs nous font confiance</p>
+        </div>
+        <div class="logo-carousel trusted-by-marquee">
+            <div class="logo-carousel-track">
+                <div class="logo-carousel-item"><img src="images/logos/Salam%20Gaz.jfif" alt="Salam Gaz" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/afriquia-gaz.svg" alt="Afriquia Gaz" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/prison-khemisset.png" alt="Prison Khémisset" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Tarec.jpg" alt="Tarec" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Villa%20Dyafa%20SARL%20AU.jpg" alt="Villa Dyafa" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/FER%207.png" alt="FER 7" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/SRM-SM.jfif" alt="SRM-SM" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/ifriacold.png" alt="Ifriacold" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Somas.png" alt="Somas" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Afriquia%20SMDC.png" alt="Afriquia SMDC" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Big%20IT%20Services.png" alt="Big IT Services" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Intelligence%20Mental%20Robotique.png" alt="Intelligence Mental Robotique" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/hilton%20logo.png" alt="Hilton Tangier City Center" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Salam%20Gaz.jfif" alt="Salam Gaz" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/afriquia-gaz.svg" alt="Afriquia Gaz" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/prison-khemisset.png" alt="Prison Khémisset" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Tarec.jpg" alt="Tarec" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Villa%20Dyafa%20SARL%20AU.jpg" alt="Villa Dyafa" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/FER%207.png" alt="FER 7" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/SRM-SM.jfif" alt="SRM-SM" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/ifriacold.png" alt="Ifriacold" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Somas.png" alt="Somas" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Afriquia%20SMDC.png" alt="Afriquia SMDC" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Big%20IT%20Services.png" alt="Big IT Services" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/Intelligence%20Mental%20Robotique.png" alt="Intelligence Mental Robotique" loading="lazy"></div>
+                <div class="logo-carousel-item"><img src="images/logos/hilton%20logo.png" alt="Hilton Tangier City Center" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="reveal-up cta-strip-premium py-20 md:py-24 bg-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="cta-strip-title text-3xl md:text-4xl font-bold mb-5" data-i18n="about.ctaTitle">Discutons de votre projet</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto" data-i18n="about.ctaSubtitle">Contactez-nous pour une étude gratuite de vos besoins en sécurité et infrastructure.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="cta-strip-btn inline-flex items-center justify-center bg-white text-blue-700 px-8 py-3.5 rounded font-semibold hover:bg-gray-50 transition-all text-base" data-i18n="about.ctaContact">Nous contacter</a>
+                <a href="projects.html" class="cta-strip-btn inline-flex items-center justify-center bg-transparent text-white border-2 border-white/50 px-8 py-3.5 rounded font-semibold hover:border-white hover:bg-white/10 transition-all text-base" data-i18n="about.ctaProjects">Voir nos réalisations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="home-footer-dark border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="images/websitelogo.png" alt="SYNERGATES" class="h-8 w-auto">
+                    </div>
+                    <p class="text-gray-500 mb-5 text-sm leading-relaxed" data-i18n="common.footerDesc">Intégrateur de solutions technologiques au Maroc et en Afrique.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-gray-900 font-semibold text-sm mb-4" data-i18n="common.quickLinks">Liens rapides</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="solutions.html" class="text-gray-500 hover:text-gray-700 transition-colors" data-i18n="common.solutions">Solutions</a></li>
+                        <li><a href="projects.html" class="text-gray-500 hover:text-gray-700 transition-colors" data-i18n="common.projects">Projets</a></li>
+                        <li><a href="about.html" class="text-gray-500 hover:text-gray-700 transition-colors" data-i18n="common.about">À propos</a></li>
+                        <li><a href="blog.php" class="text-gray-500 hover:text-gray-700 transition-colors" data-i18n="common.blog">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-500 hover:text-gray-700 transition-colors" data-i18n="common.contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-gray-900 font-semibold text-sm mb-4" data-i18n="common.solutions">Solutions</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="solutions.html" class="text-gray-500 hover:text-gray-700 transition-colors" data-i18n="about.expertise1">Vidéosurveillance</a></li>
+                        <li><a href="controle-acces.html" class="text-gray-500 hover:text-gray-700 transition-colors" data-i18n="about.expertise2">Contrôle d'accès</a></li>
+                        <li><a href="solutions.html" class="text-gray-500 hover:text-gray-700 transition-colors" data-i18n="about.expertise3">Alarme intrusion</a></li>
+                        <li><a href="solutions.html" class="text-gray-500 hover:text-gray-700 transition-colors" data-i18n="about.expertise4">Infrastructure réseau</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-gray-900 font-semibold text-sm mb-4" data-i18n="common.contact">Contact</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-2 mt-1 text-gray-400 text-xs"></i>
+                            <span class="text-gray-500" data-i18n="common.address">144 Rue M Smiha, Casablanca</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-gray-400 text-xs"></i>
+                            <a href="tel:+212522096855" class="text-gray-500 hover:text-gray-700 transition-colors">+212 522 09 68 55</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400 text-xs"></i>
+                            <a href="mailto:info@synergates.ma" class="text-gray-500 hover:text-gray-700 transition-colors">info@synergates.ma</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+                    <p data-i18n="footer.copyright">© 2025 SYNERGATES. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');</script>
+    <script src="js/clientdata.js?v=2"></script>
+    <script src="js/i18n.js?v=1.0.1"></script>
+    <script src="js/main.js?v=1.0.2"></script>
+    <script src="js/client-modal.js?v=1.0.5"></script>
+    <script src="js/prefetch-solutions.js?v=1.0.8"></script>
+</body>
+</html>

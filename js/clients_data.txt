@@ -1,0 +1,235 @@
+CLIENT REFERENCES DATA
+Source: Company internal references document
+
+---
+
+CLIENT: Afriquia Gaz
+Project Dates: 2023–2025
+Locations:
+
+* Casablanca
+* Tanger
+* Jorf Elmelha
+* Sidi Kacem
+
+Services Provided:
+
+* CCTV installation
+* Network active equipment and precabling
+* Access control systems
+* Storage infrastructure
+* Maintenance contract
+
+---
+
+CLIENT: Salam Gaz
+Project Date: 30/05/2024
+Locations:
+
+* Marrakech
+* Tanger
+* Fès
+* Taza
+* Oujda
+* Errachidia
+* Tétouan
+
+Services Provided:
+
+* Supervision room installation
+* CCTV systems
+* Network active equipment
+* Structured precabling
+
+---
+
+CLIENT: Somas
+Project Date: 01/06/2024
+Location:
+
+* Mohammedia
+
+Services Provided:
+
+* IP video surveillance system
+* Intelligent video analysis
+* Autonomous power system installation
+
+---
+
+CLIENT: Afriquia SMDC
+Project Status: Implementation phase
+Locations:
+
+* Meknès
+* Agadir
+* El Jadida
+* Sidi Bouatman
+* Tanger
+* Jorf Lasfar
+* Mohammedia
+
+Services Provided:
+
+* Time attendance system
+* Employee presence management systems
+
+---
+
+CLIENT: Villa Dyafa SARL AU
+Project Date: 08/02/2024
+
+Services Provided:
+
+* Video surveillance equipment installation
+* Outdoor speaker installation
+* Amplifier installation
+* Wireless microphone system
+* Television installation
+* Video projector installation
+* Equipment setup and commissioning
+
+Equipment Used:
+
+* Epson EB-W06 WXGA projector
+
+---
+
+CLIENT: Big IT Services
+Project Date: 21/04/2024
+
+Services Provided:
+
+* Cable installation and routing
+* Audio system wiring
+* Amplifier and speaker connections
+* Signal integrity testing
+* Cable securing and installation
+
+---
+
+CLIENT: Villa Dyafa SARL AU
+Project Date: 03/01/2025
+
+Services Provided:
+
+* Surveillance hard drive installation
+* NVR/DVR disk installation
+* SATA connection setup
+* Continuous recording testing
+* SMART monitoring configuration
+
+---
+
+CLIENT: Cabinet Dr Hanane Benkhedra
+Project Date: 23/01/2025
+
+Services Provided:
+
+* All-in-one computer deployment
+* Hardware verification
+* Operating system preparation
+* Hard drive installation
+* Network configuration
+* Remote access configuration
+* Printer installation
+* Windows installation
+
+---
+
+CLIENT: Afriquia Gaz
+Project Date: 07/02/2025
+
+Services Provided:
+
+* Audiovisual equipment installation
+* IT equipment installation
+* Connectivity infrastructure setup
+* Display installation
+* Video supervision systems
+* SFP module installation
+* FTTH connection boxes
+* Fiber optic cabling
+* Equipment testing and configuration
+
+---
+
+CLIENT: Salam Gaz
+Project Date: 03/03/2025
+Location:
+
+* Tétouan
+
+Services Provided:
+
+* Installation of surveillance supervision monitors
+* Delivery and setup of professional monitors
+* Wall mounting installation
+* Connection to NVR supervision stations
+* Display configuration and camera rotation views
+
+---
+
+CLIENT: Intelligence Mental Robotique
+Project Date: 12/03/2025
+
+Services Provided:
+
+* IT equipment supply
+* Computer hardware installation
+* System configuration
+* Equipment testing
+* On-site validation
+
+---
+
+CLIENT: Prison Local Khémisset
+Project Date: 22/04/2025
+Location:
+
+* Khémisset
+
+Services Provided:
+
+* CCTV camera installation
+* Network and power cabling
+* IP camera configuration
+* NVR integration
+* Storage configuration
+* Video recording testing
+* Detection zone configuration
+* Network switch and UPS installation
+
+---
+
+CLIENT: Tarec
+Project Date: 22/04/2025
+
+Services Provided:
+
+* IT infrastructure deployment
+* Server and storage installation
+* Workstation deployment
+* Network equipment installation
+* Router and switch configuration
+* WiFi access point installation
+* IT security equipment setup
+* Staff training
+
+---
+
+CLIENT: Salam Gaz
+Project Date: 15/05/2025
+
+Services Provided:
+
+* Data room preparation
+* Window closure for security compliance
+* Interior finishing and painting
+* Redundant air conditioning installation
+* Climate system failover configuration
+* Access control system installation
+* Badge and fingerprint authentication
+* Access supervision software installation
+
+---
