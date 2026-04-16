@@ -172,4 +172,45 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
         revealTargets.forEach(function(el) { revealObserver.observe(el); });
     }
+
+    /* Homepage wow: hero spotlight follows pointer, scroll progress, back-to-top */
+    if (document.body.classList.contains('home-wow')) {
+        const hero = document.querySelector('.home-wow-hero');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (hero && !reduceMotion) {
+            hero.style.setProperty('--hero-mx', '50%');
+            hero.style.setProperty('--hero-my', '38%');
+            hero.addEventListener('mousemove', function(e) {
+                const r = hero.getBoundingClientRect();
+                const x = ((e.clientX - r.left) / r.width) * 100;
+                const y = ((e.clientY - r.top) / r.height) * 100;
+                hero.style.setProperty('--hero-mx', x + '%');
+                hero.style.setProperty('--hero-my', y + '%');
+            });
+            hero.addEventListener('mouseleave', function() {
+                hero.style.setProperty('--hero-mx', '50%');
+                hero.style.setProperty('--hero-my', '38%');
+            });
+        }
+        const progress = document.getElementById('home-wow-scroll-progress');
+        const toTop = document.getElementById('home-wow-to-top');
+        function onWowScroll() {
+            const scrollY = window.scrollY || window.pageYOffset;
+            const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+            const pct = (scrollY / max) * 100;
+            if (progress) progress.style.width = pct + '%';
+            if (toTop) {
+                if (scrollY > 420) toTop.classList.add('is-visible');
+                else toTop.classList.remove('is-visible');
+            }
+        }
+        window.addEventListener('scroll', onWowScroll, { passive: true });
+        onWowScroll();
+        if (toTop) {
+            toTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    }
 });
