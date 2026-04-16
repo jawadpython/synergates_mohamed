@@ -826,31 +826,63 @@ nav.nav-over-hero .lang-btn + span {
     color: rgba(255, 255, 255, 0.5) !important;
 }
 nav.nav-over-hero.nav-scrolled {
-    background-color: #ffffff !important;
-    border-bottom: 1px solid #e5e7eb !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    /* Frosted bar: keep blur, but high enough opacity + crisp type so labels read well */
+    background: rgba(255, 255, 255, 0.86) !important;
+    background-image: none !important;
+    backdrop-filter: blur(14px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.72) !important;
+    box-shadow:
+        0 1px 3px rgba(15, 23, 42, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        backdrop-filter 0.25s ease;
+    /* Crisp text layer over blurred page content */
+    isolation: isolate;
 }
+
+nav.nav-over-hero.nav-scrolled .max-w-7xl {
+    transform: translateZ(0);
+}
+
 nav.nav-over-hero.nav-scrolled .nav-link,
 nav.nav-over-hero.nav-scrolled .nav-mobile-btn,
 nav.nav-over-hero.nav-scrolled .nav-mobile-btn i,
 nav.nav-over-hero.nav-scrolled .lang-btn {
-    color: #374151 !important;
+    color: #0f172a !important;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
 }
 nav.nav-over-hero.nav-scrolled .nav-link:hover,
 nav.nav-over-hero.nav-scrolled .lang-btn:hover {
-    color: #111827 !important;
+    color: #020617 !important;
 }
 nav.nav-over-hero.nav-scrolled .nav-link.text-blue-600 {
-    color: #2563eb !important;
+    color: #1d4ed8 !important;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 nav.nav-over-hero.nav-scrolled .nav-link.text-blue-600:hover {
-    color: #1d4ed8 !important;
+    color: #1e40af !important;
 }
 nav.nav-over-hero.nav-scrolled .nav-logo {
     filter: none;
 }
 nav.nav-over-hero.nav-scrolled .lang-btn + span {
-    color: #9ca3af !important;
+    color: #64748b !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    nav.nav-over-hero.nav-scrolled {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: #ffffff !important;
+    }
 }
 
 /* ============================================
