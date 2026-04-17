@@ -131,7 +131,9 @@
                     Apartment security is always an incredibly demanding security scenario. People need not just security around their home, but a better residential experience with it. Built on a system of security, we offer an innovative entry & exit experience to boost rush hour efficiency for both residents and walk-in visitors. Also, AI-empowered video security stands like a reassuring guard 24/7. Our Solution by Scenario for Apartments helps users enjoy a safer and more pleasant living experience at a minimal cost with reliable delivery and performance.
                 </p>
                 <div class="relative rounded-lg overflow-hidden bg-gray-100 shadow-lg" id="diagram-container">
-                    <img src="images/solutions/buldingimage.webp" alt="Apartments Security Solution Diagram" class="w-full h-auto block">
+                    <!-- Fixed frame so % positions stay aligned when the image file is replaced -->
+                    <div id="diagram-image-wrap" class="relative w-full aspect-[16/10] max-h-[min(72vh,620px)] bg-slate-200/80">
+                    <img src="images/solutions/buldingimage.webp" alt="Apartments Security Solution Diagram" class="absolute inset-0 w-full h-full object-cover object-center block pointer-events-none">
                     <!-- Draggable buttons on image - pill style with red number badge -->
                     <button type="button" class="diagram-btn absolute z-10 flex items-center gap-1 pl-1 pr-1.5 py-1 bg-white/80 border border-gray-200/70 rounded-full text-gray-800 font-medium text-[11px] whitespace-nowrap cursor-pointer hover:bg-gray-50 shadow-md select-none" data-id="1" data-default-left="68" data-default-top="60" data-title="Vehicle entrance & exit" data-desc="Secure vehicle access control with license plate recognition, barrier gates, and visitor management.">
                         <span class="flex h-5 w-5 shrink-0 -ml-0.5 items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold shadow-sm">1</span>
@@ -153,6 +155,7 @@
                         <span class="flex h-5 w-5 shrink-0 -ml-0.5 items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold shadow-sm">5</span>
                         <span data-i18n="solutionDetail.apartmentsControlRoom">Control Room</span>
                     </button>
+                    </div>
                 </div>
                 <div id="diagram-positions-toolbar" class="mt-4 flex flex-wrap items-center gap-3">
                     <button type="button" id="diagram-enable-editing-btn" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors border border-gray-300"><i class="fas fa-edit"></i><span data-i18n="solutionDetail.enableEditing">Enable editing</span></button>
@@ -282,12 +285,15 @@
                 <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4" data-i18n="solutionDetail.solutionOverview">Solution overview</h2>
                 <p id="scenario-image-intro" class="text-lg text-gray-600 leading-relaxed mb-8"></p>
                 <div id="scenario-image-container" class="relative rounded-lg overflow-hidden bg-gray-100 shadow-lg mb-6">
-                    <img id="scenario-image" src="" alt="" class="w-full h-auto block">
-                    <div id="scenario-image-placeholder" class="hidden aspect-video bg-gray-200 flex items-center justify-center text-gray-500">
+                    <!-- Same aspect frame as listing cards (16:10) so hotspot % stay stable when images are swapped -->
+                    <div id="scenario-image-wrap" class="relative w-full aspect-[16/10] max-h-[min(72vh,620px)]">
+                    <img id="scenario-image" src="" alt="" class="absolute inset-0 w-full h-full object-cover object-center block">
+                    <div id="scenario-image-placeholder" class="hidden absolute inset-0 z-[5] bg-gray-200 flex items-center justify-center text-gray-500 text-sm px-4 text-center">
                         <span>Add <strong>images/solutions/<span id="scenario-filename"></span></strong> to show this image</span>
                     </div>
                     <!-- Section buttons on the image - draggable to any position -->
-                    <div id="scenario-section-buttons" class="absolute inset-0 z-10"></div>
+                    <div id="scenario-section-buttons" class="absolute inset-0 z-10 pointer-events-none [&_.scenario-section-btn]:pointer-events-auto"></div>
+                    </div>
                 </div>
                 <!-- Content panel - updates when section button is clicked -->
                 <div id="scenario-content-panel" class="mt-8 min-h-[200px]">
@@ -421,6 +427,15 @@
                 return slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
             }
 
+            /** API key: scenario + filename so replacing an image does not reuse old saved hotspots. */
+            function positionsApiKey(scenarioSlug, imageFile) {
+                var filePart = String(imageFile).replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+                return scenarioSlug + '-' + filePart;
+            }
+            function safeStorageSuffix(imageFile) {
+                return String(imageFile).replace(/[^a-zA-Z0-9._-]/g, '_');
+            }
+
             const solutionTitle = document.getElementById('solution-title');
             const solutionSubtitle = document.getElementById('solution-subtitle');
             const solutionType = document.getElementById('solution-type');
@@ -484,7 +499,7 @@
                         const contentArea = document.getElementById('scenario-content-area');
                         const contentPanel = document.getElementById('scenario-content-panel');
                         if (btnContainer && content.sections && content.sections.length > 0) {
-                            const POSITIONS_KEY = 'scenario-section-positions-' + scenario;
+                            const POSITIONS_KEY = 'scenario-section-positions-' + scenario + '-' + safeStorageSuffix(imageFile);
 
                             function defaultPositions(n) {
                                 const positions = [];
@@ -577,6 +592,7 @@
                             // Optional drag-to-reposition (only when running on HTTP/S so positions can persist)
                             if (canPersistPositions && scenarioBtnNodes.length && btnContainer.offsetParent) {
                                 const imgContainer = document.getElementById('scenario-image-container');
+                                const imgFrame = document.getElementById('scenario-image-wrap');
 
                                 function savePositions() {
                                     const updated = [];
@@ -603,8 +619,8 @@
                                     }
 
                                     function onPointerMove(e) {
-                                        if (!isDragging || !imgContainer) return;
-                                        const rect = imgContainer.getBoundingClientRect();
+                                        if (!isDragging || !imgFrame) return;
+                                        const rect = imgFrame.getBoundingClientRect();
                                         const x = e.clientX - rect.left;
                                         const y = e.clientY - rect.top;
                                         if (rect.width <= 0 || rect.height <= 0) return;
@@ -641,9 +657,10 @@
 
                             // Load positions from server (overwrites current layout when running on HTTP)
                             if (canPersistPositions && scenarioBtnNodes.length) {
+                                var apiKey = positionsApiKey(scenario, imageFile);
                                 fetch(API_POSITIONS).then(function(r) { return r.ok ? r.json() : null; }).then(function(data) {
-                                    if (!data || !Array.isArray(data[scenario]) || data[scenario].length !== content.sections.length) return;
-                                    var arr = data[scenario];
+                                    var arr = data && (data[apiKey] || data[scenario]);
+                                    if (!Array.isArray(arr) || arr.length !== content.sections.length) return;
                                     scenarioBtnNodes.forEach(function(btn, i) {
                                         var p = arr[i];
                                         if (p && typeof p.left === 'number' && typeof p.top === 'number') {
@@ -700,7 +717,7 @@
                                         fetch(API_POSITIONS, {
                                             method: 'POST',
                                             headers: { 'Content-Type': 'application/json' },
-                                            body: JSON.stringify({ scenario: scenario, positions: positionsToSave })
+                                            body: JSON.stringify({ scenario: positionsApiKey(scenario, imageFile), positions: positionsToSave })
                                         }).then(function(r) { return r.json().then(function(data) { return { ok: r.ok, data: data }; }); }).then(function(result) {
                                             btn.disabled = false;
                                             if (!msgEl) return;
@@ -779,7 +796,15 @@
                 btn.style.transform = 'none';
             }
 
-            var DIAGRAM_POSITIONS_KEY = 'diagram-positions-apartments';
+            var diagramFileKey = 'buldingimage.webp';
+            if (diagramImg && diagramImg.getAttribute('src')) {
+                try {
+                    var srcPart = diagramImg.getAttribute('src').split('/').pop() || '';
+                    diagramFileKey = decodeURIComponent(srcPart.split('?')[0]) || diagramFileKey;
+                } catch (e) {}
+            }
+            var diagramApiKey = positionsApiKey('apartments', diagramFileKey);
+            var DIAGRAM_POSITIONS_KEY = 'diagram-positions-' + diagramApiKey;
 
             function loadDiagramPositions() {
                 var saved = null;
@@ -857,6 +882,7 @@
                         localStorage.setItem(DIAGRAM_POSITIONS_KEY, JSON.stringify(obj));
                     } catch (e) {}
                 }
+                var diagramFrame = document.getElementById('diagram-image-wrap');
                 function makeDiagramBtnDraggable(btn) {
                     var isDragging = false;
                     function onPointerDown(e) {
@@ -866,8 +892,8 @@
                         e.preventDefault();
                     }
                     function onPointerMove(e) {
-                        if (!isDragging || !container) return;
-                        var rect = container.getBoundingClientRect();
+                        if (!isDragging || !diagramFrame) return;
+                        var rect = diagramFrame.getBoundingClientRect();
                         var x = e.clientX - rect.left;
                         var y = e.clientY - rect.top;
                         if (rect.width <= 0 || rect.height <= 0) return;
@@ -909,7 +935,7 @@
                         fetch('api/positions.php', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ scenario: 'apartments', positions: positionsToSave })
+                            body: JSON.stringify({ scenario: diagramApiKey, positions: positionsToSave })
                         }).then(function(r) { return r.json().then(function(data) { return { ok: r.ok, data: data }; }); }).then(function(result) {
                             btn.disabled = false;
                             diagramMsgEl.classList.remove('hidden');
@@ -938,8 +964,8 @@
                 // Load apartments diagram positions from server on load (overwrites localStorage when present)
                 if (canPersist && diagramBtns.length) {
                     fetch('api/positions.php').then(function(r) { return r.ok ? r.json() : null; }).then(function(data) {
-                        if (!data || !Array.isArray(data.apartments) || data.apartments.length !== diagramBtns.length) return;
-                        var arr = data.apartments;
+                        var arr = data && (data[diagramApiKey] || data.apartments);
+                        if (!Array.isArray(arr) || arr.length !== diagramBtns.length) return;
                         Array.from(diagramBtns).sort(function(a, b) { return Number(a.dataset.id) - Number(b.dataset.id); }).forEach(function(btn, i) {
                             var p = arr[i];
                             if (p && typeof p.left === 'number' && typeof p.top === 'number') {
