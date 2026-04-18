@@ -214,3 +214,57 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
 });
+
+/* Homepage hero background slideshow (auto-rotating crossfade).
+   Isolated in its own DOMContentLoaded listener so any error elsewhere
+   in main.js cannot prevent the autoplay timer from starting. */
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        const slidesContainer = document.querySelector('.home-hero-slides');
+        if (!slidesContainer) return;
+        const slides = Array.prototype.slice.call(slidesContainer.querySelectorAll('.home-hero-slide'));
+        const dots = Array.prototype.slice.call(document.querySelectorAll('.home-hero-slides-nav .home-hero-slides-dot'));
+        if (slides.length < 2) return;
+
+        const AUTOPLAY_MS = 5000;
+        let current = 0;
+        for (let i = 0; i < slides.length; i++) {
+            if (slides[i].classList.contains('is-active')) { current = i; break; }
+        }
+        slides[current].classList.add('is-active');
+        if (dots[current]) dots[current].classList.add('is-active');
+        let timer = null;
+
+        function setActive(idx) {
+            idx = ((idx % slides.length) + slides.length) % slides.length;
+            if (idx === current) return;
+            slides[current].classList.remove('is-active');
+            if (dots[current]) dots[current].classList.remove('is-active');
+            current = idx;
+            slides[current].classList.add('is-active');
+            if (dots[current]) {
+                const fill = dots[current].querySelector('.home-hero-slides-dot-fill');
+                if (fill) { fill.style.animation = 'none'; void fill.offsetWidth; fill.style.animation = ''; }
+                dots[current].classList.add('is-active');
+            }
+        }
+
+        function play() {
+            if (timer) clearInterval(timer);
+            timer = setInterval(function(){ setActive(current + 1); }, AUTOPLAY_MS);
+        }
+
+        dots.forEach(function(dot, idx) {
+            dot.addEventListener('click', function() { setActive(idx); play(); });
+        });
+
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) { if (timer) { clearInterval(timer); timer = null; } }
+            else { play(); }
+        });
+
+        play();
+    } catch (err) {
+        if (typeof console !== 'undefined' && console.error) console.error('hero slides init failed', err);
+    }
+});

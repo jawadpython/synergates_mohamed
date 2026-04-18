@@ -24,7 +24,7 @@
         };
     </script>
 
-    <link rel="stylesheet" href="css/styles.css?v=1.0.27">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.33">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="js/image-cache-bust.js?v=1.0.8"></script>
     <style>html:not(.i18n-ready) body{opacity:0!important}html.i18n-ready body{opacity:1}</style>
@@ -79,7 +79,14 @@
         </div>
     </nav>
 
-    <section id="main-content" class="hero home-hero-elegant home-wow-hero pt-28 md:pt-32 lg:pt-36 pb-24 md:pb-32 lg:pb-36 min-h-[min(92vh,880px)] flex flex-col justify-center">
+    <section id="main-content" class="hero home-hero-elegant home-wow-hero pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24 min-h-[94svh] h-[94svh] max-h-[94svh] flex flex-col justify-center overflow-hidden">
+        <div class="home-hero-slides" aria-hidden="true">
+            <div class="home-hero-slide is-active" data-hero-slide-target="0"><img src="images/home_page/image1%20(1).webp" alt="" loading="eager" decoding="async" fetchpriority="high"></div>
+            <div class="home-hero-slide" data-hero-slide-target="1"><img src="images/home_page/image1%20(2).webp" alt="" loading="eager" decoding="async"></div>
+            <div class="home-hero-slide" data-hero-slide-target="2"><img src="images/home_page/image1%20(3).webp" alt="" loading="eager" decoding="async"></div>
+            <div class="home-hero-slide" data-hero-slide-target="3"><img src="images/home_page/image1%20(4).webp" alt="" loading="eager" decoding="async"></div>
+            <div class="home-hero-slides-overlay" aria-hidden="true"></div>
+        </div>
         <div class="hero-network" aria-hidden="true"></div>
         <div class="home-hero-grid-floor pointer-events-none" aria-hidden="true"></div>
         <div class="home-hero-mesh" aria-hidden="true"></div>
@@ -92,8 +99,8 @@
         <div class="home-hero-particles pointer-events-none" aria-hidden="true"></div>
         <div class="home-hero-scan pointer-events-none" aria-hidden="true"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-                <div class="lg:col-span-7 text-left">
+            <div class="grid grid-cols-1 gap-12">
+                <div class="text-left max-w-4xl">
                     <div class="hero-fade-item hero-fade-delay-1 home-hero-eyebrow flex items-center gap-4 mb-8">
                         <span class="h-px w-12 sm:w-16 bg-gradient-to-r from-sky-400/90 via-sky-300/50 to-transparent shrink-0" aria-hidden="true"></span>
                         <p class="text-sky-200/95 text-[0.65rem] sm:text-xs font-medium tracking-[0.28em] uppercase" data-i18n="index.heroEyebrow">SYNERGATES · Integrated technology</p>
@@ -111,41 +118,13 @@
                         <span class="home-wow-chip" data-i18n="index.heroChip3">24/7 · SLA-ready</span>
                     </div>
                 </div>
-                <div class="lg:col-span-5 relative mt-6 lg:mt-0 flex justify-center lg:justify-end home-hero-visual" aria-hidden="true">
-                    <div class="home-hero-visual-ring">
-                    <div class="relative w-full max-w-[400px] aspect-square">
-                        <div class="home-hero-orb home-hero-orb--a absolute -right-4 top-8 h-24 w-24 rounded-full bg-sky-400/30 blur-2xl"></div>
-                        <div class="home-hero-orb home-hero-orb--b absolute -left-6 bottom-16 h-32 w-32 rounded-full bg-indigo-500/25 blur-3xl"></div>
-                        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-sky-500/25 via-blue-600/15 to-cyan-400/15 blur-3xl scale-110 home-hero-glow-pulse"></div>
-                        <div class="absolute inset-[8%] rounded-full border border-white/[0.07]"></div>
-                        <div class="absolute inset-[18%] rounded-full border border-sky-400/10"></div>
-                        <svg class="relative h-full w-full text-sky-300/35" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="heroGrad" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#38bdf8" stop-opacity="0.55"/>
-                                    <stop offset="0.45" stop-color="#60a5fa" stop-opacity="0.45"/>
-                                    <stop offset="1" stop-color="#818cf8" stop-opacity="0.35"/>
-                                </linearGradient>
-                                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                                    <feGaussianBlur stdDeviation="4" result="b"/>
-                                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-                                </filter>
-                            </defs>
-                            <circle cx="200" cy="200" r="168" stroke="url(#heroGrad)" stroke-width="0.75" opacity="0.9"/>
-                            <path d="M80 240 L160 120 L280 200 L320 100" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" opacity="0.75"/>
-                            <path d="M100 320 L220 260 L260 340" stroke="currentColor" stroke-width="0.85" stroke-linecap="round" opacity="0.55"/>
-                            <circle cx="160" cy="120" r="5" fill="#22d3ee" fill-opacity="0.9"/>
-                            <circle cx="280" cy="200" r="5" fill="#60a5fa" fill-opacity="0.85"/>
-                            <circle cx="320" cy="100" r="4" fill="#818cf8" fill-opacity="0.85"/>
-                            <circle cx="100" cy="320" r="4" fill="#38bdf8" fill-opacity="0.75"/>
-                            <circle cx="220" cy="260" r="5" fill="#3b82f6" fill-opacity="0.8"/>
-                            <circle cx="260" cy="340" r="3.5" fill="#a5b4fc" fill-opacity="0.85"/>
-                            <rect x="72" y="72" width="256" height="256" rx="12" stroke="currentColor" stroke-opacity="0.12" stroke-width="0.6" stroke-dasharray="5 12"/>
-                        </svg>
-                    </div>
-                    </div>
-                </div>
             </div>
+        </div>
+        <div class="home-hero-slides-nav" role="tablist" aria-label="Hero background slides">
+            <button type="button" class="home-hero-slides-dot is-active" data-hero-slide="0" aria-label="Show slide 1"><span class="home-hero-slides-dot-fill" aria-hidden="true"></span></button>
+            <button type="button" class="home-hero-slides-dot" data-hero-slide="1" aria-label="Show slide 2"><span class="home-hero-slides-dot-fill" aria-hidden="true"></span></button>
+            <button type="button" class="home-hero-slides-dot" data-hero-slide="2" aria-label="Show slide 3"><span class="home-hero-slides-dot-fill" aria-hidden="true"></span></button>
+            <button type="button" class="home-hero-slides-dot" data-hero-slide="3" aria-label="Show slide 4"><span class="home-hero-slides-dot-fill" aria-hidden="true"></span></button>
         </div>
     </section>
 
@@ -308,11 +287,12 @@
         </div>
     </section>
 
-    <section class="reveal-up home-wow-sectors bg-white py-24 md:py-28 relative overflow-hidden">
+    <section class="reveal-up home-wow-sectors bg-gradient-to-b from-white via-sky-50/40 to-white py-24 md:py-28 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[min(90%,720px)] h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" aria-hidden="true"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 mb-14 md:mb-16">
                 <div class="max-w-2xl">
-                    <p class="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-stone-500 mb-4" data-i18n="index.sectorsEyebrow">Sectors</p>
+                    <p class="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-blue-700/90 mb-4" data-i18n="index.sectorsEyebrow">Sectors</p>
                     <h2 class="font-display text-4xl md:text-5xl font-semibold text-stone-900 tracking-[-0.02em] leading-tight" data-i18n="index.nosSecteurs">Where we deploy</h2>
                 </div>
                 <p class="text-stone-600 max-w-md lg:max-w-sm lg:text-right leading-relaxed font-light text-lg" data-i18n="index.sectorsLead">Same engineering discipline—scaled to hazardous plants, corporate campuses, and public facilities.</p>
@@ -507,7 +487,7 @@
     <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');</script>
     <script src="js/clientdata.js?v=2"></script>
     <script src="js/i18n.js?v=1.0.1"></script>
-    <script src="js/main.js?v=1.0.4"></script>
+    <script src="js/main.js?v=1.0.7"></script>
     <script src="js/client-modal.js?v=1.0.5"></script>
     <script src="js/prefetch-solutions.js?v=1.0.8"></script>
 </body>
