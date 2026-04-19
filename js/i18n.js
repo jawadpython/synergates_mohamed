@@ -175,7 +175,6 @@
         translations = await loadTranslations(currentLang);
         document.documentElement.classList.add('lang-switching');
         applyTranslations();
-        document.documentElement.classList.add('i18n-ready');
         requestAnimationFrame(function () {
             requestAnimationFrame(function () {
                 document.documentElement.classList.remove('lang-switching');

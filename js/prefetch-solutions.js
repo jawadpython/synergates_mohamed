@@ -48,9 +48,9 @@
 
     function schedule() {
         if (typeof requestIdleCallback !== 'undefined') {
-            requestIdleCallback(run, { timeout: 3000 });
+            requestIdleCallback(run, { timeout: 8000 });
         } else {
-            setTimeout(run, 2000);
+            setTimeout(run, 4000);
         }
     }
 

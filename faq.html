@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="FAQ - Synergates, questions fréquentes sur nos solutions technologiques au Maroc et en Afrique.">
     <title>FAQ - Synergates</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/styles.css?v=1.0.37">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>html:not(.i18n-ready) body{opacity:0!important}html.i18n-ready body{opacity:1}</style>
-    <script>setTimeout(function(){document.documentElement.classList.add('i18n-ready')},1200);</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tailwind-built.css?v=1.0.57">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.57">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <script src="js/image-cache-bust.js?v=1.0.9" defer></script>
 </head>
-<body class="bg-white">
+<body class="home-page-surface home-editorial home-premium home-wow home-premium-xp antialiased inner-page faq-page">
+    <div class="home-wow-scroll-progress" id="home-wow-scroll-progress" aria-hidden="true"></div>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     <!-- Navigation: fixed size, same 6 links + EN/FR + phone on all pages -->
-    <nav class="site-nav nav-over-hero fixed w-full top-0 z-50">
+    <nav class="site-nav nav-over-hero home-editorial-nav fixed w-full top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center flex-shrink-0">
@@ -60,35 +64,68 @@
         </div>
     </nav>
 
-    <!-- Breadcrumb -->
-    <section id="main-content" class="reveal-up pt-20 pb-4 bg-white border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-sm text-gray-500" data-i18n="faq.breadcrumb">SYNERGATES &gt; FAQ</p>
-        </div>
-    </section>
-
-    <!-- FAQ intro -->
-    <section class="reveal-up home-section-soft py-12 md:py-16">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6" data-i18n="faq.title">FAQ - Questions fréquentes sur nos solutions technologiques</h1>
-            <p class="text-gray-600 leading-relaxed" data-i18n="faq.intro">Bienvenue sur notre espace FAQ. Vous trouverez ici les réponses aux questions les plus fréquentes concernant nos solutions technologiques et nos services. Chez Synergates, nous mettons un point d'honneur à accompagner nos clients du secteur pétrolier, industriel et tertiaire en leur offrant des solutions fiables et conformes aux normes internationales. Si vous ne trouvez pas la réponse à votre question, n'hésitez pas à nous <a href="contact.html" class="text-blue-600 hover:underline">contacter directement</a> : notre équipe est à votre écoute.</p>
-        </div>
-    </section>
-
-    <!-- Questions -->
-    <section class="reveal-up py-16 md:py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-xl font-bold text-gray-900 mb-6" data-i18n="faq.questionsTitle">Questions fréquemment posées</h2>
-            <div id="faq-items" class="space-y-6">
-                <div class="flex justify-center py-8">
-                    <i class="fas fa-spinner fa-spin text-2xl text-gray-400"></i>
+    <!-- Hero -->
+    <section id="main-content" class="reveal-up faq-page-hero pt-24 pb-14 md:pb-20 bg-slate-900 text-white page-hero relative overflow-hidden">
+        <div class="faq-page-hero__mesh" aria-hidden="true"></div>
+        <div class="faq-page-hero__orbit" aria-hidden="true"></div>
+        <div class="faq-page-hero__grid" aria-hidden="true"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <nav class="faq-page-breadcrumb text-xs sm:text-sm text-slate-400/95 mb-6 tracking-wide" aria-label="Breadcrumb">
+                <a href="index.html" class="faq-page-breadcrumb__link" data-i18n="common.home">Accueil</a>
+                <span class="faq-page-breadcrumb__sep" aria-hidden="true">/</span>
+                <span class="text-slate-300" data-i18n="common.faq">FAQ</span>
+            </nav>
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-4 mb-5">
+                    <span class="h-px w-12 sm:w-16 bg-gradient-to-r from-sky-400/90 via-sky-300/50 to-transparent shrink-0" aria-hidden="true"></span>
+                    <p class="text-sky-200/95 text-[0.65rem] sm:text-xs font-medium tracking-[0.28em] uppercase" data-i18n="index.heroEyebrow">SYNERGATES · Technologie intégrée</p>
                 </div>
+                <h1 class="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-semibold text-white tracking-[-0.02em] leading-[1.1] mb-4" data-i18n="faq.title">FAQ - Questions fréquentes sur nos solutions technologiques</h1>
+                <p class="text-lg md:text-xl font-medium bg-gradient-to-r from-sky-200 via-white to-indigo-200 bg-clip-text text-transparent mb-6" data-i18n="faq.heroSubtitle">Expertise, conformité & accompagnement</p>
+                <div class="faq-page-hero__chips flex flex-wrap gap-2.5 mb-8">
+                    <span class="faq-page-chip" data-i18n="faq.heroChip1">Réponses ciblées</span>
+                    <span class="faq-page-chip" data-i18n="faq.heroChip2">Normes ATEX, EN54…</span>
+                    <span class="faq-page-chip" data-i18n="faq.heroChip3">Support & terrain</span>
+                </div>
+                <p class="faq-page-intro text-slate-300/95 text-base md:text-lg leading-relaxed font-light border-l border-sky-500/35 pl-5 md:pl-6" data-i18n="faq.intro">Bienvenue sur notre espace FAQ.</p>
             </div>
         </div>
     </section>
 
+    <!-- Questions -->
+    <section class="reveal-up faq-page-feed relative py-16 md:py-24 overflow-hidden">
+        <div class="faq-page-feed__bg" aria-hidden="true"></div>
+        <div class="faq-page-feed__noise" aria-hidden="true"></div>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <p class="home-section-eyebrow text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-blue-700/90 mb-3" data-i18n="faq.sectionKicker">Base de connaissances</p>
+            <h2 class="font-display text-2xl md:text-3xl font-semibold text-slate-900 mb-10" data-i18n="faq.questionsTitle">Questions fréquemment posées</h2>
+
+            <div id="faq-status-loading" class="faq-page-loading">
+                <div class="faq-page-loading__bar" aria-hidden="true"></div>
+                <p class="faq-page-loading__text" data-i18n="faq.loading">Chargement des questions…</p>
+            </div>
+            <div id="faq-status-empty" class="faq-page-empty hidden" hidden>
+                <div class="faq-page-empty__icon" aria-hidden="true"><i class="far fa-comments"></i></div>
+                <p data-i18n="faq.empty">Aucune question pour le moment.</p>
+            </div>
+            <div id="faq-items" class="faq-page-accordion space-y-4" hidden></div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="reveal-up faq-page-cta cta-strip-premium py-12 md:py-14 bg-blue-600 text-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-xl md:text-2xl font-semibold text-white mb-3" data-i18n="faq.ctaTitle">Une question plus spécifique ?</h2>
+            <p class="text-blue-100 text-sm md:text-base mb-8 leading-relaxed" data-i18n="faq.ctaSubtitle">Notre équipe vous répond.</p>
+            <a href="contact.html" class="inline-flex items-center justify-center gap-2 bg-white text-blue-700 px-8 py-3.5 rounded-lg font-semibold hover:bg-blue-50 transition-colors shadow-lg shadow-blue-900/20">
+                <i class="fas fa-paper-plane"></i>
+                <span data-i18n="faq.ctaButton">Écrire à l'équipe</span>
+            </a>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="home-footer-dark border-t border-gray-200">
+    <footer class="home-footer-dark home-footer--editorial border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
                 <div>
@@ -123,10 +160,14 @@
         </div>
     </footer>
 
+    <a href="#main-content" class="home-wow-to-top" id="home-wow-to-top" data-i18n-attr="aria-label:common.backToTop" title="Back to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </a>
+
     <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');</script>
-    <script src="js/i18n.js?v=1.0.1"></script>
-    <script src="js/main.js?v=1.0.2"></script>
-    <script src="js/prefetch-solutions.js?v=1.0.8"></script>
+    <script src="js/i18n.js?v=1.0.2"></script>
+    <script src="js/main.js?v=1.0.9"></script>
+    <script src="js/prefetch-solutions.js?v=1.0.9"></script>
     <script>
         (function() {
             const STORAGE_KEY = 'synergates-lang';
@@ -134,21 +175,49 @@
             function getLang() { return localStorage.getItem(STORAGE_KEY) || 'fr'; }
             function getBase() { return (typeof window.__SITE_BASE__ === 'string' ? window.__SITE_BASE__ : '') || window.location.pathname.replace(/\/[^/]*$/, '/') || '/'; }
             function escapeHtml(t) { if (!t) return ''; const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+            function applyI18n() {
+                if (window.i18n && typeof window.i18n.applyTranslations === 'function') window.i18n.applyTranslations();
+            }
             function renderFaqItems(faqs, lang) {
+                const loading = document.getElementById('faq-status-loading');
+                const empty = document.getElementById('faq-status-empty');
                 const el = document.getElementById('faq-items');
-                if (!el) return;
+                if (!el || !loading || !empty) return;
                 const isFr = lang === 'fr';
+                loading.classList.add('hidden');
                 if (!faqs || faqs.length === 0) {
-                    el.innerHTML = '<p class="text-gray-500 text-sm">Aucune question pour le moment.</p>';
+                    el.innerHTML = '';
+                    el.setAttribute('hidden', '');
+                    el.classList.add('hidden');
+                    empty.classList.remove('hidden');
+                    empty.removeAttribute('hidden');
+                    applyI18n();
                     return;
                 }
-                el.innerHTML = faqs.map(function(f) {
+                empty.classList.add('hidden');
+                empty.setAttribute('hidden', '');
+                el.removeAttribute('hidden');
+                el.classList.remove('hidden');
+                el.innerHTML = faqs.map(function(f, idx) {
                     const q = isFr ? (f.question_fr || f.question_en) : (f.question_en || f.question_fr);
                     const a = isFr ? (f.answer_fr || f.answer_en) : (f.answer_en || f.answer_fr);
-                    return '<div class="border border-gray-200 rounded-lg p-6"><h3 class="font-bold text-gray-900 mb-3">' + escapeHtml(q) + '</h3><p class="text-gray-600 text-sm leading-relaxed">' + escapeHtml(a) + '</p></div>';
+                    const ans = escapeHtml(a).replace(/\n/g, '<br>');
+                    return '<details class="faq-accordion-item group"' + (idx === 0 ? ' open' : '') + '>' +
+                        '<summary class="faq-accordion-item__summary">' +
+                        '<span class="faq-accordion-item__q">' + escapeHtml(q) + '</span>' +
+                        '<span class="faq-accordion-item__chev" aria-hidden="true"></span>' +
+                        '</summary>' +
+                        '<div class="faq-accordion-item__body"><div class="faq-accordion-item__answer">' + ans + '</div></div>' +
+                        '</details>';
                 }).join('');
             }
             async function loadFaqItems() {
+                const loading = document.getElementById('faq-status-loading');
+                const empty = document.getElementById('faq-status-empty');
+                const el = document.getElementById('faq-items');
+                if (loading) { loading.classList.remove('hidden'); }
+                if (empty) { empty.classList.add('hidden'); empty.setAttribute('hidden', ''); }
+                if (el) { el.innerHTML = ''; el.setAttribute('hidden', ''); el.classList.add('hidden'); }
                 const lang = getLang();
                 if (cachedFaqs.length === 0) {
                     try {

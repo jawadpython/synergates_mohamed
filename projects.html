@@ -6,24 +6,21 @@
     <meta name="description" content="Explore our successful technology and security solution projects across various industries.">
     <meta name="keywords" content="projects, case studies, success stories, technology implementations, security projects">
     <title>Projects - Synergates</title>
-    
-    <!-- Tailwind CSS (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom Styles - ?v= cache-busting; bump on deploy -->
-    <link rel="stylesheet" href="css/styles.css?v=1.0.37">
-    
-    <!-- Font Awesome (CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tailwind-built.css?v=1.0.56">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.56">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <!-- Image cache busting: version bumped when admin replaces images -->
-    <script src="js/image-cache-bust.js?v=1.0.8"></script>
-    <style>html:not(.i18n-ready) body{opacity:0!important}html.i18n-ready body{opacity:1}</style>
-    <script>setTimeout(function(){document.documentElement.classList.add('i18n-ready')},1200);</script>
+    <script src="js/image-cache-bust.js?v=1.0.9" defer></script>
 </head>
-<body class="bg-white">
+<body class="home-page-surface home-editorial home-premium home-wow home-premium-xp antialiased inner-page projects-page">
+    <div class="home-wow-scroll-progress" id="home-wow-scroll-progress" aria-hidden="true"></div>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     <!-- Navigation: fixed size, same 6 links + EN/FR + phone on all pages -->
-    <nav class="site-nav nav-over-hero fixed w-full top-0 z-50">
+    <nav class="site-nav nav-over-hero home-editorial-nav fixed w-full top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center flex-shrink-0">
@@ -70,58 +67,78 @@
     </nav>
 
     <!-- Page Header -->
-    <section id="main-content" class="reveal-up pt-16 md:pt-20 lg:pt-24 pb-12 md:pb-16 bg-slate-900 text-white page-hero">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto">
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-white drop-shadow-sm" data-i18n="projects.title">Success Stories & Project Portfolio</h1>
-                <p class="text-base md:text-lg text-slate-200 max-w-2xl mx-auto drop-shadow-sm" data-i18n="projects.subtitle">Explore our proven track record of successful implementations across diverse industries, showcasing our expertise and commitment to delivering exceptional results</p>
+    <section id="main-content" class="reveal-up projects-page-hero pt-24 pb-16 md:pb-20 bg-slate-900 text-white page-hero">
+        <div class="projects-page-hero__mesh" aria-hidden="true"></div>
+        <div class="projects-page-hero__orbit" aria-hidden="true"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-4xl mx-auto text-center lg:text-left lg:mx-0">
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-12">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-center lg:justify-start gap-4 mb-5">
+                            <span class="h-px w-12 sm:w-16 bg-gradient-to-r from-sky-400/90 via-sky-300/50 to-transparent shrink-0" aria-hidden="true"></span>
+                            <p class="text-sky-200/95 text-[0.65rem] sm:text-xs font-medium tracking-[0.28em] uppercase" data-i18n="index.heroEyebrow">SYNERGATES · Technologie intégrée</p>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400/95 mb-5 tracking-wide" data-i18n="projects.breadcrumb">Accueil / Projets</p>
+                        <h1 class="font-display text-4xl md:text-5xl lg:text-[3.15rem] font-semibold text-white tracking-[-0.02em] leading-[1.08] mb-5" data-i18n="projects.title">Success Stories & Project Portfolio</h1>
+                        <p class="text-lg md:text-xl font-medium bg-gradient-to-r from-sky-200 via-white to-indigo-200 bg-clip-text text-transparent mb-6" data-i18n="projects.sectionTitle">Proven Results Across Industries</p>
+                        <p class="text-slate-300/95 text-base md:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 border-l border-sky-500/40 pl-6 font-light" data-i18n="projects.subtitle">Explore our proven track record of successful implementations across diverse industries, showcasing our expertise and commitment to delivering exceptional results</p>
+                    </div>
+                    <div class="projects-page-hero__stats flex flex-wrap justify-center lg:justify-end gap-2.5 shrink-0">
+                        <span class="projects-chip" data-i18n="projects.heroStat1">Terrain & industrialisation</span>
+                        <span class="projects-chip" data-i18n="projects.heroStat2">Maroc & Afrique</span>
+                        <span class="projects-chip" data-i18n="projects.heroStat3">Audit → support 24/7</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Grid -->
-    <section class="reveal-up py-20 md:py-28 home-section-soft">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="projects.sectionTitle">Proven Results Across Industries</h2>
-                <p class="text-base text-gray-600 max-w-2xl mx-auto" data-i18n="projects.sectionDesc">Real-world implementations demonstrating our expertise in delivering enterprise-grade technology and security solutions</p>
+    <section id="projects-feed" class="reveal-up projects-page-feed py-16 md:py-24 lg:py-28 relative overflow-hidden">
+        <div class="projects-page-feed__bg" aria-hidden="true"></div>
+        <div class="projects-page-feed__noise" aria-hidden="true"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-12 md:mb-14">
+                <p class="home-section-eyebrow text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-blue-700/90 mb-3" data-i18n="projects.catalogEyebrow">Références</p>
+                <p class="text-slate-600 text-sm md:text-base leading-relaxed" data-i18n="projects.catalogLead">Une sélection de déploiements réels — de la conception à l'exploitation.</p>
             </div>
+            <p class="text-center text-gray-500 max-w-2xl mx-auto mb-10 text-sm md:text-base leading-relaxed" data-i18n="projects.sectionDesc">Real-world implementations demonstrating our expertise in delivering enterprise-grade technology and security solutions</p>
             
-            <div id="projects-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <p id="projects-loading" class="text-center text-gray-500 py-12 col-span-full">Loading projects…</p>
+            <div id="projects-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 projects-mosaic home-stagger">
+                <p id="projects-loading" class="text-center text-gray-500 py-16 col-span-full projects-loading-msg" data-i18n="projects.loadingProjects">Loading projects…</p>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="reveal-up py-16 md:py-20 bg-white border-y border-gray-100">
+    <section class="reveal-up projects-page-stats py-16 md:py-20 bg-white border-y border-gray-100/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">500+</div>
-                    <div class="text-gray-600 text-sm" data-i18n="projects.statsProjects">Projects Completed</div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
+                <div class="projects-stat-card">
+                    <div class="projects-stat-card__value">500+</div>
+                    <div class="projects-stat-card__label text-gray-500 text-sm" data-i18n="projects.statsProjects">Projects Completed</div>
                 </div>
-                <div>
-                    <div class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">50+</div>
-                    <div class="text-gray-600 text-sm" data-i18n="projects.statsIndustries">Industries Served</div>
+                <div class="projects-stat-card">
+                    <div class="projects-stat-card__value">50+</div>
+                    <div class="projects-stat-card__label text-gray-500 text-sm" data-i18n="projects.statsIndustries">Industries Served</div>
                 </div>
-                <div>
-                    <div class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">99.9%</div>
-                    <div class="text-gray-600 text-sm" data-i18n="projects.statsSatisfaction">Client Satisfaction</div>
+                <div class="projects-stat-card">
+                    <div class="projects-stat-card__value">99.9%</div>
+                    <div class="projects-stat-card__label text-gray-500 text-sm" data-i18n="projects.statsSatisfaction">Client Satisfaction</div>
                 </div>
-                <div>
-                    <div class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">10+</div>
-                    <div class="text-gray-600 text-sm" data-i18n="projects.statsExperience">Years Experience</div>
+                <div class="projects-stat-card">
+                    <div class="projects-stat-card__value">10+</div>
+                    <div class="projects-stat-card__label text-gray-500 text-sm" data-i18n="projects.statsExperience">Years Experience</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="reveal-up cta-strip-premium py-20 md:py-24 bg-blue-600 text-white">
+    <section class="reveal-up projects-page-cta cta-strip-premium py-20 md:py-24 bg-blue-600 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto">
-                <h2 class="cta-strip-title text-3xl md:text-4xl lg:text-5xl font-bold mb-6" data-i18n="projects.ctaTitle">Ready to Start Your Project?</h2>
+                <h2 class="cta-strip-title font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 tracking-[-0.02em]" data-i18n="projects.ctaTitle">Ready to Start Your Project?</h2>
                 <p class="text-base md:text-lg text-blue-100 mb-10 max-w-2xl mx-auto" data-i18n="projects.ctaSubtitle">Join our portfolio of successful clients. Let's discuss how we can deliver exceptional results for your organization.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a href="contact.html" class="cta-strip-btn inline-flex items-center justify-center bg-white text-blue-700 px-8 py-3.5 rounded font-semibold hover:bg-gray-50 transition-all text-base" data-i18n="projects.getStartedToday">Get Started Today</a>
@@ -132,7 +149,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="home-footer-dark border-t border-gray-200">
+    <footer class="home-footer-dark home-footer--editorial border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <!-- Company Info -->
@@ -209,31 +226,57 @@
         </div>
     </footer>
 
+    <a href="#main-content" class="home-wow-to-top" id="home-wow-to-top" data-i18n-attr="aria-label:common.backToTop" title="Back to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </a>
+
     <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');</script>
-    <script src="js/i18n.js?v=1.0.1"></script>
-    <script src="js/main.js?v=1.0.2"></script>
-    <script src="js/prefetch-solutions.js?v=1.0.8"></script>
+    <script src="js/i18n.js?v=1.0.2"></script>
+    <script src="js/main.js?v=1.0.9"></script>
+    <script src="js/prefetch-solutions.js?v=1.0.9"></script>
     <script>
     (function(){
         var grid = document.getElementById('projects-grid');
         var loading = document.getElementById('projects-loading');
         var imgUrl = function(u){ return (typeof window.imgUrl==='function') ? window.imgUrl(u) : (u+(u.indexOf('?')>=0?'&':'?')+'v='+(window.IMAGE_VERSION||Date.now())); };
+        function applyI18n(){ if (window.i18n && typeof window.i18n.applyTranslations === 'function') window.i18n.applyTranslations(); }
         fetch('api/projects.php', { cache: 'no-store' })
             .then(function(r){ return r.json(); })
             .then(function(data){
                 loading.style.display='none';
                 var projects = data.projects || [];
-                if (!projects.length) { grid.innerHTML='<p class="text-center text-gray-500 py-12 col-span-full">No projects yet.</p>'; return; }
+                if (!projects.length) {
+                    grid.innerHTML = '<p class="projects-empty col-span-full text-center text-gray-500 py-16" data-i18n="projects.emptyProjects">No projects yet.</p>';
+                    applyI18n();
+                    return;
+                }
                 grid.innerHTML = projects.map(function(p, i){
                     var imgSrc = imgUrl(p.imagePath || ('images/projects/'+i+'.jpg'));
                     var title = p.client + (p.date ? ' – ' + p.date : (p.status ? ' – ' + p.status : ''));
-                    var locs = (p.locations || []).length ? ('<div class="flex items-start"><i class="fas fa-map-marker-alt text-blue-600 mr-3 mt-1 flex-shrink-0"></i><div><p class="text-sm font-semibold text-gray-700">Location</p><p class="text-sm text-gray-600">'+escapeHtml((p.locations||[]).join(', '))+'</p></div></div>') : '';
-                    var services = (p.services || []).map(function(s){ return '<li class="flex items-center text-sm text-gray-600"><i class="fas fa-check-circle text-blue-600 mr-2"></i><span>'+escapeHtml(s)+'</span></li>'; }).join('');
-                    var servicesBlock = services ? '<div class="border-t border-gray-200 pt-4"><p class="text-sm font-semibold text-gray-700 mb-3">Solutions Implemented:</p><ul class="space-y-2">'+services+'</ul></div>' : '';
-                    return '<div class="bg-white rounded border border-gray-200 hover:border-gray-300 transition-colors overflow-hidden"><div class="h-48 bg-gray-800 relative overflow-hidden"><img src="'+escapeHtml(imgSrc)+'" alt="'+escapeHtml(title)+'" class="w-full h-full object-cover" loading="lazy"><div class="absolute inset-0 bg-gray-900/40"></div><div class="absolute top-4 right-4"><span class="bg-white/90 text-gray-900 text-xs font-medium px-3 py-1 rounded">'+escapeHtml(p.client)+'</span></div></div><div class="p-8"><h3 class="text-xl font-bold text-gray-900 mb-3">'+escapeHtml(title)+'</h3><div class="space-y-4 mb-6">'+locs+servicesBlock+'</div></div></div>';
+                    var locs = (p.locations || []).length ? ('<div class="flex items-start"><i class="fas fa-map-marker-alt text-blue-600 mr-3 mt-1 flex-shrink-0"></i><div><p class="text-sm font-semibold text-slate-700" data-i18n="projects.location">Location</p><p class="text-sm text-slate-600">'+escapeHtml((p.locations||[]).join(', '))+'</p></div></div>') : '';
+                    var services = (p.services || []).map(function(s){ return '<li class="flex items-center text-sm text-slate-600"><i class="fas fa-check-circle text-blue-600 mr-2 flex-shrink-0"></i><span>'+escapeHtml(s)+'</span></li>'; }).join('');
+                    var servicesBlock = services ? ('<div class="projects-project-card__services border-t border-slate-200/80 pt-4 mt-4"><p class="text-sm font-semibold text-slate-700 mb-3" data-i18n="projects.solutionsImplemented">Solutions Implemented:</p><ul class="space-y-2">'+services+'</ul></div>') : '';
+                    return '<article class="projects-project-card group home-stagger-item">'+
+                        '<span class="projects-project-card__shine" aria-hidden="true"></span>'+
+                        '<div class="projects-project-card__media h-52 sm:h-56 bg-gray-800 relative overflow-hidden">'+
+                        '<img src="'+escapeHtml(imgSrc)+'" alt="'+escapeHtml(title)+'" class="w-full h-full object-cover" loading="lazy">'+
+                        '<div class="projects-project-card__media-overlay" aria-hidden="true"></div>'+
+                        '<div class="projects-project-card__gridfx" aria-hidden="true"></div>'+
+                        '<div class="projects-project-card__badge"><span>'+escapeHtml(p.client)+'</span></div>'+
+                        '</div>'+
+                        '<div class="projects-project-card__body">'+
+                        '<h3 class="projects-project-card__title font-display text-xl font-semibold text-slate-900 mb-3 tracking-tight">'+escapeHtml(title)+'</h3>'+
+                        '<div class="projects-project-card__content space-y-4">'+locs+servicesBlock+'</div>'+
+                        '</div>'+
+                        '</article>';
                 }).join('');
+                applyI18n();
             })
-            .catch(function(){ loading.style.display='none'; grid.innerHTML='<p class="text-center text-red-500 py-12 col-span-full">Failed to load projects.</p>'; });
+            .catch(function(){
+                loading.style.display='none';
+                grid.innerHTML = '<p class="projects-error col-span-full text-center text-red-600 py-12" data-i18n="projects.errorProjects">Failed to load projects.</p>';
+                applyI18n();
+            });
         function escapeHtml(s){ var d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
     })();
     </script>

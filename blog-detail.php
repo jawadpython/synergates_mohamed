@@ -31,12 +31,14 @@ $relatedJson = json_encode($related, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUO
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SYNERGATES Blog">
     <title><?php echo $blog ? (htmlspecialchars($blog['title_fr'] ?? $blog['title_en'] ?? $blog['title'] ?? '') . ' - SYNERGATES') : 'Blog - SYNERGATES'; ?></title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/styles.css?v=1.0.8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tailwind-built.css?v=1.0.56">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.56">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <style>
-        html:not(.i18n-ready) body{opacity:0!important}
-        html.i18n-ready body{opacity:1}
         .blog-content { font-size: 1.125rem; line-height: 1.8; color: #374151; }
         .blog-content h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #111827; letter-spacing: -0.02em; }
         .blog-content h3 { font-size: 1.375rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; color: #111827; }
@@ -60,7 +62,6 @@ $relatedJson = json_encode($related, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUO
     </style>
     <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');if(window.__SITE_BASE__.length&&window.__SITE_BASE__.slice(-1)!=='/')window.__SITE_BASE__+='/';</script>
     <script>window.__BLOG_PRELOAD__=<?php echo $blogJson; ?>;window.__RELATED_PRELOAD__=<?php echo $relatedJson; ?>;</script>
-    <script>setTimeout(function(){document.documentElement.classList.add('i18n-ready')},1200);</script>
 </head>
 <body class="bg-white">
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
@@ -227,7 +228,7 @@ $relatedJson = json_encode($related, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUO
 
         document.addEventListener('languageChanged', function() { if (blog) location.reload(); });
     </script>
-    <script src="js/i18n.js?v=1.0.1"></script>
-    <script src="js/main.js?v=1.0.2"></script>
+    <script src="js/i18n.js?v=1.0.2"></script>
+    <script src="js/main.js?v=1.0.9"></script>
 </body>
 </html>

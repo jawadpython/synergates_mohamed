@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SYNERGATES - Intégrateur de solutions technologiques et de sécurité au Maroc. Découvrez notre histoire, notre mission et notre équipe.">
     <title>À propos - SYNERGATES</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/styles.css?v=1.0.37">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="js/image-cache-bust.js?v=1.0.8"></script>
-    <style>html:not(.i18n-ready) body{opacity:0!important}html.i18n-ready body{opacity:1}</style>
-    <script>setTimeout(function(){document.documentElement.classList.add('i18n-ready')},1200);</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tailwind-built.css?v=1.0.56">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.56">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <script src="js/image-cache-bust.js?v=1.0.9" defer></script>
 </head>
-<body class="bg-white">
+<body class="home-page-surface home-editorial home-premium home-wow home-premium-xp antialiased inner-page about-page">
+    <div class="home-wow-scroll-progress" id="home-wow-scroll-progress" aria-hidden="true"></div>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     <!-- Navigation -->
-    <nav class="site-nav nav-over-hero fixed w-full top-0 z-50">
+    <nav class="site-nav nav-over-hero home-editorial-nav fixed w-full top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center flex-shrink-0">
@@ -62,32 +65,44 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="main-content" class="reveal-up pt-24 pb-16 bg-gray-900 text-white page-hero">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="main-content" class="reveal-up about-page-hero pt-24 pb-20 md:pb-24 bg-gray-900 text-white page-hero">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="max-w-3xl">
-                <p class="text-sm text-slate-300 mb-4 drop-shadow-sm" data-i18n="about.breadcrumb">Accueil / À propos</p>
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-sm" data-i18n="about.heroTitle">Votre partenaire technologique de confiance</h1>
-                <p class="text-lg text-slate-200 leading-relaxed drop-shadow-sm" data-i18n="about.heroSubtitle">Depuis notre création, nous accompagnons les entreprises marocaines et africaines dans leur transformation numérique et la sécurisation de leurs infrastructures.</p>
+                <div class="about-page-hero__eyebrow flex items-center gap-4 mb-4">
+                    <span class="h-px w-12 sm:w-16 bg-gradient-to-r from-sky-400/90 via-sky-300/50 to-transparent shrink-0" aria-hidden="true"></span>
+                    <p class="text-sky-200/95 text-[0.65rem] sm:text-xs font-medium tracking-[0.28em] uppercase" data-i18n="index.heroEyebrow">SYNERGATES · Technologie intégrée</p>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400/95 mb-6 tracking-wide" data-i18n="about.breadcrumb">Accueil / À propos</p>
+                <h1 class="font-display text-4xl md:text-5xl lg:text-[3.25rem] font-semibold mb-6 text-white tracking-[-0.02em] leading-[1.08]" data-i18n="about.heroTitle">Votre partenaire technologique de confiance</h1>
+                <p class="text-lg md:text-xl text-slate-200/90 leading-relaxed font-light border-l border-sky-500/40 pl-6 mb-10" data-i18n="about.heroSubtitle">Depuis notre création, nous accompagnons les entreprises marocaines et africaines dans leur transformation numérique et la sécurisation de leurs infrastructures.</p>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                    <a href="contact.html" class="home-cta-primary home-cta-shimmer text-center text-sm" data-i18n="about.ctaContact">Nous contacter</a>
+                    <a href="projects.html" class="home-cta-glass home-cta-shimmer-glass text-center text-sm" data-i18n="about.ctaProjects">Voir nos réalisations</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Company Story -->
-    <section class="reveal-up py-20 bg-white">
+    <section class="reveal-up about-page-story py-20 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6" data-i18n="about.whoWeAre">Qui sommes-nous ?</h2>
-                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                    <p class="home-section-eyebrow text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-blue-700/90 mb-3" data-i18n="about.storyKicker">Notre histoire</p>
+                    <h2 class="font-display text-3xl md:text-4xl font-semibold text-gray-900 mb-6 tracking-[-0.02em]" data-i18n="about.whoWeAre">Qui sommes-nous ?</h2>
+                    <div class="space-y-4 text-gray-600 leading-relaxed text-[0.98rem]">
                         <p data-i18n="about.story1">SYNERGATES est un intégrateur de solutions technologiques basé à Casablanca. Fondée par des ingénieurs passionnés, notre entreprise s'est construite sur une expertise technique solide et une connaissance approfondie des besoins locaux.</p>
                         <p data-i18n="about.story2">Nous concevons, installons et maintenons des systèmes de vidéosurveillance, contrôle d'accès, alarme intrusion, et infrastructure réseau pour des clients dans les secteurs industriel, tertiaire, hôtelier et pétrolier.</p>
-                        <p data-i18n="about.story3">Notre approche se distingue par un accompagnement personnalisé : de l'étude initiale jusqu'à la maintenance, nous restons à vos côtés pour garantir la performance de vos installations.</p>
+                        <p class="border-l-2 border-blue-500/30 pl-5 text-gray-600/95" data-i18n="about.story3">Notre approche se distingue par un accompagnement personnalisé : de l'étude initiale jusqu'à la maintenance, nous restons à vos côtés pour garantir la performance de vos installations.</p>
                     </div>
                 </div>
-                <div class="relative">
-                    <img src="images/about/office-building.jpg" alt="Bureaux SYNERGATES" class="w-full rounded border border-gray-200" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
-                    <div class="hidden w-full aspect-video bg-gray-100 rounded border border-gray-200 flex items-center justify-center">
-                        <i class="fas fa-building text-5xl text-gray-300"></i>
+                <div class="about-page-story__media relative">
+                    <span class="about-page-story__glow" aria-hidden="true"></span>
+                    <div class="about-page-story__frame relative">
+                        <img src="images/about/office-building.jpg" alt="Bureaux SYNERGATES" class="w-full rounded-xl border border-slate-200/90 shadow-2xl relative z-[1]" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                        <div class="hidden w-full aspect-video bg-gray-100 rounded-xl border border-gray-200 flex items-center justify-center relative z-[1]">
+                            <i class="fas fa-building text-5xl text-gray-300"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,48 +110,55 @@
     </section>
 
     <!-- Key Numbers -->
-    <section class="reveal-up py-16 home-section-soft border-y border-gray-100">
+    <section class="reveal-up about-page-stats py-16 md:py-20 home-section-soft border-y border-gray-100/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="text-3xl font-semibold text-gray-900 mb-1">10+</div>
-                    <div class="text-gray-500 text-sm" data-i18n="about.yearsExperience">Années d'expérience</div>
+            <div class="text-center mb-12 md:mb-14">
+                <p class="home-section-eyebrow text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-blue-700/90 mb-3" data-i18n="about.statsKicker">En quelques chiffres</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="about-stat-card text-center">
+                    <div class="about-stat-card__value">10+</div>
+                    <div class="about-stat-card__label text-gray-500 text-sm" data-i18n="about.yearsExperience">Années d'expérience</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-semibold text-gray-900 mb-1">200+</div>
-                    <div class="text-gray-500 text-sm" data-i18n="about.projectsDelivered">Projets livrés</div>
+                <div class="about-stat-card text-center">
+                    <div class="about-stat-card__value">200+</div>
+                    <div class="about-stat-card__label text-gray-500 text-sm" data-i18n="about.projectsDelivered">Projets livrés</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-semibold text-gray-900 mb-1">15+</div>
-                    <div class="text-gray-500 text-sm" data-i18n="about.teamMembers">Collaborateurs</div>
+                <div class="about-stat-card text-center">
+                    <div class="about-stat-card__value">15+</div>
+                    <div class="about-stat-card__label text-gray-500 text-sm" data-i18n="about.teamMembers">Collaborateurs</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-semibold text-gray-900 mb-1">98%</div>
-                    <div class="text-gray-500 text-sm" data-i18n="about.clientSatisfaction">Clients satisfaits</div>
+                <div class="about-stat-card text-center">
+                    <div class="about-stat-card__value">98%</div>
+                    <div class="about-stat-card__label text-gray-500 text-sm" data-i18n="about.clientSatisfaction">Clients satisfaits</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Mission & Values -->
-    <section class="reveal-up py-20 bg-white">
+    <section class="reveal-up about-page-mission py-20 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="about.missionValuesTitle">Notre mission et nos valeurs</h2>
+            <div class="text-center mb-14 md:mb-16 max-w-2xl mx-auto">
+                <p class="home-section-eyebrow text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-blue-700/90 mb-3" data-i18n="about.missionKicker">Engagement</p>
+                <h2 class="font-display text-3xl md:text-4xl font-semibold text-gray-900 tracking-[-0.02em]" data-i18n="about.missionValuesTitle">Notre mission et nos valeurs</h2>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 home-stagger">
                 <!-- Mission -->
-                <div class="lg:col-span-3 bg-gray-900 text-white p-10 rounded mb-4">
-                    <div class="max-w-3xl mx-auto text-center">
-                        <i class="fas fa-bullseye text-2xl mb-5 text-gray-400"></i>
-                        <h3 class="text-xl font-semibold mb-3" data-i18n="about.ourMission">Notre mission</h3>
-                        <p class="text-gray-300 leading-relaxed" data-i18n="about.missionText">Fournir des solutions technologiques fiables et adaptées aux besoins spécifiques de chaque client, tout en assurant un service de proximité et un support technique réactif.</p>
+                <div class="about-mission-panel lg:col-span-3 bg-gray-900 text-white p-10 md:p-12 rounded-2xl mb-2 relative overflow-hidden home-stagger-item">
+                    <span class="about-mission-panel__aurora" aria-hidden="true"></span>
+                    <div class="max-w-3xl mx-auto text-center relative z-[1]">
+                        <div class="about-mission-panel__icon mx-auto mb-6">
+                            <i class="fas fa-bullseye text-xl text-sky-300/90" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="font-display text-xl md:text-2xl font-semibold mb-4" data-i18n="about.ourMission">Notre mission</h3>
+                        <p class="text-slate-300/95 leading-relaxed text-[1.02rem] font-light" data-i18n="about.missionText">Fournir des solutions technologiques fiables et adaptées aux besoins spécifiques de chaque client, tout en assurant un service de proximité et un support technique réactif.</p>
                     </div>
                 </div>
                 
                 <!-- Values -->
-                <div class="expertise-card bg-white p-6 rounded border border-gray-200 block">
+                <div class="expertise-card bg-white p-6 rounded border border-gray-200 block home-stagger-item">
                     <div class="expertise-card-icon w-10 h-10 bg-gray-100 rounded flex items-center justify-center mb-4">
                         <i class="fas fa-handshake text-gray-600 text-lg"></i>
                     </div>
@@ -144,7 +166,7 @@
                     <p class="text-gray-600 text-sm leading-relaxed" data-i18n="about.valueProximityDesc">Un interlocuteur dédié et une équipe disponible pour répondre à vos besoins rapidement.</p>
                 </div>
                 
-                <div class="expertise-card bg-white p-6 rounded border border-gray-200 block">
+                <div class="expertise-card bg-white p-6 rounded border border-gray-200 block home-stagger-item">
                     <div class="expertise-card-icon w-10 h-10 bg-gray-100 rounded flex items-center justify-center mb-4">
                         <i class="fas fa-cogs text-gray-600 text-lg"></i>
                     </div>
@@ -152,7 +174,7 @@
                     <p class="text-gray-600 text-sm leading-relaxed" data-i18n="about.valueExpertiseDesc">Des techniciens formés et certifiés sur les équipements des plus grandes marques.</p>
                 </div>
                 
-                <div class="expertise-card bg-white p-6 rounded border border-gray-200 block">
+                <div class="expertise-card bg-white p-6 rounded border border-gray-200 block home-stagger-item">
                     <div class="expertise-card-icon w-10 h-10 bg-gray-100 rounded flex items-center justify-center mb-4">
                         <i class="fas fa-check-double text-gray-600 text-lg"></i>
                     </div>
@@ -164,15 +186,16 @@
     </section>
 
     <!-- Expertise Areas -->
-    <section class="reveal-up py-20 home-section-light">
+    <section class="reveal-up about-page-expertise py-20 md:py-24 home-section-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="about.expertiseTitle">Nos domaines d'expertise</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="about.expertiseSubtitle">Des solutions complètes pour sécuriser et moderniser vos infrastructures</p>
+            <div class="text-center mb-14 md:mb-16 max-w-2xl mx-auto">
+                <p class="home-section-eyebrow text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-blue-700/90 mb-3" data-i18n="about.expertiseKicker">Savoir-faire</p>
+                <h2 class="font-display text-3xl md:text-4xl font-semibold text-gray-900 mb-4 tracking-[-0.02em]" data-i18n="about.expertiseTitle">Nos domaines d'expertise</h2>
+                <p class="text-gray-600 leading-relaxed" data-i18n="about.expertiseSubtitle">Des solutions complètes pour sécuriser et moderniser vos infrastructures</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 home-stagger">
+                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block home-stagger-item">
                     <div class="expertise-card-icon inline-flex w-10 h-10 bg-gray-100 rounded items-center justify-center mb-3">
                         <i class="fas fa-video text-gray-600 text-lg"></i>
                     </div>
@@ -180,7 +203,7 @@
                     <p class="text-gray-500 text-sm" data-i18n="about.expertise1Desc">Caméras IP, enregistreurs, vidéo analytique et supervision centralisée.</p>
                 </div>
                 
-                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block">
+                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block home-stagger-item">
                     <div class="expertise-card-icon inline-flex w-10 h-10 bg-gray-100 rounded items-center justify-center mb-3">
                         <i class="fas fa-id-card text-gray-600 text-lg"></i>
                     </div>
@@ -188,7 +211,7 @@
                     <p class="text-gray-500 text-sm" data-i18n="about.expertise2Desc">Badges, biométrie, tourniquets et gestion des visiteurs.</p>
                 </div>
                 
-                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block">
+                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block home-stagger-item">
                     <div class="expertise-card-icon inline-flex w-10 h-10 bg-gray-100 rounded items-center justify-center mb-3">
                         <i class="fas fa-bell text-gray-600 text-lg"></i>
                     </div>
@@ -196,7 +219,7 @@
                     <p class="text-gray-500 text-sm" data-i18n="about.expertise3Desc">Détection périmétrique, centrales d'alarme et télésurveillance.</p>
                 </div>
                 
-                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block">
+                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block home-stagger-item">
                     <div class="expertise-card-icon inline-flex w-10 h-10 bg-gray-100 rounded items-center justify-center mb-3">
                         <i class="fas fa-network-wired text-gray-600 text-lg"></i>
                     </div>
@@ -204,7 +227,7 @@
                     <p class="text-gray-500 text-sm" data-i18n="about.expertise4Desc">Câblage structuré, switches, WiFi et fibre optique.</p>
                 </div>
                 
-                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block">
+                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block home-stagger-item">
                     <div class="expertise-card-icon inline-flex w-10 h-10 bg-gray-100 rounded items-center justify-center mb-3">
                         <i class="fas fa-car text-gray-600 text-lg"></i>
                     </div>
@@ -212,7 +235,7 @@
                     <p class="text-gray-500 text-sm" data-i18n="about.expertise5Desc">Barrières automatiques, lecture de plaques et billetterie.</p>
                 </div>
                 
-                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block">
+                <div class="expertise-card bg-white p-5 rounded border border-gray-200 block home-stagger-item">
                     <div class="expertise-card-icon inline-flex w-10 h-10 bg-gray-100 rounded items-center justify-center mb-3">
                         <i class="fas fa-building text-gray-600 text-lg"></i>
                     </div>
@@ -224,51 +247,99 @@
     </section>
 
     <!-- Sectors -->
-    <section class="reveal-up py-20 bg-white">
+    <section class="reveal-up about-page-sectors py-20 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="about.sectorsTitle">Secteurs d'activité</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="about.sectorsSubtitle">Une expérience reconnue dans différents secteurs d'activité</p>
+            <div class="text-center mb-14 md:mb-16 max-w-2xl mx-auto">
+                <p class="home-section-eyebrow text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-blue-700/90 mb-3" data-i18n="about.sectorsKicker">Périmètre</p>
+                <h2 class="font-display text-3xl md:text-4xl font-semibold text-gray-900 mb-4 tracking-[-0.02em]" data-i18n="about.sectorsTitle">Secteurs d'activité</h2>
+                <p class="text-gray-600 leading-relaxed" data-i18n="about.sectorsSubtitle">Une expérience reconnue dans différents secteurs d'activité</p>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="text-center p-5">
-                    <div class="w-12 h-12 bg-gray-100 rounded flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-industry text-gray-500 text-lg"></i>
-                    </div>
-                    <h3 class="text-sm font-medium text-gray-800" data-i18n="about.sectorIndustry">Industrie</h3>
-                </div>
-                
-                <div class="text-center p-5">
-                    <div class="w-12 h-12 bg-gray-100 rounded flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-gas-pump text-gray-500 text-lg"></i>
-                    </div>
-                    <h3 class="text-sm font-medium text-gray-800" data-i18n="about.sectorOilGas">Pétrole & Gaz</h3>
-                </div>
-                
-                <div class="text-center p-5">
-                    <div class="w-12 h-12 bg-gray-100 rounded flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-hotel text-gray-500 text-lg"></i>
-                    </div>
-                    <h3 class="text-sm font-medium text-gray-800" data-i18n="about.sectorHotel">Hôtellerie</h3>
-                </div>
-                
-                <div class="text-center p-5">
-                    <div class="w-12 h-12 bg-gray-100 rounded flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-building text-gray-500 text-lg"></i>
-                    </div>
-                    <h3 class="text-sm font-medium text-gray-800" data-i18n="about.sectorTertiary">Tertiaire</h3>
-                </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-7 home-stagger">
+                <a href="solutions.html" class="home-sector-card group home-stagger-item about-sector-card--compact" data-sector="industrial">
+                    <span class="home-sector-card__shine" aria-hidden="true"></span>
+                    <span class="home-sector-card__head"><span class="home-sector-card__bar" aria-hidden="true"></span></span>
+                    <span class="home-sector-card__body">
+                        <h3 class="home-sector-card__title font-display" data-i18n="about.sectorIndustry">Industrie</h3>
+                        <p class="home-sector-card__desc" data-i18n="index.secteurIndustrielDesc">Plants, ATEX sites and 24/7 environments where downtime is not an option.</p>
+                        <ul class="home-sector-card__tags" aria-hidden="true">
+                            <li data-i18n="index.secteurIndustrielTag1">ATEX</li>
+                            <li data-i18n="index.secteurIndustrielTag2">EN54</li>
+                            <li data-i18n="index.secteurIndustrielTag3">24/7</li>
+                        </ul>
+                    </span>
+                    <span class="home-sector-card__cta">
+                        <span data-i18n="index.sectorsCardCta">Découvrir</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </span>
+                </a>
+                <a href="solutions.html" class="home-sector-card group home-stagger-item about-sector-card--compact" data-sector="oilgas">
+                    <span class="home-sector-card__shine" aria-hidden="true"></span>
+                    <span class="home-sector-card__head"><span class="home-sector-card__bar" aria-hidden="true"></span></span>
+                    <span class="home-sector-card__body">
+                        <h3 class="home-sector-card__title font-display" data-i18n="about.sectorOilGas">Pétrole & Gaz</h3>
+                        <p class="home-sector-card__desc" data-i18n="index.secteurPetrolierDesc">Depots, refineries and energy terminals—ATEX &amp; EN54 compliance.</p>
+                        <ul class="home-sector-card__tags" aria-hidden="true">
+                            <li data-i18n="index.secteurPetrolierTag1">ATEX</li>
+                            <li data-i18n="index.secteurPetrolierTag2">Depots</li>
+                            <li data-i18n="index.secteurPetrolierTag3">Refineries</li>
+                        </ul>
+                    </span>
+                    <span class="home-sector-card__cta">
+                        <span data-i18n="index.sectorsCardCta">Découvrir</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </span>
+                </a>
+                <a href="solutions.html" class="home-sector-card group home-stagger-item about-sector-card--compact" data-sector="hospitality">
+                    <span class="home-sector-card__shine" aria-hidden="true"></span>
+                    <span class="home-sector-card__head"><span class="home-sector-card__bar" aria-hidden="true"></span></span>
+                    <span class="home-sector-card__body">
+                        <h3 class="home-sector-card__title font-display" data-i18n="about.sectorHotel">Hôtellerie</h3>
+                        <p class="home-sector-card__desc" data-i18n="about.sectorHotelDesc">Security, guest experience and resilient operations for hospitality and public-facing venues.</p>
+                        <ul class="home-sector-card__tags" aria-hidden="true">
+                            <li data-i18n="index.secteurTertiaireTag1">Offices</li>
+                            <li data-i18n="index.secteurTertiaireTag2">Campus</li>
+                            <li data-i18n="index.secteurTertiaireTag3">Hotels</li>
+                        </ul>
+                    </span>
+                    <span class="home-sector-card__cta">
+                        <span data-i18n="index.sectorsCardCta">Découvrir</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </span>
+                </a>
+                <a href="solutions.html" class="home-sector-card group home-stagger-item about-sector-card--compact" data-sector="tertiary">
+                    <span class="home-sector-card__shine" aria-hidden="true"></span>
+                    <span class="home-sector-card__head"><span class="home-sector-card__bar" aria-hidden="true"></span></span>
+                    <span class="home-sector-card__body">
+                        <h3 class="home-sector-card__title font-display" data-i18n="about.sectorTertiary">Tertiaire</h3>
+                        <p class="home-sector-card__desc" data-i18n="index.secteurTertiaireDesc">Headquarters, campuses and office buildings—security, IT and comfort.</p>
+                        <ul class="home-sector-card__tags" aria-hidden="true">
+                            <li data-i18n="index.secteurTertiaireTag1">Offices</li>
+                            <li data-i18n="index.secteurTertiaireTag2">Campus</li>
+                            <li data-i18n="index.secteurTertiaireTag3">Hotels</li>
+                        </ul>
+                    </span>
+                    <span class="home-sector-card__cta">
+                        <span data-i18n="index.sectorsCardCta">Découvrir</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </span>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Clients - Infinite Marquee Slider -->
-    <section class="reveal-up trusted-by-section py-16 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-            <h2 class="trusted-by-title text-center text-sm font-semibold text-gray-500 uppercase tracking-[0.2em] mb-2" data-i18n="about.ourClients">ILS NOUS FONT CONFIANCE</h2>
-            <p class="text-center text-gray-600 text-base" data-i18n="about.clientsDesc">Des entreprises de divers secteurs nous font confiance</p>
+    <section class="reveal-up trusted-by-section home-trust-strip home-trust-strip--editorial py-14 md:py-16 md:pb-20 overflow-hidden border-t border-slate-200/50">
+        <div class="home-trust-heading-wrap max-w-[min(100%,96rem)] mx-auto px-3 sm:px-5 lg:px-8 mb-10 relative z-10 flex flex-col items-center">
+            <div class="home-trust-heading-row flex flex-wrap items-center justify-center gap-3 sm:gap-5">
+                <span class="home-trust-heading-accent home-trust-heading-accent--left" aria-hidden="true"></span>
+                <h2 class="trusted-by-title home-trust-eyebrow text-center font-semibold uppercase" data-i18n="index.trustedBy">Ils nous font confiance</h2>
+                <span class="home-trust-heading-accent home-trust-heading-accent--right" aria-hidden="true"></span>
+            </div>
+            <p class="text-center text-gray-600 text-base mt-3 max-w-xl" data-i18n="about.clientsDesc">Des entreprises de divers secteurs nous font confiance</p>
         </div>
+        <div class="home-logo-marquee-fade home-logo-marquee-fade--editorial home-trust-marquee--wide relative w-full">
+        <span class="home-trust-rail-shimmer" aria-hidden="true"></span>
         <div class="logo-carousel trusted-by-marquee">
             <div class="logo-carousel-track">
                 <div class="logo-carousel-item"><img src="images/logos/Salam%20Gaz.jfif" alt="Salam Gaz" loading="lazy"></div>
@@ -299,12 +370,13 @@
                 <div class="logo-carousel-item"><img src="images/logos/hilton%20logo.png" alt="Hilton Tangier City Center" loading="lazy"></div>
             </div>
         </div>
+        </div>
     </section>
 
     <!-- CTA -->
-    <section class="reveal-up cta-strip-premium py-20 md:py-24 bg-blue-600 text-white">
+    <section class="reveal-up about-page-final-cta cta-strip-premium py-20 md:py-24 bg-blue-600 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="cta-strip-title text-3xl md:text-4xl font-bold mb-5" data-i18n="about.ctaTitle">Discutons de votre projet</h2>
+            <h2 class="cta-strip-title font-display text-3xl md:text-4xl font-semibold mb-5 tracking-[-0.02em]" data-i18n="about.ctaTitle">Discutons de votre projet</h2>
             <p class="text-blue-100 mb-8 max-w-2xl mx-auto" data-i18n="about.ctaSubtitle">Contactez-nous pour une étude gratuite de vos besoins en sécurité et infrastructure.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="contact.html" class="cta-strip-btn inline-flex items-center justify-center bg-white text-blue-700 px-8 py-3.5 rounded font-semibold hover:bg-gray-50 transition-all text-base" data-i18n="about.ctaContact">Nous contacter</a>
@@ -314,7 +386,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="home-footer-dark border-t border-gray-200">
+    <footer class="home-footer-dark home-footer--editorial border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
                 <div>
@@ -376,11 +448,15 @@
         </div>
     </footer>
 
+    <a href="#main-content" class="home-wow-to-top" id="home-wow-to-top" data-i18n-attr="aria-label:common.backToTop" title="Back to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </a>
+
     <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');</script>
     <script src="js/clientdata.js?v=2"></script>
-    <script src="js/i18n.js?v=1.0.1"></script>
-    <script src="js/main.js?v=1.0.2"></script>
+    <script src="js/i18n.js?v=1.0.2"></script>
+    <script src="js/main.js?v=1.0.9"></script>
     <script src="js/client-modal.js?v=1.0.5"></script>
-    <script src="js/prefetch-solutions.js?v=1.0.8"></script>
+    <script src="js/prefetch-solutions.js?v=1.0.9"></script>
 </body>
 </html>

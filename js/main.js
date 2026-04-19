@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         } catch (err) {
             if (typeof console !== 'undefined' && console.warn) console.warn('i18n init failed', err);
         }
+    }
+    document.documentElement.classList.add('i18n-ready');
+    if (window.i18n) {
         // Language toggle: use delegation so all EN/FR buttons (nav + mobile) work on every page/section
         document.addEventListener('click', function(e) {
             const btn = e.target.closest('[data-lang-btn]');
