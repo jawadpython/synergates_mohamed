@@ -133,7 +133,7 @@
                 <div class="relative rounded-lg overflow-hidden bg-gray-100 shadow-lg" id="diagram-container">
                     <!-- Fixed frame so % positions stay aligned when the image file is replaced -->
                     <div id="diagram-image-wrap" class="relative w-full aspect-[16/10] max-h-[min(72vh,620px)] bg-slate-200/80">
-                    <img src="images/solutions/buldingimage.webp" alt="Apartments Security Solution Diagram" class="absolute inset-0 w-full h-full object-cover object-center block pointer-events-none">
+                    <img id="apartments-diagram-image" src="images/solutions/buldingimage.png" alt="Apartments Security Solution Diagram" class="absolute inset-0 w-full h-full object-cover object-center block pointer-events-none">
                     <!-- Draggable buttons on image - pill style with red number badge -->
                     <button type="button" class="diagram-btn absolute z-10 flex items-center gap-1 pl-1 pr-1.5 py-1 bg-white/80 border border-gray-200/70 rounded-full text-gray-800 font-medium text-[11px] whitespace-nowrap cursor-pointer hover:bg-gray-50 shadow-md select-none" data-id="1" data-default-left="68" data-default-top="60" data-title="Vehicle entrance & exit" data-desc="Secure vehicle access control with license plate recognition, barrier gates, and visitor management.">
                         <span class="flex h-5 w-5 shrink-0 -ml-0.5 items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold shadow-sm">1</span>
@@ -441,11 +441,20 @@
             const solutionType = document.getElementById('solution-type');
             const overviewSection = document.getElementById('overview-section');
 
-            if (scenario === 'apartments') {
-                // Show apartments diagram section
+            if (scenario === 'apartments' || scenario === 'apartmentsi') {
+                // Show apartments diagram section (apartmentsi uses alternate diagram image)
                 const diagramSection = document.getElementById('apartments-diagram-section');
                 if (diagramSection) {
                     diagramSection.classList.remove('hidden');
+                }
+                var apartmentsDiagramImg = document.getElementById('apartments-diagram-image');
+                if (apartmentsDiagramImg) {
+                    var diagramPath = (scenario === 'apartmentsi')
+                        ? './images/solutions/builifingaimage.png'
+                        : './images/solutions/buldingimage.png';
+                    apartmentsDiagramImg.src = (typeof window.imgUrl === 'function')
+                        ? window.imgUrl(diagramPath)
+                        : (diagramPath + (diagramPath.indexOf('?') >= 0 ? '&' : '?') + 'v=' + (window.IMAGE_VERSION || Date.now()));
                 }
                 if (solutionTitle) solutionTitle.textContent = (window.i18n && window.i18n.t ? i18n.t('solutions.apartments') : 'Apartments');
                 if (solutionSubtitle) solutionSubtitle.textContent = (window.i18n && window.i18n.t ? i18n.t('solutions.apartmentsDesc') : 'A secure and efficient way to manage your Apartments. Apartment security management solution with innovative entry & exit experience and AI-empowered video security.');
@@ -454,7 +463,7 @@
             } else if (scenario) {
                 // Map scenario slug to actual image filename in images/solutions/
                 const scenarioImageMap = {
-                    'apartments': 'buldingimage.webp', 'factories': 'Factories.png', 'classroom-hub': 'Classroom hub.png',
+                    'apartments': 'buldingimage.png', 'factories': 'Factories.png', 'classroom-hub': 'Classroom hub.png',
                     'urban-roadways': 'Urban roadways.png', 'offices': 'Office Buildings.png', 'stores': 'Supermarkets.png',
                     'bus-stop': 'Bus Stop.png', 'car-dealerships': 'Car Dealerships.png', 'conference-rooms': 'Conference Rooms.png',
                     'construction-site': 'Construction Site.png', 'electrical-substations': 'Electrical Substations.png',
@@ -796,7 +805,7 @@
                 btn.style.transform = 'none';
             }
 
-            var diagramFileKey = 'buldingimage.webp';
+            var diagramFileKey = 'buldingimage.png';
             if (diagramImg && diagramImg.getAttribute('src')) {
                 try {
                     var srcPart = diagramImg.getAttribute('src').split('/').pop() || '';
@@ -828,7 +837,7 @@
                 });
             }
 
-            if (scenario === 'apartments' && container && diagramBtns.length) {
+            if ((scenario === 'apartments' || scenario === 'apartmentsi') && container && diagramBtns.length) {
                 container.setAttribute('data-editing', 'false');
                 loadDiagramPositions();
                 // Select button 1 by default and show its content
