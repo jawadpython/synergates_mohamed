@@ -226,6 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const dots = Array.prototype.slice.call(document.querySelectorAll('.home-hero-slides-nav .home-hero-slides-dot'));
         if (slides.length < 2) return;
 
+        /* Keep in sync with .home-hero-slides-dot-fill animation duration in css/styles.css (5s) */
         const AUTOPLAY_MS = 5000;
         let current = 0;
         for (let i = 0; i < slides.length; i++) {
