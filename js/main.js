@@ -218,56 +218,200 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 });
 
-/* Homepage hero background slideshow (auto-rotating crossfade).
-   Isolated in its own DOMContentLoaded listener so any error elsewhere
-   in main.js cannot prevent the autoplay timer from starting. */
+/* Homepage hero slideshow + vertical pagination (4 dots; 10s timer in active ring).
+   Timer only freezes while the tab is hidden (no hover pause — avoids stuck state when
+   mouseleave never fires). slideEndsAt + watchdog recover from throttling / bfcache. */
 document.addEventListener('DOMContentLoaded', function() {
     try {
         const slidesContainer = document.querySelector('.home-hero-slides');
         if (!slidesContainer) return;
         const slides = Array.prototype.slice.call(slidesContainer.querySelectorAll('.home-hero-slide'));
-        const dots = Array.prototype.slice.call(document.querySelectorAll('.home-hero-slides-nav .home-hero-slides-dot'));
-        if (slides.length < 2) return;
+        const nav = document.querySelector('.home-hero-pag');
+        const btns = nav ? Array.prototype.slice.call(nav.querySelectorAll('.home-hero-pag-btn')) : [];
+        if (slides.length < 2 || btns.length < 2) return;
 
-        /* Keep in sync with .home-hero-slides-dot-fill animation duration in css/styles.css (5s) */
-        const AUTOPLAY_MS = 5000;
+        const AUTOPLAY_MS = 10000;
+        const TICK_MS = 50;
+        const WATCHDOG_MS = 1500;
+        const TIMER_R = 17;
+        const TIMER_CIRC = 2 * Math.PI * TIMER_R;
+
         let current = 0;
         for (let i = 0; i < slides.length; i++) {
             if (slides[i].classList.contains('is-active')) { current = i; break; }
         }
-        slides[current].classList.add('is-active');
-        if (dots[current]) dots[current].classList.add('is-active');
-        let timer = null;
+        const count = Math.min(slides.length, btns.length);
+        current = Math.min(current, count - 1);
+        slides.forEach(function(s, i) {
+            if (i === current) s.classList.add('is-active');
+            else s.classList.remove('is-active');
+        });
+        btns.forEach(function(b, i) {
+            b.classList.toggle('is-active', i === current);
+            b.setAttribute('aria-selected', i === current ? 'true' : 'false');
+        });
 
-        function setActive(idx) {
-            idx = ((idx % slides.length) + slides.length) % slides.length;
-            if (idx === current) return;
-            slides[current].classList.remove('is-active');
-            if (dots[current]) dots[current].classList.remove('is-active');
-            current = idx;
-            slides[current].classList.add('is-active');
-            if (dots[current]) {
-                const fill = dots[current].querySelector('.home-hero-slides-dot-fill');
-                if (fill) { fill.style.animation = 'none'; void fill.offsetWidth; fill.style.animation = ''; }
-                dots[current].classList.add('is-active');
+        var slideEndsAt = performance.now() + AUTOPLAY_MS;
+        var tabFrozenRemaining = null;
+
+        function syncAria() {
+            btns.forEach(function(btn, i) {
+                btn.setAttribute('aria-selected', i === current ? 'true' : 'false');
+            });
+        }
+
+        function scheduleFromNow() {
+            var t = performance.now();
+            slideEndsAt = t + AUTOPLAY_MS;
+            if (document.hidden) {
+                tabFrozenRemaining = AUTOPLAY_MS;
+            } else {
+                tabFrozenRemaining = null;
             }
         }
 
-        function play() {
-            if (timer) clearInterval(timer);
-            timer = setInterval(function(){ setActive(current + 1); }, AUTOPLAY_MS);
+        function advanceSlide() {
+            var next = (current + 1) % count;
+            slides[current].classList.remove('is-active');
+            btns[current].classList.remove('is-active');
+            current = next;
+            slides[current].classList.add('is-active');
+            btns[current].classList.add('is-active');
+            syncAria();
         }
 
-        dots.forEach(function(dot, idx) {
-            dot.addEventListener('click', function() { setActive(idx); play(); });
+        function updateCountdown(remainingMs) {
+            var btn = btns[current];
+            if (!btn) return;
+            var numEl = btn.querySelector('.home-hero-pag-num');
+            var prog = btn.querySelector('.home-hero-pag-progress');
+            var r = remainingMs;
+            if (!Number.isFinite(r)) r = AUTOPLAY_MS;
+            r = Math.min(AUTOPLAY_MS, Math.max(0, r));
+            var t = AUTOPLAY_MS <= 0 ? 0 : Math.min(1, r / AUTOPLAY_MS);
+            var maxSec = Math.max(1, Math.ceil(AUTOPLAY_MS / 1000));
+            if (numEl) {
+                var sec = Math.max(1, Math.min(maxSec, Math.ceil(r / 1000 - 1e-9)));
+                numEl.textContent = String(sec);
+            }
+            if (prog) {
+                prog.style.strokeDashoffset = String(TIMER_CIRC * (1 - t));
+            }
+        }
+
+        function setActive(idx) {
+            idx = ((idx % count) + count) % count;
+            if (idx === current) {
+                scheduleFromNow();
+                return;
+            }
+            slides[current].classList.remove('is-active');
+            btns[current].classList.remove('is-active');
+            current = idx;
+            slides[current].classList.add('is-active');
+            btns[current].classList.add('is-active');
+            syncAria();
+            scheduleFromNow();
+        }
+
+        function runCatchUpWhileOverdue(now) {
+            if (!Number.isFinite(slideEndsAt)) {
+                slideEndsAt = now + AUTOPLAY_MS;
+                return now;
+            }
+            var g = 0;
+            while (now >= slideEndsAt && g < 48) {
+                g += 1;
+                advanceSlide();
+                slideEndsAt += AUTOPLAY_MS;
+                now = performance.now();
+            }
+            return now;
+        }
+
+        function step() {
+            try {
+                var now = performance.now();
+                var remaining;
+
+                if (document.hidden) {
+                    if (tabFrozenRemaining === null) {
+                        tabFrozenRemaining = Math.max(0, slideEndsAt - now);
+                    }
+                    remaining = tabFrozenRemaining;
+                } else {
+                    if (tabFrozenRemaining !== null) {
+                        slideEndsAt = now + tabFrozenRemaining;
+                        tabFrozenRemaining = null;
+                    }
+                    if (!Number.isFinite(slideEndsAt)) {
+                        slideEndsAt = now + AUTOPLAY_MS;
+                    }
+                    now = runCatchUpWhileOverdue(now);
+                    remaining = slideEndsAt - now;
+                    if (!Number.isFinite(remaining)) {
+                        slideEndsAt = now + AUTOPLAY_MS;
+                        remaining = AUTOPLAY_MS;
+                    }
+                }
+
+                updateCountdown(remaining);
+            } catch (e) {
+                slideEndsAt = performance.now() + AUTOPLAY_MS;
+                tabFrozenRemaining = document.hidden ? AUTOPLAY_MS : null;
+            }
+        }
+
+        function watchdog() {
+            if (document.hidden) return;
+            try {
+                var now = performance.now();
+                if (!Number.isFinite(slideEndsAt) || now > slideEndsAt + WATCHDOG_MS) {
+                    runCatchUpWhileOverdue(now);
+                    now = performance.now();
+                    if (now >= slideEndsAt) {
+                        slideEndsAt = now + AUTOPLAY_MS;
+                    }
+                }
+            } catch (e) {
+                slideEndsAt = performance.now() + AUTOPLAY_MS;
+            }
+            step();
+        }
+
+        btns.forEach(function(btn) {
+            var prog = btn.querySelector('.home-hero-pag-progress');
+            if (prog) {
+                prog.style.strokeDasharray = String(TIMER_CIRC);
+            }
+        });
+
+        scheduleFromNow();
+        btns.forEach(function(btn, idx) {
+            if (idx >= count) {
+                btn.hidden = true;
+                return;
+            }
+            btn.addEventListener('click', function() {
+                if (idx === current) {
+                    scheduleFromNow();
+                    return;
+                }
+                setActive(idx);
+            });
         });
 
         document.addEventListener('visibilitychange', function() {
-            if (document.hidden) { if (timer) { clearInterval(timer); timer = null; } }
-            else { play(); }
+            step();
         });
 
-        play();
+        window.addEventListener('pageshow', function() {
+            step();
+        });
+
+        window.setInterval(step, TICK_MS);
+        window.setInterval(watchdog, 1000);
+        step();
     } catch (err) {
         if (typeof console !== 'undefined' && console.error) console.error('hero slides init failed', err);
     }
