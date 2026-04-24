@@ -6,11 +6,21 @@
     <meta name="description" content="Explore our successful technology and security solution projects across various industries.">
     <meta name="keywords" content="projects, case studies, success stories, technology implementations, security projects">
     <title>Projects - Synergates</title>
+    <script>
+    (function () {
+        var p = window.location.pathname || '/';
+        var dir = p.substring(0, p.lastIndexOf('/') + 1) || '/';
+        var url = window.location.origin + dir + 'api/projects.php';
+        window.__PROJECTS_JSON_PROMISE__ = fetch(url, { credentials: 'same-origin' })
+            .then(function (r) { return r.json(); })
+            .catch(function () { return { projects: [] }; });
+    })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/tailwind-built.css?v=1.0.63">
-    <link rel="stylesheet" href="css/styles.css?v=1.0.63">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.71">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <!-- Image cache busting: version bumped when admin replaces images -->
@@ -67,30 +77,29 @@
     </nav>
 
     <!-- Page Header -->
-    <section id="main-content" class="reveal-up projects-page-hero pt-24 pb-16 md:pb-20 bg-slate-900 text-white page-hero page-hero--with-photo">
+    <section id="main-content" class="reveal-up projects-page-hero pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24 bg-slate-900 text-white page-hero page-hero--with-photo relative overflow-hidden">
         <div class="page-hero-photo" aria-hidden="true">
             <img src="images/home_page/image1%20(3).webp" alt="" class="page-hero-photo__img" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high">
             <div class="page-hero-photo__scrim" aria-hidden="true"></div>
         </div>
         <div class="projects-page-hero__mesh" aria-hidden="true"></div>
         <div class="projects-page-hero__orbit" aria-hidden="true"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-4xl mx-auto text-center lg:text-left lg:mx-0">
-                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-12">
-                    <div class="flex-1 min-w-0">
-                        <div class="flex items-center justify-center lg:justify-start gap-4 mb-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 gap-12">
+                <div class="text-left max-w-4xl">
+                    <div class="home-hero-copy-frame">
+                        <div class="home-hero-eyebrow flex items-center gap-4 mb-8">
                             <span class="h-px w-12 sm:w-16 bg-gradient-to-r from-sky-400/90 via-sky-300/50 to-transparent shrink-0" aria-hidden="true"></span>
-                            <p class="text-sky-200/95 text-[0.65rem] sm:text-xs font-medium tracking-[0.28em] uppercase" data-i18n="index.heroEyebrow">SYNERGATES · Technologie intégrée</p>
+                            <p class="text-sky-200/95 text-[0.65rem] sm:text-xs font-medium tracking-[0.28em] uppercase" data-i18n="index.heroEyebrow">SYNERGATES · Integrated technology</p>
                         </div>
-                        <p class="text-xs sm:text-sm text-slate-400/95 mb-5 tracking-wide" data-i18n="projects.breadcrumb">Accueil / Projets</p>
-                        <h1 class="font-display text-4xl md:text-5xl lg:text-[3.15rem] font-semibold text-white tracking-[-0.02em] leading-[1.08] mb-5" data-i18n="projects.title">Success Stories & Project Portfolio</h1>
-                        <p class="text-lg md:text-xl font-medium bg-gradient-to-r from-sky-200 via-white to-indigo-200 bg-clip-text text-transparent mb-6" data-i18n="projects.sectionTitle">Proven Results Across Industries</p>
-                        <p class="text-slate-300/95 text-base md:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 border-l border-sky-500/40 pl-6 font-light" data-i18n="projects.subtitle">Explore our proven track record of successful implementations across diverse industries, showcasing our expertise and commitment to delivering exceptional results</p>
-                    </div>
-                    <div class="projects-page-hero__stats flex flex-wrap justify-center lg:justify-end gap-2.5 shrink-0">
-                        <span class="projects-chip" data-i18n="projects.heroStat1">Terrain & industrialisation</span>
-                        <span class="projects-chip" data-i18n="projects.heroStat2">Maroc & Afrique</span>
-                        <span class="projects-chip" data-i18n="projects.heroStat3">Audit → support 24/7</span>
+                        <h1 class="home-hero-headline font-display text-[2.35rem] sm:text-5xl lg:text-6xl xl:text-[3.65rem] font-semibold text-white leading-[1.05] tracking-[-0.02em] mb-8" data-i18n="projects.title">Success Stories &amp; Project Portfolio</h1>
+                        <p class="text-lg md:text-xl text-slate-200/90 font-light mb-5 max-w-2xl leading-relaxed" data-i18n="projects.sectionTitle">Proven Results Across Industries</p>
+                        <p class="text-[0.95rem] md:text-base text-slate-400/95 leading-[1.75] mb-10 max-w-2xl pl-6 border-l border-sky-500/40" data-i18n="projects.subtitle">Explore our proven track record of successful implementations across diverse industries, showcasing our expertise and commitment to delivering exceptional results</p>
+                        <div class="mt-10 flex flex-wrap gap-2.5 sm:gap-3" role="group" aria-label="Highlights">
+                            <span class="home-wow-chip" data-i18n="projects.heroStat1">Field &amp; industrialization</span>
+                            <span class="home-wow-chip" data-i18n="projects.heroStat2">Morocco &amp; Africa</span>
+                            <span class="home-wow-chip" data-i18n="projects.heroStat3">Audit → 24/7 support</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,7 +107,7 @@
     </section>
 
     <!-- Projects Grid -->
-    <section id="projects-feed" class="reveal-up projects-page-feed py-16 md:py-24 lg:py-28 relative overflow-hidden">
+    <section id="projects-feed" class="reveal-up is-visible projects-page-feed py-16 md:py-24 lg:py-28 relative overflow-hidden">
         <div class="projects-page-feed__bg" aria-hidden="true"></div>
         <div class="projects-page-feed__noise" aria-hidden="true"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -115,7 +124,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="reveal-up about-page-stats py-16 md:py-20 home-section-soft border-y border-gray-100/80">
+    <section class="reveal-up is-visible about-page-stats py-16 md:py-20 home-section-soft border-y border-gray-100/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 md:mb-14">
                 <p class="home-section-eyebrow text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-blue-700/90 mb-3" data-i18n="projects.statsKicker">En quelques chiffres</p>
@@ -142,7 +151,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="reveal-up projects-page-cta cta-strip-premium py-20 md:py-24 bg-blue-600 text-white">
+    <section class="reveal-up is-visible projects-page-cta cta-strip-premium py-20 md:py-24 bg-blue-600 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto">
                 <h2 class="cta-strip-title font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 tracking-[-0.02em]" data-i18n="projects.ctaTitle">Ready to Start Your Project?</h2>
@@ -240,15 +249,20 @@
     <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');</script>
     <script src="js/i18n.js?v=1.0.2"></script>
     <script src="js/main.js?v=1.0.9"></script>
-    <script src="js/prefetch-solutions.js?v=1.0.9"></script>
+    <script src="js/prefetch-solutions.js?v=1.0.10"></script>
     <script>
     (function(){
         var grid = document.getElementById('projects-grid');
         var loading = document.getElementById('projects-loading');
         var imgUrl = function(u){ return (typeof window.imgUrl==='function') ? window.imgUrl(u) : (u+(u.indexOf('?')>=0?'&':'?')+'v='+(window.IMAGE_VERSION||Date.now())); };
         function applyI18n(){ if (window.i18n && typeof window.i18n.applyTranslations === 'function') window.i18n.applyTranslations(); }
-        fetch('api/projects.php', { cache: 'no-store' })
-            .then(function(r){ return r.json(); })
+        function projectsJsonPromise() {
+            if (window.__PROJECTS_JSON_PROMISE__) return window.__PROJECTS_JSON_PROMISE__;
+            var p = window.location.pathname || '/';
+            var dir = p.substring(0, p.lastIndexOf('/') + 1) || '/';
+            return fetch(window.location.origin + dir + 'api/projects.php', { credentials: 'same-origin' }).then(function(r){ return r.json(); });
+        }
+        projectsJsonPromise()
             .then(function(data){
                 loading.style.display='none';
                 var projects = data.projects || [];
@@ -266,7 +280,7 @@
                     return '<article class="projects-project-card group home-stagger-item">'+
                         '<span class="projects-project-card__shine" aria-hidden="true"></span>'+
                         '<div class="projects-project-card__media h-52 sm:h-56 bg-gray-800 relative overflow-hidden">'+
-                        '<img src="'+escapeHtml(imgSrc)+'" alt="'+escapeHtml(title)+'" class="w-full h-full object-cover" loading="lazy">'+
+                        '<img src="'+escapeHtml(imgSrc)+'" alt="'+escapeHtml(title)+'" class="w-full h-full object-cover" loading="'+(i<2?'eager':'lazy')+'"'+(i===0?' fetchpriority="high"':'')+'>'+
                         '<div class="projects-project-card__media-overlay" aria-hidden="true"></div>'+
                         '<div class="projects-project-card__gridfx" aria-hidden="true"></div>'+
                         '<div class="projects-project-card__badge"><span>'+escapeHtml(p.client)+'</span></div>'+

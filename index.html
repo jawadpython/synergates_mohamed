@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/tailwind-built.css?v=1.0.63">
-    <link rel="stylesheet" href="css/styles.css?v=1.0.63">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.69">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <script src="js/image-cache-bust.js?v=1.0.9" defer></script>
@@ -169,79 +169,81 @@
         </div>
     </section>
 
-    <section class="reveal-up bg-white relative overflow-hidden home-wow-services home-services--editorial">
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent" aria-hidden="true"></div>
-        <div class="absolute inset-0 home-wow-services-bg pointer-events-none opacity-[0.35]" aria-hidden="true"></div>
-        <div class="home-services-glow home-services-glow--a pointer-events-none" aria-hidden="true"></div>
-        <div class="home-services-glow home-services-glow--b pointer-events-none" aria-hidden="true"></div>
-        <div class="home-services-lead relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-32 pb-6">
-            <p class="home-section-eyebrow text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-blue-800/90 mb-4" data-i18n="index.servicesEyebrow">What we deliver</p>
-            <h2 class="font-display text-4xl md:text-5xl lg:text-[3.25rem] font-semibold text-stone-900 tracking-[-0.02em] max-w-3xl leading-[1.12]" data-i18n="index.servicesSectionTitle">Built for uptime, auditability, and teams who own the outcome</h2>
+    <section class="reveal-up relative overflow-hidden home-wow-services home-services--editorial home-services--expertise-slab">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky-400/30 to-transparent" aria-hidden="true"></div>
+        <div class="absolute inset-0 home-wow-services-bg home-services--expertise-slab__bg-fade pointer-events-none opacity-[0.35]" aria-hidden="true"></div>
+        <div class="home-services-glow home-services-glow--a home-services--expertise-slab__hide-glows pointer-events-none" aria-hidden="true"></div>
+        <div class="home-services-glow home-services-glow--b home-services--expertise-slab__hide-glows pointer-events-none" aria-hidden="true"></div>
+        <div class="home-services-lead home-services--expertise-slab__lead relative max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 pt-20 md:pt-24 lg:pt-28 pb-10 md:pb-12">
+            <p class="home-section-eyebrow home-section-eyebrow--on-dark text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-sky-300/90 mb-4" data-i18n="index.servicesEyebrow">Core domains</p>
+            <h2 class="font-display text-3xl sm:text-4xl md:text-[2.75rem] lg:text-[3.1rem] font-semibold text-white tracking-[-0.02em] max-w-4xl leading-[1.12]" data-i18n="index.servicesSectionTitle">CCTV, access, networking, and fire safety—from design to long-term support</h2>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 md:space-y-8 pb-8 pt-8 home-stagger">
-            <a href="solutions.html" class="home-service-panel home-service-panel--shine home-service-panel--v2 home-stagger-item group relative block overflow-hidden rounded-[1.75rem] md:rounded-[2rem]">
-                <span class="home-service-num font-display" aria-hidden="true">01</span>
-                <div class="relative grid md:grid-cols-12 gap-8 md:gap-12 items-center p-8 md:p-12 lg:p-14">
-                    <div class="md:col-span-5 flex justify-center md:justify-start">
-                        <div class="home-service-icon home-service-icon--blue">
-                            <i class="fas fa-server text-4xl md:text-[2.65rem]" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="md:col-span-7">
-                        <h3 class="font-display text-2xl md:text-3xl font-semibold text-stone-900 mb-3 tracking-tight" data-i18n="index.service1Title">IT infrastructure</h3>
-                        <p class="text-lg text-stone-600 leading-relaxed max-w-xl font-light" data-i18n="index.service1Benefit">Right-sized design so capacity matches real traffic—no shelfware, no surprise bottlenecks.</p>
-                        <span class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-sky-800 group-hover:gap-3 transition-all" data-i18n="index.serviceCta">Explore solutions <i class="fas fa-arrow-right text-xs opacity-70" aria-hidden="true"></i></span>
-                    </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 pb-6 md:pb-8">
+            <div class="home-expertise-slab__grid home-stagger">
+                <a href="solutions.html#solutions-scenarios" class="home-expertise-slab__card home-stagger-item group">
+                    <span class="home-expertise-slab__icon" aria-hidden="true"><i class="fas fa-video"></i></span>
+                    <h3 class="home-expertise-slab__title font-display text-lg md:text-xl font-semibold text-white tracking-tight mb-2" data-i18n="index.service1Title">Smart CCTV &amp; video</h3>
+                    <p class="home-expertise-slab__lead text-[0.9375rem] leading-[1.55] font-normal" data-i18n="index.service1Lead">Coverage studies, camera and VMS selection, and integration with your IT stack—for reliable operations and investigations.</p>
+                    <ul class="home-expertise-slab__bullets">
+                        <li data-i18n="index.service1Point1">Scene plans, lighting, and resolutions matched to real use cases</li>
+                        <li data-i18n="index.service1Point2">Resilient recording, controlled access to streams, and auditable retention</li>
+                        <li data-i18n="index.service1Point3">Central monitoring, intrusion/access integrations, and actionable dashboards</li>
+                    </ul>
+                </a>
+                <a href="controle-acces.html" class="home-expertise-slab__card home-stagger-item group">
+                    <span class="home-expertise-slab__icon" aria-hidden="true"><i class="fas fa-id-card"></i></span>
+                    <h3 class="home-expertise-slab__title font-display text-lg md:text-xl font-semibold text-white tracking-tight mb-2" data-i18n="index.service2Title">Access control</h3>
+                    <p class="home-expertise-slab__lead text-[0.9375rem] leading-[1.55] font-normal" data-i18n="index.service2Lead">Secure flows without friction: badges, biometrics, permissions, and a clear audit trail at every door.</p>
+                    <ul class="home-expertise-slab__bullets">
+                        <li data-i18n="index.service2Point1">Multi-tech readers, anti-passback, and time-based scenarios</li>
+                        <li data-i18n="index.service2Point2">Visitor, parking, and elevator workflows aligned with your policies</li>
+                        <li data-i18n="index.service2Point3">Central administration, event reporting, and fast credential revocation</li>
+                    </ul>
+                </a>
+                <a href="solutions.html#solutions-scenarios" class="home-expertise-slab__card home-stagger-item group">
+                    <span class="home-expertise-slab__icon" aria-hidden="true"><i class="fas fa-network-wired"></i></span>
+                    <h3 class="home-expertise-slab__title font-display text-lg md:text-xl font-semibold text-white tracking-tight mb-2" data-i18n="index.service3Title">Network infrastructure</h3>
+                    <p class="home-expertise-slab__lead text-[0.9375rem] leading-[1.55] font-normal" data-i18n="index.service3Lead">Structured cabling, LAN, Wi‑Fi, and fiber links sized for real load—and room to grow.</p>
+                    <ul class="home-expertise-slab__bullets">
+                        <li data-i18n="index.service3Point1">Core/access design, VLANs, QoS, and segmentation for security</li>
+                        <li data-i18n="index.service3Point2">Measured RF coverage, roaming, and monitored access points</li>
+                        <li data-i18n="index.service3Point3">As-built documentation, acceptance testing, and handover to your teams</li>
+                    </ul>
+                </a>
+                <a href="solutions.html#solutions-scenarios" class="home-expertise-slab__card home-stagger-item group">
+                    <span class="home-expertise-slab__icon" aria-hidden="true"><i class="fas fa-fire-flame-curved"></i></span>
+                    <h3 class="home-expertise-slab__title font-display text-lg md:text-xl font-semibold text-white tracking-tight mb-2" data-i18n="index.service4Title">Fire detection</h3>
+                    <p class="home-expertise-slab__lead text-[0.9375rem] leading-[1.55] font-normal" data-i18n="index.service4Lead">Detection, smoke exhaust, and signaling—design, commissioning, and maintenance aligned with applicable codes.</p>
+                    <ul class="home-expertise-slab__bullets">
+                        <li data-i18n="index.service4Point1">Detection strategies matched to building types (offices, warehouses, technical rooms)</li>
+                        <li data-i18n="index.service4Point2">Panels, loops, and interfaces with building and safety systems</li>
+                        <li data-i18n="index.service4Point3">Preventive maintenance, test traceability, and lifecycle upgrades</li>
+                    </ul>
+                </a>
+                <div class="home-expertise-slab__fill-cell home-expertise-slab__fill-cell--mid home-stagger-item">
+                    <span class="home-expertise-slab__icon" aria-hidden="true"><i class="fas fa-people-group"></i></span>
+                    <h3 class="home-expertise-slab__title font-display text-lg md:text-xl font-semibold text-white tracking-tight mb-2" data-i18n="index.expertiseSlabBlock1Title">One accountable partner</h3>
+                    <p class="home-expertise-slab__lead text-[0.9375rem] leading-[1.55] font-normal" data-i18n="index.expertiseSlabBlock1Lead">One owner from design to long-term run—BOQ, commissioning, and named contacts for operations, audits, and on-call when it matters.</p>
+                    <ul class="home-expertise-slab__bullets">
+                        <li data-i18n="index.expertiseSlabBlock1Point1">Milestones your teams can sign off before we build or spend.</li>
+                        <li data-i18n="index.expertiseSlabBlock1Point2">As-builts and runbooks your ops can trace and audit.</li>
+                        <li data-i18n="index.expertiseSlabBlock1Point3">SLA support and escalation when unplanned downtime is not an option.</li>
+                    </ul>
                 </div>
-            </a>
-            <a href="solutions.html" class="home-service-panel home-service-panel--shine home-service-panel--v2 home-stagger-item group relative block overflow-hidden rounded-[1.75rem] md:rounded-[2rem]">
-                <span class="home-service-num font-display" aria-hidden="true">02</span>
-                <div class="relative grid md:grid-cols-12 gap-8 md:gap-12 items-center p-8 md:p-12 lg:p-14">
-                    <div class="md:col-span-5 md:order-2 flex justify-center md:justify-end">
-                        <div class="home-service-icon home-service-icon--indigo">
-                            <i class="fas fa-shield-halved text-4xl md:text-[2.65rem]" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="md:col-span-7 md:order-1 text-left md:text-right">
-                        <h3 class="font-display text-2xl md:text-3xl font-semibold text-stone-900 mb-3 tracking-tight" data-i18n="index.service2Title">Cybersecurity</h3>
-                        <p class="text-lg text-stone-600 leading-relaxed max-w-xl md:ml-auto font-light" data-i18n="index.service2Benefit">Controls aligned with how you operate—not a generic checklist pasted onto your network.</p>
-                        <span class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-sky-800 group-hover:gap-3 transition-all md:flex-row-reverse" data-i18n="index.serviceCta">Explore solutions <i class="fas fa-arrow-right text-xs opacity-70" aria-hidden="true"></i></span>
-                    </div>
+                <div class="home-expertise-slab__fill-cell home-expertise-slab__fill-cell--right home-stagger-item">
+                    <span class="home-expertise-slab__icon" aria-hidden="true"><i class="fas fa-earth-africa"></i></span>
+                    <h3 class="home-expertise-slab__title font-display text-lg md:text-xl font-semibold text-white tracking-tight mb-2" data-i18n="index.expertiseSlabBlock2Title">Norms, codes &amp; reach</h3>
+                    <p class="home-expertise-slab__lead text-[0.9375rem] leading-[1.55] font-normal" data-i18n="index.expertiseSlabBlock2Lead">Sensitive and large sites where ATEX, EN54, and local codes govern what we design, integrate, and hand over.</p>
+                    <ul class="home-expertise-slab__bullets">
+                        <li data-i18n="index.expertiseSlabBlock2Point1">Norms, building and safety interfaces, and evidence for inspections.</li>
+                        <li data-i18n="index.expertiseSlabBlock2Point2">Casablanca base; project delivery in Morocco and the region.</li>
+                        <li data-i18n="index.expertiseSlabBlock2Point3">Test traceability, upgrades, and evolutions you can file and sign off.</li>
+                    </ul>
                 </div>
-            </a>
-            <a href="solutions.html" class="home-service-panel home-service-panel--shine home-service-panel--v2 home-stagger-item group relative block overflow-hidden rounded-[1.75rem] md:rounded-[2rem]">
-                <span class="home-service-num font-display" aria-hidden="true">03</span>
-                <div class="relative grid md:grid-cols-12 gap-8 md:gap-12 items-center p-8 md:p-12 lg:p-14">
-                    <div class="md:col-span-5 flex justify-center md:justify-start">
-                        <div class="home-service-icon home-service-icon--sky">
-                            <i class="fas fa-video text-4xl md:text-[2.65rem]" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="md:col-span-7">
-                        <h3 class="font-display text-2xl md:text-3xl font-semibold text-stone-900 mb-3 tracking-tight" data-i18n="index.service3Title">Surveillance &amp; VMS</h3>
-                        <p class="text-lg text-stone-600 leading-relaxed max-w-xl font-light" data-i18n="index.service3Benefit">Coverage planned for investigations and operations—not cameras mounted wherever was easiest.</p>
-                        <span class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-sky-800 group-hover:gap-3 transition-all" data-i18n="index.serviceCta">Explore solutions <i class="fas fa-arrow-right text-xs opacity-70" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-            </a>
-            <a href="solutions.html" class="home-service-panel home-service-panel--shine home-service-panel--v2 home-stagger-item group relative block overflow-hidden rounded-[1.75rem] md:rounded-[2rem]">
-                <span class="home-service-num font-display" aria-hidden="true">04</span>
-                <div class="relative grid md:grid-cols-12 gap-8 md:gap-12 items-center p-8 md:p-12 lg:p-14">
-                    <div class="md:col-span-5 md:order-2 flex justify-center md:justify-end">
-                        <div class="home-service-icon home-service-icon--emerald">
-                            <i class="fas fa-network-wired text-4xl md:text-[2.65rem]" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="md:col-span-7 md:order-1 text-left md:text-right">
-                        <h3 class="font-display text-2xl md:text-3xl font-semibold text-stone-900 mb-3 tracking-tight" data-i18n="index.service4Title">Networks &amp; connectivity</h3>
-                        <p class="text-lg text-stone-600 leading-relaxed max-w-xl md:ml-auto font-light" data-i18n="index.service4Benefit">LAN, Wi‑Fi, and fiber paths that stay predictable when usage spikes.</p>
-                        <span class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-sky-800 group-hover:gap-3 transition-all md:flex-row-reverse" data-i18n="index.serviceCta">Explore solutions <i class="fas fa-arrow-right text-xs opacity-70" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-            </a>
+            </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 md:pb-32 text-center">
-            <a href="solutions.html" class="home-solutions-more inline-flex items-center gap-2 text-sm font-medium text-stone-700 pb-0.5 transition-colors" data-i18n="common.viewAllSolutions">View all solutions →</a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 pb-20 md:pb-28 text-center">
+            <a href="solutions.html" class="home-expertise-slab__footer-link home-solutions-more inline-flex items-center gap-2 text-sm font-semibold text-sky-300/95 hover:text-sky-200 transition-colors" data-i18n="common.viewAllSolutions">View all solutions →</a>
         </div>
     </section>
 
@@ -586,6 +588,6 @@
     <script src="js/i18n.js?v=1.0.2"></script>
     <script src="js/main.js?v=1.0.16"></script>
     <script src="js/client-modal.js?v=1.0.5"></script>
-    <script src="js/prefetch-solutions.js?v=1.0.9"></script>
+    <script src="js/prefetch-solutions.js?v=1.0.10"></script>
 </body>
 </html>

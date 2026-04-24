@@ -6,7 +6,8 @@
 declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
-header('Cache-Control: no-store, no-cache');
+/* Short public cache: list changes rarely; speeds repeat views. Hard refresh still updates. */
+header('Cache-Control: public, max-age=60, stale-while-revalidate=120');
 
 $baseDir = dirname(__DIR__);
 require_once $baseDir . '/config/projects-parser.php';

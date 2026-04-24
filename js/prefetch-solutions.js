@@ -35,6 +35,8 @@
     function run() {
         var path = window.location.pathname || '';
         if (path.indexOf('solutions.html') >= 0 || path.endsWith('solutions')) return;
+        /* Do not prefetch 20+ large images on projects page — competes with api/projects.php + card images. */
+        if (path.indexOf('projects.html') >= 0) return;
 
         var head = document.head;
         SOLUTIONS_IMAGES.forEach(function(href) {
