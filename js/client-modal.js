@@ -14,7 +14,9 @@
         'Salam Gaz': 'Salam Gaz',
         'Prison Khémisset': 'Prison Local Khémisset',
         'Tarec': 'Tarec',
-        'Villa Dyafa': 'Villa Dyafa SARL AU',
+        'STORY RABAT': 'STORY RABAT',
+        'Maghreb Oxygene': null,
+        'Stogaz': null,
         'Somas': 'Somas',
         'Afriquia SMDC': 'Afriquia SMDC',
         'Big IT Services': 'Big IT Services',
@@ -170,11 +172,12 @@
         return html;
     }
 
-    function getModalHtml(client, logoImgSrc) {
+    function getModalHtml(client, logoImgSrc, displayTitle) {
+        var tname = (displayTitle && String(displayTitle).trim()) || client.name;
         var infoHtml = '<div class="client-modal-section">' +
             '<h3 class="client-modal-section-title">' + escapeHtml(t('clientModal.projectInfo')) + '</h3>' +
             '<div class="client-modal-info-grid">' +
-            '<div class="client-modal-info-row"><span class="client-modal-info-label">' + escapeHtml(t('clientModal.client')) + '</span><span class="client-modal-info-value">' + escapeHtml(client.name) + '</span></div>' +
+            '<div class="client-modal-info-row"><span class="client-modal-info-label">' + escapeHtml(t('clientModal.client')) + '</span><span class="client-modal-info-value">' + escapeHtml(tname) + '</span></div>' +
             (client.dates ? '<div class="client-modal-info-row"><span class="client-modal-info-label">' + escapeHtml(t('clientModal.projectDate')) + '</span><span class="client-modal-info-value">' + escapeHtml(client.dates) + '</span></div>' : '') +
             '</div></div>';
 
@@ -192,8 +195,8 @@
             '<div class="client-modal">' +
             '<div class="client-modal-header">' +
             '<div class="client-modal-header-inner">' +
-            (logoImgSrc ? '<img src="' + escapeHtml(logoImgSrc) + '" alt="" class="client-modal-logo">' : '') +
-            '<h2 id="client-modal-title" class="client-modal-title">' + escapeHtml(client.name) + '</h2>' +
+            (logoImgSrc ? '<img src="' + escapeHtml(logoImgSrc) + '" alt="' + escapeHtml(tname) + '" class="client-modal-logo">' : '') +
+            '<h2 id="client-modal-title" class="client-modal-title">' + escapeHtml(tname) + '</h2>' +
             '</div>' +
             '<button type="button" class="client-modal-close" aria-label="' + t('clientModal.close') + '">&times;</button>' +
             '</div>' +
@@ -209,7 +212,7 @@
             '<div class="client-modal">' +
             '<div class="client-modal-header">' +
             '<div class="client-modal-header-inner">' +
-            (logoImgSrc ? '<img src="' + escapeHtml(logoImgSrc) + '" alt="" class="client-modal-logo">' : '') +
+            (logoImgSrc ? '<img src="' + escapeHtml(logoImgSrc) + '" alt="' + escapeHtml(clientName) + '" class="client-modal-logo">' : '') +
             '<h2 class="client-modal-title">' + escapeHtml(clientName) + '</h2>' +
             '</div>' +
             '<button type="button" class="client-modal-close" aria-label="' + t('clientModal.close') + '">&times;</button>' +
@@ -223,10 +226,11 @@
             '</div></div>';
     }
 
-    function openModal(client, logoImgSrc) {
+    function openModal(client, logoImgSrc, displayTitle) {
         closeModal();
+        var title = (displayTitle && String(displayTitle).trim()) || (client && client.name) || '';
         var hasData = client && (client.rawText || client.services.length > 0 || client.locations.length > 0 || client.dates);
-        var html = client ? (hasData ? getModalHtml(client, logoImgSrc) : getNoDataHtml(client.name, logoImgSrc)) : null;
+        var html = client ? (hasData ? getModalHtml(client, logoImgSrc, title) : getNoDataHtml(title, logoImgSrc)) : null;
         if (!html) return;
         document.body.insertAdjacentHTML('beforeend', html);
         modalEl = document.getElementById('client-modal-overlay');
@@ -278,9 +282,9 @@
 
         var client = dataName && clientsMap[dataName] ? clientsMap[dataName] : null;
         if (client) {
-            openModal(client, fullLogoSrc);
+            openModal(client, fullLogoSrc, alt);
         } else {
-            openModal({ name: alt, services: [], locations: [], dates: '' }, fullLogoSrc);
+            openModal({ name: alt, services: [], locations: [], dates: '' }, fullLogoSrc, alt);
         }
     }
 

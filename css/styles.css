@@ -269,6 +269,16 @@ html.i18n-ready body {
     max-height: 60px;
 }
 
+/* STORY RABAT (logo asset path unchanged) – smaller than default strip */
+.logo-carousel.trusted-by-marquee .logo-carousel-item:has(img[alt="STORY RABAT"]) {
+    height: 70px;
+    min-width: 130px;
+}
+
+.logo-carousel.trusted-by-marquee .logo-carousel-item:has(img[alt="STORY RABAT"]) img {
+    max-height: 64px;
+}
+
 .logo-carousel.trusted-by-marquee .logo-carousel-item:hover {
     opacity: 1;
     transform: scale(1.05);
