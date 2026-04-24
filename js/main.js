@@ -138,27 +138,38 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
     
-    // Navbar scroll effect
-    let lastScroll = 0;
+    // Navbar scroll effect — rAF + passive to avoid janking main-thread scroll
     const navbar = document.querySelector('nav');
-    
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        
-        if (navbar.classList.contains('nav-over-hero')) {
-            if (currentScroll > 60) {
-                navbar.classList.add('nav-scrolled');
+    if (navbar) {
+        let navScrollRaf = 0;
+        let navScrolledState = null;
+        let navShadowState = null;
+        function applyNavScroll() {
+            navScrollRaf = 0;
+            const currentScroll = window.pageYOffset;
+            if (navbar.classList.contains('nav-over-hero')) {
+                const on = currentScroll > 60;
+                if (on !== navScrolledState) {
+                    navScrolledState = on;
+                    if (on) navbar.classList.add('nav-scrolled');
+                    else navbar.classList.remove('nav-scrolled');
+                }
             } else {
-                navbar.classList.remove('nav-scrolled');
+                const shadow = currentScroll > 100;
+                if (shadow !== navShadowState) {
+                    navShadowState = shadow;
+                    if (shadow) navbar.classList.add('shadow-lg');
+                    else navbar.classList.remove('shadow-lg');
+                }
             }
-        } else if (currentScroll > 100) {
-            navbar.classList.add('shadow-lg');
-        } else {
-            navbar.classList.remove('shadow-lg');
         }
-        
-        lastScroll = currentScroll;
-    });
+        function onNavScroll() {
+            if (navScrollRaf) return;
+            navScrollRaf = requestAnimationFrame(applyNavScroll);
+        }
+        window.addEventListener('scroll', onNavScroll, { passive: true });
+        applyNavScroll();
+    }
     
     // Subtle reveal motion for opted-in sections
     const revealTargets = document.querySelectorAll('.reveal-up');
@@ -183,12 +194,19 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (hero && !reduceMotion) {
             hero.style.setProperty('--hero-mx', '50%');
             hero.style.setProperty('--hero-my', '38%');
+            var heroSpotRaf = 0;
+            var pendingX = 50;
+            var pendingY = 38;
             hero.addEventListener('mousemove', function(e) {
                 const r = hero.getBoundingClientRect();
-                const x = ((e.clientX - r.left) / r.width) * 100;
-                const y = ((e.clientY - r.top) / r.height) * 100;
-                hero.style.setProperty('--hero-mx', x + '%');
-                hero.style.setProperty('--hero-my', y + '%');
+                pendingX = ((e.clientX - r.left) / r.width) * 100;
+                pendingY = ((e.clientY - r.top) / r.height) * 100;
+                if (heroSpotRaf) return;
+                heroSpotRaf = requestAnimationFrame(function() {
+                    heroSpotRaf = 0;
+                    hero.style.setProperty('--hero-mx', pendingX + '%');
+                    hero.style.setProperty('--hero-my', pendingY + '%');
+                });
             });
             hero.addEventListener('mouseleave', function() {
                 hero.style.setProperty('--hero-mx', '50%');
@@ -197,15 +215,20 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
         const progress = document.getElementById('home-wow-scroll-progress');
         const toTop = document.getElementById('home-wow-to-top');
+        let wowScrollRaf = 0;
         function onWowScroll() {
-            const scrollY = window.scrollY || window.pageYOffset;
-            const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-            const pct = (scrollY / max) * 100;
-            if (progress) progress.style.width = pct + '%';
-            if (toTop) {
-                if (scrollY > 420) toTop.classList.add('is-visible');
-                else toTop.classList.remove('is-visible');
-            }
+            if (wowScrollRaf) return;
+            wowScrollRaf = requestAnimationFrame(function() {
+                wowScrollRaf = 0;
+                const scrollY = window.scrollY || window.pageYOffset;
+                const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+                const pct = (scrollY / max) * 100;
+                if (progress) progress.style.width = pct + '%';
+                if (toTop) {
+                    if (scrollY > 420) toTop.classList.add('is-visible');
+                    else toTop.classList.remove('is-visible');
+                }
+            });
         }
         window.addEventListener('scroll', onWowScroll, { passive: true });
         onWowScroll();
@@ -231,7 +254,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (slides.length < 2 || btns.length < 2) return;
 
         const AUTOPLAY_MS = 10000;
-        const TICK_MS = 50;
+        /* ~8 Hz is enough for the 10s ring + second counter; 20 Hz was main-thread heavy */
+        const TICK_MS = 120;
         const WATCHDOG_MS = 1500;
         const TIMER_R = 17;
         const TIMER_CIRC = 2 * Math.PI * TIMER_R;
