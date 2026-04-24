@@ -96,7 +96,7 @@
                                 <td class="text-sm text-gray-500">${new Date(blog.created_at).toLocaleDateString('fr-FR')}</td>
                                 <td style="text-align:right">
                                     <a href="blog-edit.php?id=${blog.id}" class="admin-action" title="Edit"><i class="fas fa-edit"></i></a>
-                                    ${blog.status === 'published' ? `<a href="../blog-detail.php?slug=${blog.slug}" target="_blank" class="admin-action" title="View"><i class="fas fa-external-link-alt"></i></a>` : ''}
+                                    ${blog.status === 'published' ? `<a href="../blog-detail.html?slug=${blog.slug}" target="_blank" class="admin-action" title="View"><i class="fas fa-external-link-alt"></i></a>` : ''}
                                     <button onclick="deleteBlog('${blog.id}')" class="admin-action danger" title="Delete"><i class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
