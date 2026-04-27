@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><title>Blog API Test</title>
+    <link rel="stylesheet" href="css/responsive.css?v=1.0.0">
+    <link rel="icon" type="image/png" href="images/site_logo.png">
+    <link rel="apple-touch-icon" href="images/site_logo.png"></head>
+<body>
+<h1>Blog API Test</h1>
+<p><strong>Page URL:</strong> <span id="page-url"></span></p>
+<p><strong>Expected API:</strong> <span id="expected-api"></span></p>
+<hr>
+<div id="result">Testing...</div>
+<script>
+    document.getElementById('page-url').textContent = window.location.href;
+    const pathname = window.location.pathname || '/';
+    const dir = pathname.substring(0, pathname.lastIndexOf('/') + 1) || '/';
+    const base = window.location.origin + dir;
+    const apiUrl = base + (base.endsWith('/') ? '' : '/') + 'api/blogs.php?public=true';
+    document.getElementById('expected-api').textContent = apiUrl;
+    
+    fetch(apiUrl)
+        .then(r => r.json())
+        .then(d => { document.getElementById('result').innerHTML = '<strong style="color:green">OK</strong><br><pre>' + JSON.stringify(d, null, 2).slice(0, 500) + '...</pre>'; })
+        .catch(e => { document.getElementById('result').innerHTML = '<strong style="color:red">FAIL: ' + e.message + '</strong><br>Try opening this page via: <a href="http://localhost/api/blog-test.html">http://localhost/api/blog-test.html</a>'; });
+</script>
+</body>
+</html>

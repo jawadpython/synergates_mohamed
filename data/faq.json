@@ -1,0 +1,32 @@
+[
+    {
+        "id": "faq_1",
+        "question_fr": "Quels services propose Synergates ?",
+        "question_en": "What services does Synergates offer?",
+        "answer_fr": "Nous proposons des solutions technologiques complètes : CFA, vidéosurveillance, contrôle d'accès, alarme intrusion, détection incendie, sonorisation, réseaux cuivre & fibre, téléphonie IP, télédistribution, affichage dynamique, domotique et support informatique.",
+        "answer_en": "We offer complete technology solutions: CCTV, video surveillance, access control, intrusion alarm, fire detection, sound system, copper & fiber networks, IP telephony, cable distribution, digital signage, home automation and IT support.",
+        "sort_order": 1,
+        "created_at": "2026-03-03 12:21:37",
+        "updated_at": "2026-03-03 12:21:46"
+    },
+    {
+        "id": "faq_2",
+        "question_fr": "Intervenez-vous uniquement au Maroc ?",
+        "question_en": "Do you only operate in Morocco?",
+        "answer_fr": "Nos projets sont basés au Maroc, mais nous intervenons également dans plusieurs pays d'Afrique.",
+        "answer_en": "Our projects are based in Morocco, but we also operate in several African countries.",
+        "sort_order": 2,
+        "created_at": "2026-03-03 12:21:37",
+        "updated_at": "2026-03-03 12:21:37"
+    },
+    {
+        "id": "faq_3",
+        "question_fr": "Quelles normes respectez-vous ?",
+        "question_en": "What standards do you comply with?",
+        "answer_fr": "Nos solutions sont conformes aux normes internationales telles que ATEX, EN54, selon les secteurs et les projets.",
+        "answer_en": "Our solutions comply with international standards such as ATEX, EN54, depending on sectors and projects.",
+        "sort_order": 3,
+        "created_at": "2026-03-03 12:21:37",
+        "updated_at": "2026-03-03 12:21:37"
+    }
+]

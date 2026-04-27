@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Comprehensive solution details for enterprise technology and security solutions.">
+    <meta name="keywords" content="technology solutions, security solutions, enterprise solutions">
+    <title>Solution Details - Synergates</title>
+    <link rel="icon" type="image/png" href="images/site_logo.png">
+    <link rel="apple-touch-icon" href="images/site_logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tailwind-built.css?v=1.0.63">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.88">
+    <link rel="stylesheet" href="css/responsive.css?v=1.0.0">
+    <link rel="stylesheet" href="css/floating-contact.css?v=1.2.0">
+    <!-- Fallback: loader hidden state in case external CSS fails to load on server -->
+    <style>.solution-page-loader--hidden{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease;}</style>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <!-- Image cache busting: version bumped when admin replaces images -->
+    <script src="js/image-cache-bust.js?v=1.0.9" defer></script>
+</head>
+<body class="home-page-surface home-editorial home-premium home-wow home-premium-xp antialiased inner-page">
+    <div class="home-wow-scroll-progress" id="home-wow-scroll-progress" aria-hidden="true"></div>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <!-- Loading overlay: shown for at least 1s until page fully loaded -->
+    <div id="solution-page-loader" class="solution-page-loader">
+        <div class="solution-page-loader__card">
+            <div class="solution-page-loader__brand">
+                <span class="solution-page-loader__logo">S</span>
+                <span class="solution-page-loader__name">SYNERGATES</span>
+            </div>
+            <div class="solution-page-loader__spinner-wrap">
+                <div class="solution-page-loader__spinner"></div>
+            </div>
+            <p class="solution-page-loader__text" data-i18n="solutionDetail.loadingSolution">Chargement de la solution…</p>
+            <div class="solution-page-loader__bar"></div>
+        </div>
+    </div>
+    <script>
+    (function(){
+        var done = false;
+        function hideLoader(){
+            if (done) return;
+            done = true;
+            var el = document.getElementById('solution-page-loader');
+            if (!el) return;
+            el.style.display = 'none';
+            el.style.visibility = 'hidden';
+            try { el.remove(); } catch(e) {}
+        }
+        setTimeout(hideLoader, 2000);
+        function whenLoaded(){
+            setTimeout(hideLoader, 500);
+        }
+        if (document.readyState === 'complete') whenLoaded();
+        else window.addEventListener('load', whenLoaded);
+    })();
+    </script>
+
+    <!-- Navigation: fixed size, same 6 links + EN/FR + phone on all pages -->
+    <nav class="site-nav nav-over-hero home-editorial-nav fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <img src="images/websitelogo.png" alt="SYNERGATES" class="nav-logo h-10 w-auto">
+                    </a>
+                </div>
+                <div class="nav-desktop hidden md:flex items-center space-x-5 flex-nowrap">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.home">Accueil</a>
+                    <a href="solutions.html" class="nav-link text-blue-600 font-medium whitespace-nowrap" data-i18n="common.solutions">Solutions</a>
+                    <a href="projects.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.projects">Projets</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.about">À propos</a>
+                    <a href="blog.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.blog">Blog</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.contact">Contact</a>
+                    <a href="faq.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.faq">FAQ</a>
+                    <div class="flex items-center gap-2 ml-1 flex-shrink-0" role="group" aria-label="Language">
+                        <button type="button" data-lang-btn="en" class="lang-btn px-2 py-1 text-sm rounded hover:bg-gray-100">EN</button>
+                        <span class="text-gray-400">|</span>
+                        <button type="button" data-lang-btn="fr" class="lang-btn px-2 py-1 text-sm rounded hover:bg-gray-100">FR</button>
+                    </div>
+                    <a href="tel:+212522096855" class="nav-link ml-2 text-gray-700 hover:text-gray-900 font-medium flex-shrink-0 whitespace-nowrap"><i class="fas fa-phone mr-1"></i><span class="nav-phone">+212 522 09 68 55</span></a>
+                </div>
+                <button id="mobile-menu-btn" class="nav-mobile-btn md:hidden focus:outline-none p-2" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t shadow-lg">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.home">Accueil</a>
+                <a href="solutions.html" class="block px-4 py-3 text-blue-600 bg-blue-50 rounded-lg font-medium" data-i18n="common.solutions">Solutions</a>
+                <a href="projects.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.projects">Projets</a>
+                <a href="about.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.about">À propos</a>
+                <a href="blog.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.blog">Blog</a>
+                <a href="contact.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.contact">Contact</a>
+                <a href="faq.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.faq">FAQ</a>
+                <div class="flex justify-center gap-2 py-2">
+                    <button type="button" data-lang-btn="en" class="lang-btn px-3 py-1 text-sm rounded">EN</button>
+                    <button type="button" data-lang-btn="fr" class="lang-btn px-3 py-1 text-sm rounded">FR</button>
+                </div>
+                <a href="tel:+212522096855" class="block px-4 py-3 text-center font-medium">+212 522 09 68 55</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section id="main-content" class="reveal-up pt-16 md:pt-20 lg:pt-24 pb-12 md:pb-16 bg-slate-900 text-white page-hero page-hero--with-photo relative overflow-hidden">
+        <div class="page-hero-photo" aria-hidden="true">
+            <img src="images/home_page/image1%20(3).webp" alt="" class="page-hero-photo__img" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high">
+            <div class="page-hero-photo__scrim" aria-hidden="true"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl">
+                <div class="inline-block px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full mb-6">
+                    <span class="text-blue-300 text-sm font-semibold uppercase tracking-wide" id="solution-type" data-i18n="solutionDetail.solution">Solution</span>
+                </div>
+                <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight" id="solution-title" data-i18n="solutionDetail.solutionTitle">Solution Title</h1>
+                <p class="text-base md:text-lg text-gray-300 mb-8 leading-relaxed" id="solution-subtitle" data-i18n="solutionDetail.solutionSubtitle">Comprehensive solution description and primary value proposition for enterprise clients.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="contact.html" class="bg-blue-600 text-white px-8 py-3 rounded text-base font-medium hover:bg-blue-700 transition-colors" data-i18n="solutionDetail.contactUs">Contact Us</a>
+                    <a href="solutions.html" class="bg-transparent text-white border border-gray-600 px-8 py-3 rounded text-base font-medium hover:border-gray-400 transition-colors" data-i18n="solutionDetail.backToSolutions">Back to Solutions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apartments Scenario: Diagram with Overlay Buttons -->
+    <section id="apartments-diagram-section" class="py-16 sm:py-20 md:py-24 bg-white hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <p class="text-lg text-gray-600 leading-relaxed mb-8" data-i18n="solutionDetail.apartmentsIntro">
+                    Apartment security is always an incredibly demanding security scenario. People need not just security around their home, but a better residential experience with it. Built on a system of security, we offer an innovative entry & exit experience to boost rush hour efficiency for both residents and walk-in visitors. Also, AI-empowered video security stands like a reassuring guard 24/7. Our Solution by Scenario for Apartments helps users enjoy a safer and more pleasant living experience at a minimal cost with reliable delivery and performance.
+                </p>
+                <div class="relative rounded-lg overflow-hidden bg-gray-100 shadow-lg" id="diagram-container">
+                    <!-- Fixed frame so % positions stay aligned when the image file is replaced -->
+                    <div id="diagram-image-wrap" class="relative w-full aspect-[16/10] max-h-[min(72vh,620px)] bg-slate-200/80">
+                    <img id="apartments-diagram-image" src="images/solutions/buldingimage.png" alt="Apartments Security Solution Diagram" class="absolute inset-0 w-full h-full object-cover object-center block pointer-events-none">
+                    <!-- Draggable buttons on image - rectangular blue with number badge -->
+                    <button type="button" class="diagram-btn solution-hotspot-btn absolute z-10 flex items-center whitespace-nowrap cursor-pointer select-none" data-id="1" data-default-left="68" data-default-top="60" data-title="Vehicle entrance & exit" data-desc="Secure vehicle access control with license plate recognition, barrier gates, and visitor management.">
+                        <span class="solution-hotspot-badge">1</span>
+                        <span data-i18n="solutionDetail.apartmentsVehicleTitle">Vehicle entrance & exit</span>
+                    </button>
+                    <button type="button" class="diagram-btn solution-hotspot-btn absolute z-10 flex items-center whitespace-nowrap cursor-pointer select-none" data-id="2" data-default-left="20" data-default-top="45" data-title="Lobby" data-desc="Main entrance security with access control, video intercom, and visitor registration.">
+                        <span class="solution-hotspot-badge">2</span>
+                        <span data-i18n="solutionDetail.apartmentsLobby">Lobby</span>
+                    </button>
+                    <button type="button" class="diagram-btn solution-hotspot-btn absolute z-10 flex items-center whitespace-nowrap cursor-pointer select-none" data-id="3" data-default-left="45" data-default-top="15" data-title="Public Indoor Space" data-desc="Surveillance and monitoring for common areas, corridors, and shared facilities.">
+                        <span class="solution-hotspot-badge">3</span>
+                        <span data-i18n="solutionDetail.apartmentsPublicSpace">Public Indoor Space</span>
+                    </button>
+                    <button type="button" class="diagram-btn solution-hotspot-btn absolute z-10 flex items-center whitespace-nowrap cursor-pointer select-none" data-id="4" data-default-left="5" data-default-top="55" data-title="Perimeter" data-desc="Perimeter intrusion detection, fence alarms, and boundary monitoring systems.">
+                        <span class="solution-hotspot-badge">4</span>
+                        <span data-i18n="solutionDetail.apartmentsPerimeter">Perimeter</span>
+                    </button>
+                    <button type="button" class="diagram-btn solution-hotspot-btn absolute z-10 flex items-center whitespace-nowrap cursor-pointer select-none" data-id="5" data-default-left="42" data-default-top="82" data-title="Control Room" data-desc="Centralized security monitoring, video management, and incident response center.">
+                        <span class="solution-hotspot-badge">5</span>
+                        <span data-i18n="solutionDetail.apartmentsControlRoom">Control Room</span>
+                    </button>
+                    </div>
+                </div>
+                <div id="diagram-positions-toolbar" class="mt-4 flex flex-wrap items-center gap-3">
+                    <button type="button" id="diagram-enable-editing-btn" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors border border-gray-300"><i class="fas fa-edit"></i><span data-i18n="solutionDetail.enableEditing">Enable editing</span></button>
+                    <span id="diagram-enable-editing-state" class="text-sm text-gray-500 hidden" data-i18n="solutionDetail.dragLabelsToReposition">Drag labels to reposition.</span>
+                    <button type="button" id="diagram-save-positions-to-server-btn" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"><i class="fas fa-save"></i><span data-i18n="solutionDetail.savePositionsToServer">Save positions to server</span></button>
+                    <span id="diagram-save-positions-message" class="text-sm text-gray-600 hidden"></span>
+                </div>
+                <!-- Content panel below image - updates when button is clicked -->
+                <div id="diagram-content-panel" class="mt-16 min-h-[200px]">
+                    <p id="diagram-content-placeholder" class="text-gray-500 text-center py-16 text-lg" data-i18n="solutionDetail.clickToViewDetails">Click a button above to view details</p>
+                    <div id="diagram-content-area" class="hidden"></div>
+                </div>
+                <!-- Hidden content for each diagram section -->
+                <template id="content-1">
+                    <div class="pt-4">
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-16 text-center" data-i18n="solutionDetail.apartmentsVehicleTitle">Vehicle entrance & exit</h3>
+
+                        <h4 class="font-semibold text-gray-900 text-xl mb-4" data-i18n="solutionDetail.challenges">Challenges</h4>
+                        <p class="text-gray-600 text-base md:text-lg mb-12 leading-relaxed max-w-3xl" data-i18n="solutionDetail.apartmentsVehicleChallenges">Physical ID check at entries and exits can be inconvenient and time-consuming during rush hours, and difficult to trace back for incident investigation.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 mb-20">
+                            <div>
+                                <img src="images/solution-detail/apartments/photo1.jpg" alt="Busy hour congestion" class="w-full h-56 md:h-64 object-cover rounded-lg" data-i18n-alt="solutionDetail.apartmentsVehicleImg1">
+                                <p class="mt-4 text-center text-gray-700 font-medium" data-i18n="solutionDetail.apartmentsVehicleImg1">Busy hour congestion</p>
+                            </div>
+                            <div>
+                                <img src="images/solution-detail/apartments/photo2.jpg" alt="Difficulty retrieving records" class="w-full h-56 md:h-64 object-cover rounded-lg" data-i18n-alt="solutionDetail.apartmentsVehicleImg2">
+                                <p class="mt-4 text-center text-gray-700 font-medium" data-i18n="solutionDetail.apartmentsVehicleImg2">Difficulty retrieving records</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-900 text-xl mb-4 text-center" data-i18n="solutionDetail.whatWeOffer">What we offer</h4>
+                        <p class="text-gray-600 text-base md:text-lg mb-16 leading-relaxed text-center max-w-3xl mx-auto" data-i18n="solutionDetail.apartmentsVehicleOffer">A hands-free, authenticated drive-through system elevates the residential experience and boosts rush hour efficiency with easy-to-retrieve records – also enhancing security management.</p>
+                    </div>
+                </template>
+                <template id="content-2">
+                    <div class="pt-4">
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-16 text-center" data-i18n="solutionDetail.apartmentsLobby">Lobby</h3>
+
+                        <h4 class="font-semibold text-gray-900 text-xl mb-4" data-i18n="solutionDetail.challenges">Challenges</h4>
+                        <p class="text-gray-600 text-base md:text-lg mb-12 leading-relaxed max-w-3xl" data-i18n="solutionDetail.apartmentsLobbyChallenges">Lobbies connect entrances and other public indoor spaces to private rooms and floors. Property managers need situational awareness over both security and service quality.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 mb-20">
+                            <div>
+                                <img src="images/solution-detail/apartments/photo3.jpg" alt="Difficult to balance security with convenience" class="w-full h-56 md:h-64 object-cover rounded-lg" data-i18n-alt="solutionDetail.apartmentsLobbyImg1">
+                                <p class="mt-4 text-center text-gray-700 font-medium" data-i18n="solutionDetail.apartmentsLobbyImg1">Difficult to balance security with convenience</p>
+                            </div>
+                            <div>
+                                <img src="images/solution-detail/apartments/photo2.jpg" alt="Difficult to search for records and data" class="w-full h-56 md:h-64 object-cover rounded-lg" data-i18n-alt="solutionDetail.apartmentsLobbyImg2">
+                                <p class="mt-4 text-center text-gray-700 font-medium" data-i18n="solutionDetail.apartmentsLobbyImg2">Difficult to search for records and data</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-900 text-xl mb-4 text-center" data-i18n="solutionDetail.whatWeOffer">What we offer</h4>
+                        <p class="text-gray-600 text-base md:text-lg mb-16 leading-relaxed text-center max-w-3xl mx-auto" data-i18n="solutionDetail.apartmentsLobbyOffer">Touch-free access control experience with professional video security for incident validation, creating a safe and convenient living experience.</p>
+                    </div>
+                </template>
+                <template id="content-3">
+                    <div class="pt-4">
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-16 text-center" data-i18n="solutionDetail.apartmentsPublicSpace">Public Indoor Space</h3>
+
+                        <h4 class="font-semibold text-gray-900 text-xl mb-4" data-i18n="solutionDetail.challenges">Challenges</h4>
+                        <p class="text-gray-600 text-base md:text-lg mb-12 leading-relaxed max-w-3xl" data-i18n="solutionDetail.apartmentsPublicChallenges">Security requires clear video coverage over wide areas with various environmental lighting challenges. Strong afternoon backlighting, dim nighttime lighting, and obstructions usually run on a limited budget.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 mb-20">
+                            <div>
+                                <img src="images/solution-detail/apartments/photo4.jpg" alt="Lack of visual details" class="w-full h-56 md:h-64 object-cover rounded-lg" data-i18n-alt="solutionDetail.apartmentsPublicImg1">
+                                <p class="mt-4 text-center text-gray-700 font-medium" data-i18n="solutionDetail.apartmentsPublicImg1">Lack of visual details</p>
+                            </div>
+                            <div>
+                                <img src="images/solution-detail/apartments/photo5.jpg" alt="Installation labor and costs" class="w-full h-56 md:h-64 object-cover rounded-lg" data-i18n-alt="solutionDetail.apartmentsPublicImg2">
+                                <p class="mt-4 text-center text-gray-700 font-medium" data-i18n="solutionDetail.apartmentsPublicImg2">Installation labor and costs</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-900 text-xl mb-4 text-center" data-i18n="solutionDetail.whatWeOffer">What we offer</h4>
+                        <p class="text-gray-600 text-base md:text-lg mb-16 leading-relaxed text-center max-w-3xl mx-auto" data-i18n="solutionDetail.apartmentsPublicOffer">Professional indoor video security at minimal installation cost, protecting your indoor public spaces using products from industry-leading CCTV providers.</p>
+                    </div>
+                </template>
+                <template id="content-4">
+                    <div class="pt-4">
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-16 text-center" data-i18n="solutionDetail.apartmentsPerimeter">Perimeter</h3>
+
+                        <h4 class="font-semibold text-gray-900 text-xl mb-4" data-i18n="solutionDetail.challenges">Challenges</h4>
+                        <p class="text-gray-600 text-base md:text-lg mb-12 leading-relaxed max-w-3xl" data-i18n="solutionDetail.apartmentsPerimeterChallenges">Apartment perimeters usually see very limited nighttime lighting. Security teams need to quickly distinguish approaching humans or vehicles from harmless objects, and effectively stop trespassing as early as possible.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 mb-20">
+                            <div>
+                                <img src="images/solution-detail/apartments/photo6.jpg" alt="Dim lighting and false alarms" class="w-full h-56 md:h-64 object-cover rounded-lg" data-i18n-alt="solutionDetail.apartmentsPerimeterImg1">
+                                <p class="mt-4 text-center text-gray-700 font-medium" data-i18n="solutionDetail.apartmentsPerimeterImg1">Dim lighting and false alarms</p>
+                            </div>
+                            <div>
+                                <img src="images/solution-detail/apartments/photo7.jpg" alt="Quick intrusion response and deterrence" class="w-full h-56 md:h-64 object-cover rounded-lg" data-i18n-alt="solutionDetail.apartmentsPerimeterImg2">
+                                <p class="mt-4 text-center text-gray-700 font-medium" data-i18n="solutionDetail.apartmentsPerimeterImg2">Quick intrusion response and deterrence</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-900 text-xl mb-4 text-center" data-i18n="solutionDetail.whatWeOffer">What we offer</h4>
+                        <p class="text-gray-600 text-base md:text-lg mb-16 leading-relaxed text-center max-w-3xl mx-auto" data-i18n="solutionDetail.apartmentsPerimeterOffer">24/7, All-weather, AI-empowered Perimeter Protection with On-site Lighting and Sound Deterrence help users gain higher security confidence.</p>
+                    </div>
+                </template>
+                <template id="content-5">
+                    <div class="pt-4">
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-16 text-center" data-i18n="solutionDetail.apartmentsControlRoom">Control Room</h3>
+
+                        <h4 class="font-semibold text-gray-900 text-xl mb-4" data-i18n="solutionDetail.challenges">Challenges</h4>
+                        <p class="text-gray-600 text-base md:text-lg mb-12 leading-relaxed max-w-3xl" data-i18n="solutionDetail.apartmentsControlChallenges">Control rooms usually combine multiple functions with various subsystems and equipment. Limited cross-application visibility and controls can easily double the workload for security staff and IT departments with difficult maintenance.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 mb-20">
+                            <div>
+                                <img src="images/solution-detail/apartments/photo8.jpg" alt="Limited staff, various subsystems" class="w-full h-56 md:h-64 object-cover rounded-lg" data-i18n-alt="solutionDetail.apartmentsControlImg1">
+                                <p class="mt-4 text-center text-gray-700 font-medium" data-i18n="solutionDetail.apartmentsControlImg1">Limited staff, various subsystems</p>
+                            </div>
+                            <div>
+                                <img src="images/solution-detail/apartments/photo9.jpg" alt="Complex IT maintenance" class="w-full h-56 md:h-64 object-cover rounded-lg" data-i18n-alt="solutionDetail.apartmentsControlImg2">
+                                <p class="mt-4 text-center text-gray-700 font-medium" data-i18n="solutionDetail.apartmentsControlImg2">Complex IT maintenance</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-900 text-xl mb-4 text-center" data-i18n="solutionDetail.whatWeOffer">What we offer</h4>
+                        <p class="text-gray-600 text-base md:text-lg mb-16 leading-relaxed text-center max-w-3xl mx-auto" data-i18n="solutionDetail.apartmentsControlOffer">All subsystems are unified on one platform for monitoring, incident handling, remote control, and maintenance, helping control room staff make management simpler and more effective.</p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other scenarios: image + section buttons + content (like apartments page) -->
+    <section id="scenario-image-section" class="py-16 sm:py-20 md:py-24 bg-white hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4" data-i18n="solutionDetail.solutionOverview">Solution overview</h2>
+                <p id="scenario-image-intro" class="text-lg text-gray-600 leading-relaxed mb-8"></p>
+                <div id="scenario-image-container" class="relative rounded-lg overflow-hidden bg-gray-100 shadow-lg mb-6">
+                    <!-- Same aspect frame as listing cards (16:10) so hotspot % stay stable when images are swapped -->
+                    <div id="scenario-image-wrap" class="relative w-full aspect-[16/10] max-h-[min(72vh,620px)]">
+                    <img id="scenario-image" src="" alt="" class="absolute inset-0 w-full h-full object-cover object-center block">
+                    <div id="scenario-image-placeholder" class="hidden absolute inset-0 z-[5] bg-gray-200 flex items-center justify-center text-gray-500 text-sm px-4 text-center">
+                        <span>Add <strong>images/solutions/<span id="scenario-filename"></span></strong> to show this image</span>
+                    </div>
+                    <!-- Section buttons on the image - draggable to any position -->
+                    <div id="scenario-section-buttons" class="absolute inset-0 z-10 pointer-events-none [&_.scenario-section-btn]:pointer-events-auto"></div>
+                    </div>
+                </div>
+                <!-- Content panel - updates when section button is clicked -->
+                <div id="scenario-content-panel" class="mt-8 min-h-[200px]">
+                    <p id="scenario-content-placeholder" class="text-gray-500 text-center py-16 text-lg" data-i18n="solutionDetail.clickToViewDetails">Click a button above to view details</p>
+                    <div id="scenario-content-area" class="hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry/Scenario Overview -->
+    <section class="py-16 sm:py-20 md:py-24 bg-white" id="overview-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-lg mb-6">
+                    <span class="text-sm font-semibold" data-i18n="solutionDetail.overview">Overview</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight" data-i18n="solutionDetail.industryScenarioOverview">Industry/Scenario Overview</h2>
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-4" id="overview-content" data-i18n="solutionDetail.overviewDefault">This section provides a comprehensive overview of the industry or scenario context. It explains the operational environment, typical requirements, and the importance of implementing robust security and technology solutions in this specific context.</p>
+                    <p class="text-lg text-gray-600 leading-relaxed" id="overview-content-2" data-i18n="solutionDetail.overviewDefault2">Understanding the unique challenges and operational characteristics helps in designing tailored solutions that address specific needs while ensuring scalability, reliability, and compliance with industry standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="home-footer-dark home-footer--editorial border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="images/websitelogo.png" alt="SYNERGATES" class="h-10 w-auto">
+                    </div>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed" data-i18n="common.footerDesc">Intégrateur de solutions technologiques au Maroc et en Afrique.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n-attr="aria-label:common.ariaLinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin text-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n-attr="aria-label:common.ariaTwitter" aria-label="Twitter"><i class="fab fa-twitter text-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n-attr="aria-label:common.ariaFacebook" aria-label="Facebook"><i class="fab fa-facebook text-lg"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-semibold text-base mb-4" data-i18n="common.quickLinks">Quick Links</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="common.solutions">Solutions</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="common.projects">Projects</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="common.aboutUs">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="common.contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Solutions -->
+                <div>
+                    <h3 class="text-white font-semibold text-base mb-4" data-i18n="common.solutions">Solutions</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="controle-acces.html" class="text-gray-400 hover:text-white transition-colors">Contrôle d'accès</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="solutionDetail.allSolutions">All Solutions</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="solutionDetail.byIndustry">By Industry</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="solutionDetail.byFunction">By Function</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-i18n="solutionDetail.byScenario">By Scenario</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Details -->
+                <div>
+                    <h3 class="text-white font-semibold text-base mb-4" data-i18n="common.contact">Contact</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1 text-gray-500"></i>
+                            <span class="text-gray-400" data-i18n="common.address">144 Rue M Smiha, Casablanca, Maroc</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-gray-500"></i>
+                            <a href="tel:+212660307007" class="text-gray-400 hover:text-white transition-colors">+212 660 30 70 07</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-gray-500"></i>
+                            <a href="tel:+212522096855" class="text-gray-400 hover:text-white transition-colors">+212 522 09 68 55</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gray-500"></i>
+                            <a href="mailto:info@synergates.ma" class="text-gray-400 hover:text-white transition-colors">info@synergates.ma</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                    <p data-i18n="footer.copyright">© 2025 par SYNERGATES.</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-gray-300 transition-colors" data-i18n="common.privacyPolicy">Privacy Policy</a>
+                        <a href="#" class="hover:text-gray-300 transition-colors" data-i18n="common.termsOfService">Terms of Service</a>
+                        <a href="#" class="hover:text-gray-300 transition-colors" data-i18n="common.cookiePolicy">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#main-content" class="home-wow-to-top" id="home-wow-to-top" data-i18n-attr="aria-label:common.backToTop" title="Back to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </a>
+
+    <div id="floating-contact" class="floating-contact" role="complementary" aria-label="Contact">
+        <div id="floating-contact-panel" class="floating-contact__panel" role="group" aria-label="Contact">
+            <a href="contact.html" class="floating-contact__pill floating-contact__pill--quote">
+                <span class="floating-contact__dot" aria-hidden="true"></span>
+                <span class="floating-contact__label" data-i18n="common.floatingQuoteCta">Demander un devis</span>
+            </a>
+            <a href="https://wa.me/212666619128" target="_blank" rel="noopener noreferrer" class="floating-contact__pill floating-contact__pill--whatsapp">
+                <span class="floating-contact__dot floating-contact__dot--wa" aria-hidden="true"></span>
+                <span class="floating-contact__label" data-i18n="common.floatingWhatsAppCta">Contact WhatsApp</span>
+            </a>
+        </div>
+        <button type="button" id="floating-contact-toggle" class="floating-contact__toggle" aria-expanded="false" aria-controls="floating-contact-panel" aria-label="">
+            <i class="fas fa-comment-dots fc-icon-open" aria-hidden="true"></i>
+            <i class="fas fa-times fc-icon-close" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');</script>
+    <script src="js/i18n.js?v=1.0.2"></script>
+    <script src="lang/scenario-fr.js?v=1.0.1"></script>
+    <script src="js/main.js?v=1.0.19"></script>
+    <script src="js/prefetch-solutions.js?v=1.0.10"></script>
+    <script src="js/scenario-content.js?v=1.0.1"></script>
+    <script>
+        /* Embedded positions – no fetch needed, works on cPanel */
+        window.EMBEDDED_POSITIONS = {"conference-rooms":[{"left":5,"top":8},{"left":90,"top":8}],"classroom-hub":[{"left":5,"top":8},{"left":90,"top":8},{"left":5,"top":88},{"left":90,"top":88}],"hotels":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48},{"left":35,"top":48},{"left":65,"top":48},{"left":92,"top":48}],"factories":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48},{"left":35,"top":48}],"offices":[{"left":5,"top":8},{"left":20,"top":8},{"left":35,"top":8},{"left":50,"top":8},{"left":65,"top":8},{"left":80,"top":8},{"left":92,"top":8},{"left":5,"top":48}],"gas-stations":[{"left":5,"top":8},{"left":20,"top":8},{"left":35,"top":8},{"left":50,"top":8},{"left":65,"top":8},{"left":80,"top":8},{"left":92,"top":8}],"schools":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48},{"left":35,"top":48}],"warehouses":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8}],"construction-site":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48},{"left":35,"top":48}],"urban-roadways":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48},{"left":35,"top":48},{"left":65,"top":48}],"stores":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48},{"left":35,"top":48}],"bus-stop":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48}],"car-dealerships":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48},{"left":35,"top":48}],"electrical-substations":[{"left":5,"top":8},{"left":50,"top":8},{"left":92,"top":8}],"highways":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48},{"left":35,"top":48}],"monitoring-center":[{"left":5,"top":8},{"left":50,"top":8},{"left":92,"top":8}],"parking-lots":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8}],"shopping-malls":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8}],"transit-bus-onboard":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8}],"supermarkets":[{"left":5,"top":8},{"left":20,"top":8},{"left":35,"top":8},{"left":50,"top":8},{"left":65,"top":8},{"left":92,"top":8}],"onshore-oilfields":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48}],"offshore-oil-platform":[{"left":5,"top":8},{"left":50,"top":8},{"left":92,"top":8}],"transmission-line-inspection":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8}],"pipeline-inspection":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8}],"solar-farms":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8}],"hydroelectric-power-plants":[{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8}]};
+    </script>
+    <script>
+        // URL params and scenario-specific content
+        function applyScenarioContent() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let scenario = urlParams.get('scenario');
+            // Default to apartments if no scenario (ensures editing toolbar is visible)
+            if (!scenario) {
+                scenario = 'apartments';
+                if (typeof window.history !== 'undefined' && window.history.replaceState) {
+                    window.history.replaceState({}, '', 'solution-detail.html?scenario=apartments');
+                }
+            }
+
+            // Format scenario slug for display (e.g. "classroom-hub" -> "Classroom Hub")
+            function formatScenarioName(slug) {
+                if (!slug) return '';
+                return slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+            }
+
+            /** API key: scenario + filename so replacing an image does not reuse old saved hotspots. */
+            function positionsApiKey(scenarioSlug, imageFile) {
+                var filePart = String(imageFile).replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+                return scenarioSlug + '-' + filePart;
+            }
+            function safeStorageSuffix(imageFile) {
+                return String(imageFile).replace(/[^a-zA-Z0-9._-]/g, '_');
+            }
+
+            const solutionTitle = document.getElementById('solution-title');
+            const solutionSubtitle = document.getElementById('solution-subtitle');
+            const solutionType = document.getElementById('solution-type');
+            const overviewSection = document.getElementById('overview-section');
+
+            if (scenario === 'apartments' || scenario === 'apartmentsi') {
+                // Show apartments diagram section (apartmentsi uses alternate diagram image)
+                const diagramSection = document.getElementById('apartments-diagram-section');
+                if (diagramSection) {
+                    diagramSection.classList.remove('hidden');
+                }
+                var apartmentsDiagramImg = document.getElementById('apartments-diagram-image');
+                if (apartmentsDiagramImg) {
+                    var diagramPath = (scenario === 'apartmentsi')
+                        ? './images/solutions/builifingaimage.png'
+                        : './images/solutions/buldingimage.png';
+                    apartmentsDiagramImg.src = (typeof window.imgUrl === 'function')
+                        ? window.imgUrl(diagramPath)
+                        : (diagramPath + (diagramPath.indexOf('?') >= 0 ? '&' : '?') + 'v=' + (window.IMAGE_VERSION || Date.now()));
+                }
+                if (solutionTitle) solutionTitle.textContent = (window.i18n && window.i18n.t ? i18n.t('solutions.apartments') : 'Apartments');
+                if (solutionSubtitle) solutionSubtitle.textContent = (window.i18n && window.i18n.t ? i18n.t('solutions.apartmentsDesc') : 'A secure and efficient way to manage your Apartments. Apartment security management solution with innovative entry & exit experience and AI-empowered video security.');
+                if (solutionType) solutionType.textContent = (window.i18n && window.i18n.t ? i18n.t('solutionDetail.solutionByScenario') : 'Solution by Scenario');
+                if (overviewSection) overviewSection.classList.add('hidden');
+            } else if (scenario) {
+                // Map scenario slug to actual image filename in images/solutions/
+                const scenarioImageMap = {
+                    'apartments': 'buldingimage.png', 'factories': 'Factories.png', 'classroom-hub': 'Classroom hub.png',
+                    'urban-roadways': 'Urban roadways.png', 'offices': 'Office Buildings.png', 'stores': 'Supermarkets.png',
+                    'bus-stop': 'Bus Stop.png', 'car-dealerships': 'Car Dealerships.png', 'conference-rooms': 'Conference Rooms.png',
+                    'construction-site': 'Construction Site.png', 'electrical-substations': 'Electrical Substations.png',
+                    'gas-stations': 'Gas Stations.png', 'highways': 'Highways.png', 'hotels': 'Hotels.png',
+                    'monitoring-center': 'Monitoring Center.png', 'parking-lots': 'Parking Lots.png', 'schools': 'Schools.png',
+                    'shopping-malls': 'Shopping Malls.png', 'transit-bus-onboard': 'Transit Bus On-board.png',
+                    'warehouses': 'Warehouses.png', 'onshore-oilfields': 'Onshore Oilfields.png', 'supermarkets': 'Supermarkets.png',
+                    'offshore-oil-platform': 'Onshore Oilfields.png', 'transmission-line-inspection': 'Transmission Line Inspection.png',
+                    'pipeline-inspection': 'Pipeline Inspection.png', 'solar-farms': 'Solar Farms.png',
+                    'hydroelectric-power-plants': 'Hydroelectric Power Plants.png'
+                };
+                const scenarioImageSection = document.getElementById('scenario-image-section');
+                const scenarioImg = document.getElementById('scenario-image');
+                const scenarioFilenameSpan = document.getElementById('scenario-filename');
+                if (scenarioImageSection && scenarioImg) {
+                    scenarioImageSection.classList.remove('hidden');
+                    const scenarioName = formatScenarioName(scenario);
+                    const imageFile = scenarioImageMap[scenario] || scenario + '.jpg';
+                    var imgSrc = './images/solutions/' + encodeURI(imageFile);
+                    scenarioImg.src = (typeof window.imgUrl === 'function') ? window.imgUrl(imgSrc) : (imgSrc + (imgSrc.indexOf('?') >= 0 ? '&' : '?') + 'v=' + (window.IMAGE_VERSION || Date.now()));
+                    scenarioImg.alt = scenarioName + ' – Security & Technology Solution';
+                    scenarioImg.onerror = function() {
+                        this.style.display = 'none';
+                        const ph = document.getElementById('scenario-image-placeholder');
+                        if (ph) ph.classList.remove('hidden');
+                    };
+                    if (scenarioFilenameSpan) scenarioFilenameSpan.textContent = imageFile;
+                    var scenarioI18nKey = scenario.replace(/-([a-z])/g, function(_, c){ return c.toUpperCase(); });
+                    var titleKey = 'solutions.' + scenarioI18nKey;
+                    var descKey = 'solutions.' + scenarioI18nKey + 'Desc';
+                    if (solutionTitle) solutionTitle.textContent = (window.i18n && window.i18n.t && i18n.t(titleKey) !== titleKey) ? i18n.t(titleKey) : scenarioName;
+                    if (solutionSubtitle) solutionSubtitle.textContent = (window.i18n && window.i18n.t && i18n.t(descKey) !== descKey) ? i18n.t(descKey) : ('Tailored security and technology solutions for ' + scenarioName + '.');
+                    if (solutionType) solutionType.textContent = (window.i18n && window.i18n.t ? i18n.t('solutionDetail.solutionByScenario') : 'Solution by Scenario');
+                    if (overviewSection) overviewSection.classList.add('hidden');
+                    // Load scenario content (intro + section buttons + content)
+                    if (typeof getScenarioContent === 'function' && typeof renderSectionContent === 'function') {
+                        const content = getScenarioContent(scenario);
+                        const introEl = document.getElementById('scenario-image-intro');
+                        if (introEl) introEl.textContent = content.intro;
+                        const btnContainer = document.getElementById('scenario-section-buttons');
+                        const contentPlaceholder = document.getElementById('scenario-content-placeholder');
+                        const contentArea = document.getElementById('scenario-content-area');
+                        const contentPanel = document.getElementById('scenario-content-panel');
+                        if (btnContainer && content.sections && content.sections.length > 0) {
+                            const POSITIONS_KEY = 'scenario-section-positions-' + scenario + '-' + safeStorageSuffix(imageFile);
+
+                            function defaultPositions(n) {
+                                const positions = [];
+                                const cols = Math.ceil(Math.sqrt(n));
+                                for (let i = 0; i < n; i++) {
+                                    const row = Math.floor(i / cols);
+                                    const col = i % cols;
+                                    const left = 5 + (col / Math.max(cols - 1, 1)) * 85;
+                                    const top = 8 + (row / Math.max(Math.ceil(n / cols) - 1, 1)) * 80;
+                                    positions.push({ left: Math.min(left, 92), top: Math.min(top, 88) });
+                                }
+                                return positions;
+                            }
+
+                            const canPersistPositions =
+                                window.location.protocol === 'http:' ||
+                                window.location.protocol === 'https:';
+
+                            const API_POSITIONS = 'api/positions.php';
+
+                            let positions;
+
+                            // 1) On HTTP(S), try localStorage first (instant), then we'll optionally overwrite from server
+                            if (canPersistPositions) {
+                                try {
+                                    const saved = localStorage.getItem(POSITIONS_KEY);
+                                    if (saved) {
+                                        const pos = JSON.parse(saved);
+                                        if (Array.isArray(pos) && pos.length === content.sections.length) {
+                                            positions = pos;
+                                        }
+                                    }
+                                } catch (e) {
+                                    // Ignore JSON / storage errors and fall back below
+                                }
+                            }
+
+                            // 2) Otherwise fall back to embedded default positions (same for all environments)
+                            if (!positions && window.EMBEDDED_POSITIONS) {
+                                const arr = window.EMBEDDED_POSITIONS[scenario];
+                                if (
+                                    Array.isArray(arr) &&
+                                    arr.length === content.sections.length &&
+                                    arr.every(function(p) {
+                                        return typeof (p && p.left) === 'number' &&
+                                               typeof (p && p.top) === 'number';
+                                    })
+                                ) {
+                                    positions = arr;
+                                }
+                            }
+
+                            // 3) Final fallback – auto-generate a grid
+                            if (!positions) positions = defaultPositions(content.sections.length);
+
+                            btnContainer.innerHTML = content.sections.map((s, i) => {
+                                const p = positions[i] || defaultPositions(content.sections.length)[i];
+                                return '<button type="button" class="scenario-section-btn solution-hotspot-btn absolute z-10 flex items-center whitespace-nowrap cursor-pointer select-none" data-index="' + i + '" style="left:' + (p?.left ?? 20) + '%;top:' + (p?.top ?? 20) + '%;transform:translate(-50%,-50%)">' +
+                                    '<span class="solution-hotspot-badge">' + (i + 1) + '</span>' + s.title + '</button>';
+                            }).join('');
+
+                            function setSelectedScenarioBtn(selectedBtn) {
+                                btnContainer.querySelectorAll('.scenario-section-btn').forEach(b => {
+                                    b.classList.remove('solution-hotspot--selected');
+                                });
+                                if (selectedBtn) {
+                                    selectedBtn.classList.add('solution-hotspot--selected');
+                                }
+                            }
+                            const scenarioBtnNodes = btnContainer.querySelectorAll('.scenario-section-btn');
+
+                            // Click to load section content
+                            scenarioBtnNodes.forEach(btn => {
+                                btn.addEventListener('click', function() {
+                                    if (btnContainer.closest('#scenario-image-container').getAttribute('data-editing') === 'true') return;
+                                    const idx = parseInt(this.dataset.index, 10);
+                                    const section = content.sections[idx];
+                                    if (section && contentArea && contentPlaceholder) {
+                                        contentArea.innerHTML = renderSectionContent(section, scenario);
+                                        contentPlaceholder.classList.add('hidden');
+                                        contentArea.classList.remove('hidden');
+                                        setSelectedScenarioBtn(this);
+                                        contentPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }
+                                });
+                            });
+
+                            // Optional drag-to-reposition (only when running on HTTP/S so positions can persist)
+                            if (canPersistPositions && scenarioBtnNodes.length && btnContainer.offsetParent) {
+                                const imgContainer = document.getElementById('scenario-image-container');
+                                const imgFrame = document.getElementById('scenario-image-wrap');
+
+                                function savePositions() {
+                                    const updated = [];
+                                    scenarioBtnNodes.forEach(function(btn) {
+                                        const left = parseFloat(btn.style.left) || 0;
+                                        const top = parseFloat(btn.style.top) || 0;
+                                        updated.push({ left, top });
+                                    });
+                                    try {
+                                        localStorage.setItem(POSITIONS_KEY, JSON.stringify(updated));
+                                    } catch (e) {
+                                        // Ignore quota / storage errors
+                                    }
+                                }
+
+                                function makeDraggable(btn) {
+                                    let isDragging = false;
+
+                                    function onPointerDown(e) {
+                                        if (imgContainer.getAttribute('data-editing') !== 'true') return;
+                                        isDragging = true;
+                                        btn.setPointerCapture(e.pointerId);
+                                        e.preventDefault();
+                                    }
+
+                                    function onPointerMove(e) {
+                                        if (!isDragging || !imgFrame) return;
+                                        const rect = imgFrame.getBoundingClientRect();
+                                        const x = e.clientX - rect.left;
+                                        const y = e.clientY - rect.top;
+                                        if (rect.width <= 0 || rect.height <= 0) return;
+
+                                        let leftPct = (x / rect.width) * 100;
+                                        let topPct = (y / rect.height) * 100;
+
+                                        // Clamp inside container a bit (1%–99%)
+                                        leftPct = Math.min(99, Math.max(1, leftPct));
+                                        topPct = Math.min(99, Math.max(1, topPct));
+
+                                        btn.style.left = leftPct + '%';
+                                        btn.style.top = topPct + '%';
+                                    }
+
+                                    function onPointerUp(e) {
+                                        if (!isDragging) return;
+                                        isDragging = false;
+                                        try {
+                                            btn.releasePointerCapture(e.pointerId);
+                                        } catch (err) {}
+                                        savePositions();
+                                    }
+
+                                        // Use pointer events when available (covers mouse, touch, pen)
+                                    btn.addEventListener('pointerdown', onPointerDown);
+                                    btn.addEventListener('pointermove', onPointerMove);
+                                    btn.addEventListener('pointerup', onPointerUp);
+                                    btn.addEventListener('pointercancel', onPointerUp);
+                                }
+
+                                scenarioBtnNodes.forEach(makeDraggable);
+                            }
+
+                            // Load positions from server (overwrites current layout when running on HTTP)
+                            if (canPersistPositions && scenarioBtnNodes.length) {
+                                var apiKey = positionsApiKey(scenario, imageFile);
+                                fetch(API_POSITIONS).then(function(r) { return r.ok ? r.json() : null; }).then(function(data) {
+                                    var arr = data && (data[apiKey] || data[scenario]);
+                                    if (!Array.isArray(arr) || arr.length !== content.sections.length) return;
+                                    scenarioBtnNodes.forEach(function(btn, i) {
+                                        var p = arr[i];
+                                        if (p && typeof p.left === 'number' && typeof p.top === 'number') {
+                                            btn.style.left = p.left + '%';
+                                            btn.style.top = p.top + '%';
+                                        }
+                                    });
+                                    try { localStorage.setItem(POSITIONS_KEY, JSON.stringify(arr)); } catch (e) {}
+                                }).catch(function() {});
+                            }
+
+                            // Edit-mode toggle + "Save positions to server" – always visible; save works on HTTP(S)
+                            if (scenarioBtnNodes.length) {
+                                var imgContainerEl = document.getElementById('scenario-image-container');
+                                if (imgContainerEl) {
+                                    imgContainerEl.setAttribute('data-editing', 'false');
+                                    var toolbar = document.createElement('div');
+                                    toolbar.id = 'scenario-positions-toolbar';
+                                    toolbar.className = 'mt-4 flex flex-wrap items-center gap-3';
+                                    toolbar.innerHTML = '<button type="button" id="enable-editing-btn" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors border border-gray-300"><i class="fas fa-edit"></i><span>Enable editing</span></button><span id="enable-editing-state" class="text-sm text-gray-500 hidden">Drag labels to reposition.</span><button type="button" id="save-positions-to-server-btn" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"><i class="fas fa-save"></i><span>Save positions to server</span></button><span id="save-positions-message" class="text-sm text-gray-600 hidden"></span>';
+                                    imgContainerEl.insertAdjacentElement('afterend', toolbar);
+
+                                    var enableBtn = document.getElementById('enable-editing-btn');
+                                    var stateHint = document.getElementById('enable-editing-state');
+                                    enableBtn.addEventListener('click', function() {
+                                        var isEditing = imgContainerEl.getAttribute('data-editing') === 'true';
+                                        if (isEditing) {
+                                            imgContainerEl.setAttribute('data-editing', 'false');
+                                            imgContainerEl.classList.remove('diagram-edit-mode');
+                                            enableBtn.innerHTML = '<i class="fas fa-edit"></i><span>Enable editing</span>';
+                                            enableBtn.className = 'inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors border border-gray-300';
+                                            if (stateHint) { stateHint.classList.add('hidden'); }
+                                        } else {
+                                            imgContainerEl.setAttribute('data-editing', 'true');
+                                            imgContainerEl.classList.add('diagram-edit-mode');
+                                            enableBtn.innerHTML = '<i class="fas fa-check"></i><span>Done editing</span>';
+                                            enableBtn.className = 'inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors';
+                                            if (stateHint) { stateHint.classList.remove('hidden'); }
+                                        }
+                                    });
+
+                                    document.getElementById('save-positions-to-server-btn').addEventListener('click', function() {
+                                        var btn = this;
+                                        var msgEl = document.getElementById('save-positions-message');
+                                        var positionsToSave = [];
+                                        scenarioBtnNodes.forEach(function(b) {
+                                            positionsToSave.push({
+                                                left: parseFloat(b.style.left) || 0,
+                                                top: parseFloat(b.style.top) || 0
+                                            });
+                                        });
+                                        btn.disabled = true;
+                                        if (msgEl) { msgEl.classList.add('hidden'); msgEl.textContent = ''; }
+                                        fetch(API_POSITIONS, {
+                                            method: 'POST',
+                                            headers: { 'Content-Type': 'application/json' },
+                                            body: JSON.stringify({ scenario: positionsApiKey(scenario, imageFile), positions: positionsToSave })
+                                        }).then(function(r) { return r.json().then(function(data) { return { ok: r.ok, data: data }; }); }).then(function(result) {
+                                            btn.disabled = false;
+                                            if (!msgEl) return;
+                                            msgEl.classList.remove('hidden');
+                                            if (result.ok && result.data && result.data.ok) {
+                                                msgEl.textContent = 'Positions saved. They will be used for everyone from now on.';
+                                                msgEl.className = 'text-sm text-green-600';
+                                                try { localStorage.setItem(POSITIONS_KEY, JSON.stringify(positionsToSave)); } catch (e) {}
+                                            } else {
+                                                msgEl.textContent = result.data && result.data.error ? result.data.error : 'Could not save. Check that api/positions.php is on the server and the data/ folder is writable.';
+                                                msgEl.className = 'text-sm text-red-600';
+                                            }
+                                        }).catch(function() {
+                                            btn.disabled = false;
+                                            if (msgEl) {
+                                                msgEl.classList.remove('hidden');
+                                                msgEl.textContent = 'Network error. Ensure you are on the same server as api/positions.php.';
+                                                msgEl.className = 'text-sm text-red-600';
+                                            }
+                                        });
+                                    });
+                                }
+                            }
+
+                            var firstSection = content.sections[0];
+                            var firstBtn = btnContainer.querySelector('.scenario-section-btn[data-index="0"]');
+                            if (firstSection && contentArea && contentPlaceholder && firstBtn) {
+                                contentArea.innerHTML = renderSectionContent(firstSection, scenario);
+                                contentPlaceholder.classList.add('hidden');
+                                contentArea.classList.remove('hidden');
+                                setSelectedScenarioBtn(firstBtn);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Diagram button click handlers
+            const diagramBtns = document.querySelectorAll('.diagram-btn');
+            const contentPanel = document.getElementById('diagram-content-panel');
+            const contentPlaceholder = document.getElementById('diagram-content-placeholder');
+            const contentArea = document.getElementById('diagram-content-area');
+
+            diagramBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (container && container.getAttribute('data-editing') === 'true') return;
+                    const contentId = 'content-' + this.dataset.id;
+                    const template = document.getElementById(contentId);
+                    if (template && contentArea && contentPlaceholder) {
+                        contentArea.innerHTML = template.innerHTML;
+                        contentPlaceholder.classList.add('hidden');
+                        contentArea.classList.remove('hidden');
+                        if (window.i18n && window.i18n.applyTranslations) window.i18n.applyTranslations();
+                        // Update active button style
+                        diagramBtns.forEach(b => b.classList.remove('solution-hotspot--selected'));
+                        this.classList.add('solution-hotspot--selected');
+                        // Scroll to content panel
+                        contentPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Diagram button positions - use HTML data-default-left/top; apply after image loads so container has correct size
+            const container = document.getElementById('diagram-container');
+            const diagramImg = container ? container.querySelector('img') : null;
+
+            function applyPosition(btn, leftPct, topPct) {
+                var l = parseFloat(leftPct);
+                var t = parseFloat(topPct);
+                if (isNaN(l)) l = 20;
+                if (isNaN(t)) t = 20;
+                btn.style.left = l + '%';
+                btn.style.top = t + '%';
+                btn.style.right = 'auto';
+                btn.style.bottom = 'auto';
+                btn.style.transform = 'none';
+            }
+
+            var diagramFileKey = 'buldingimage.png';
+            if (diagramImg && diagramImg.getAttribute('src')) {
+                try {
+                    var srcPart = diagramImg.getAttribute('src').split('/').pop() || '';
+                    diagramFileKey = decodeURIComponent(srcPart.split('?')[0]) || diagramFileKey;
+                } catch (e) {}
+            }
+            var diagramApiKey = positionsApiKey('apartments', diagramFileKey);
+            var DIAGRAM_POSITIONS_KEY = 'diagram-positions-' + diagramApiKey;
+
+            function loadDiagramPositions() {
+                var saved = null;
+                try {
+                    if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+                        var raw = localStorage.getItem(DIAGRAM_POSITIONS_KEY);
+                        if (raw) {
+                            var parsed = JSON.parse(raw);
+                            if (parsed && typeof parsed === 'object') saved = parsed;
+                        }
+                    }
+                } catch (e) {}
+                diagramBtns.forEach(btn => {
+                    var id = btn.dataset.id;
+                    var p = saved && saved[id];
+                    if (p && typeof p.left === 'number' && typeof p.top === 'number') {
+                        applyPosition(btn, p.left, p.top);
+                    } else {
+                        applyPosition(btn, btn.dataset.defaultLeft, btn.dataset.defaultTop);
+                    }
+                });
+            }
+
+            if ((scenario === 'apartments' || scenario === 'apartmentsi') && container && diagramBtns.length) {
+                container.setAttribute('data-editing', 'false');
+                loadDiagramPositions();
+                // Select button 1 by default and show its content
+                var btn1 = container.querySelector('.diagram-btn[data-id="1"]');
+                var template1 = document.getElementById('content-1');
+                if (btn1 && template1 && contentArea && contentPlaceholder) {
+                    contentArea.innerHTML = template1.innerHTML;
+                    contentPlaceholder.classList.add('hidden');
+                    contentArea.classList.remove('hidden');
+                    if (window.i18n && window.i18n.applyTranslations) window.i18n.applyTranslations();
+                    diagramBtns.forEach(function(b) { b.classList.remove('solution-hotspot--selected'); });
+                    btn1.classList.add('solution-hotspot--selected');
+                }
+                if (diagramImg && !diagramImg.complete) {
+                    diagramImg.addEventListener('load', loadDiagramPositions);
+                }
+                // Edit toolbar visible for Apartments (save works on HTTP/HTTPS)
+                // Enable editing toggle for apartments diagram
+                var diagramEnableBtn = document.getElementById('diagram-enable-editing-btn');
+                var diagramStateHint = document.getElementById('diagram-enable-editing-state');
+                if (diagramEnableBtn) {
+                    diagramEnableBtn.addEventListener('click', function() {
+                        var isEditing = container.getAttribute('data-editing') === 'true';
+                        if (isEditing) {
+                            container.setAttribute('data-editing', 'false');
+                            container.classList.remove('diagram-edit-mode');
+                            diagramEnableBtn.innerHTML = '<i class="fas fa-edit"></i><span data-i18n="solutionDetail.enableEditing">Enable editing</span>';
+                            diagramEnableBtn.className = 'inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors border border-gray-300';
+                            if (diagramStateHint) diagramStateHint.classList.add('hidden');
+                            if (window.i18n && window.i18n.applyTranslations) window.i18n.applyTranslations();
+                        } else {
+                            container.setAttribute('data-editing', 'true');
+                            container.classList.add('diagram-edit-mode');
+                            diagramEnableBtn.innerHTML = '<i class="fas fa-check"></i><span data-i18n="solutionDetail.doneEditing">Done editing</span>';
+                            if (window.i18n && window.i18n.applyTranslations) window.i18n.applyTranslations();
+                            diagramEnableBtn.className = 'inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors';
+                            if (diagramStateHint) diagramStateHint.classList.remove('hidden');
+                        }
+                    });
+                }
+                // Draggable diagram buttons (only when editing)
+                function saveDiagramPositions() {
+                    var obj = {};
+                    diagramBtns.forEach(function(btn) {
+                        obj[btn.dataset.id] = {
+                            left: parseFloat(btn.style.left) || 0,
+                            top: parseFloat(btn.style.top) || 0
+                        };
+                    });
+                    try {
+                        localStorage.setItem(DIAGRAM_POSITIONS_KEY, JSON.stringify(obj));
+                    } catch (e) {}
+                }
+                var diagramFrame = document.getElementById('diagram-image-wrap');
+                function makeDiagramBtnDraggable(btn) {
+                    var isDragging = false;
+                    function onPointerDown(e) {
+                        if (container.getAttribute('data-editing') !== 'true') return;
+                        isDragging = true;
+                        btn.setPointerCapture(e.pointerId);
+                        e.preventDefault();
+                    }
+                    function onPointerMove(e) {
+                        if (!isDragging || !diagramFrame) return;
+                        var rect = diagramFrame.getBoundingClientRect();
+                        var x = e.clientX - rect.left;
+                        var y = e.clientY - rect.top;
+                        if (rect.width <= 0 || rect.height <= 0) return;
+                        var leftPct = (x / rect.width) * 100;
+                        var topPct = (y / rect.height) * 100;
+                        leftPct = Math.min(99, Math.max(1, leftPct));
+                        topPct = Math.min(99, Math.max(1, topPct));
+                        btn.style.left = leftPct + '%';
+                        btn.style.top = topPct + '%';
+                    }
+                    function onPointerUp(e) {
+                        if (!isDragging) return;
+                        isDragging = false;
+                        try { btn.releasePointerCapture(e.pointerId); } catch (err) {}
+                        saveDiagramPositions();
+                    }
+                    btn.addEventListener('pointerdown', onPointerDown);
+                    btn.addEventListener('pointermove', onPointerMove);
+                    btn.addEventListener('pointerup', onPointerUp);
+                    btn.addEventListener('pointercancel', onPointerUp);
+                }
+                diagramBtns.forEach(makeDiagramBtnDraggable);
+
+                // Save diagram positions to server (same API as scenario positions)
+                var canPersist = (window.location.protocol === 'http:' || window.location.protocol === 'https:');
+                var diagramSaveBtn = document.getElementById('diagram-save-positions-to-server-btn');
+                var diagramMsgEl = document.getElementById('diagram-save-positions-message');
+                if (canPersist && diagramSaveBtn && diagramMsgEl) {
+                    diagramSaveBtn.addEventListener('click', function() {
+                        var btn = this;
+                        var positionsToSave = Array.from(diagramBtns)
+                            .sort(function(a, b) { return Number(a.dataset.id) - Number(b.dataset.id); })
+                            .map(function(b) {
+                                return { left: parseFloat(b.style.left) || 0, top: parseFloat(b.style.top) || 0 };
+                            });
+                        btn.disabled = true;
+                        diagramMsgEl.classList.add('hidden');
+                        diagramMsgEl.textContent = '';
+                        fetch('api/positions.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ scenario: diagramApiKey, positions: positionsToSave })
+                        }).then(function(r) { return r.json().then(function(data) { return { ok: r.ok, data: data }; }); }).then(function(result) {
+                            btn.disabled = false;
+                            diagramMsgEl.classList.remove('hidden');
+                            if (result.ok && result.data && result.data.ok) {
+                                diagramMsgEl.textContent = (window.i18n && window.i18n.t ? window.i18n.t('solutionDetail.positionsSaved') : 'Positions saved. They will be used for everyone from now on.');
+                                diagramMsgEl.className = 'text-sm text-green-600';
+                                try { localStorage.setItem(DIAGRAM_POSITIONS_KEY, JSON.stringify(
+                                    positionsToSave.reduce(function(acc, p, i) {
+                                        acc[String(i + 1)] = p;
+                                        return acc;
+                                    }, {})
+                                )); } catch (e) {}
+                            } else {
+                                diagramMsgEl.textContent = (result.data && result.data.error) ? result.data.error : (window.i18n && window.i18n.t ? window.i18n.t('solutionDetail.couldNotSave') : 'Could not save. Check that api/positions.php is on the server and the data/ folder is writable.');
+                                diagramMsgEl.className = 'text-sm text-red-600';
+                            }
+                        }).catch(function() {
+                            btn.disabled = false;
+                            diagramMsgEl.classList.remove('hidden');
+                            diagramMsgEl.textContent = (window.i18n && window.i18n.t ? window.i18n.t('solutionDetail.networkError') : 'Network error. Ensure you are on the same server as api/positions.php.');
+                            diagramMsgEl.className = 'text-sm text-red-600';
+                        });
+                    });
+                }
+
+                // Load apartments diagram positions from server on load (overwrites localStorage when present)
+                if (canPersist && diagramBtns.length) {
+                    fetch('api/positions.php').then(function(r) { return r.ok ? r.json() : null; }).then(function(data) {
+                        var arr = data && (data[diagramApiKey] || data.apartments);
+                        if (!Array.isArray(arr) || arr.length !== diagramBtns.length) return;
+                        Array.from(diagramBtns).sort(function(a, b) { return Number(a.dataset.id) - Number(b.dataset.id); }).forEach(function(btn, i) {
+                            var p = arr[i];
+                            if (p && typeof p.left === 'number' && typeof p.top === 'number') {
+                                btn.style.left = p.left + '%';
+                                btn.style.top = p.top + '%';
+                            }
+                        });
+                        var obj = {};
+                        arr.forEach(function(p, i) { obj[String(i + 1)] = p; });
+                        try { localStorage.setItem(DIAGRAM_POSITIONS_KEY, JSON.stringify(obj)); } catch (e) {}
+                    }).catch(function() {});
+                }
+            }
+        }
+        document.addEventListener('DOMContentLoaded', async function() {
+            for (var i = 0; i < 50; i++) {
+                if (window.i18n && window.i18n.t && i18n.t('common.home') !== 'common.home') break;
+                await new Promise(function(r) { setTimeout(r, 50); });
+            }
+            applyScenarioContent();
+            document.addEventListener('languageChanged', function(){ applyScenarioContent(); });
+        });
+
+    </script></body>
+</html>

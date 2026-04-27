@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.synergates.ma/sitemap.xml
+
+# Disallow admin area from indexing
+Disallow: /admin/
+Disallow: /api/

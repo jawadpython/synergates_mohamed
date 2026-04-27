@@ -1,0 +1,224 @@
+CLIENT REFERENCES DATA
+Source: Document interne des références clients
+
+---
+
+CLIENT: Afriquia Gaz
+Project Date: 25/12/2023 – 2024
+Locations:
+
+* Casablanca
+* Tanger
+* Jorf Elmelha
+* Sidi Kacem
+
+Services Provided:
+
+* CCTV
+* Actif et Précâblage
+* Contrôle d'accès
+* Stockage
+* Contrat de maintenance
+
+---
+
+CLIENT: Afriquia Gaz
+Project Date: 13/01/2025
+Locations:
+
+* Casablanca
+* Tanger
+* Jorf Elmelha
+* Sidi Kacem
+
+Services Provided:
+
+* CCTV
+* Actif et Précâblage
+* Contrôle d'accès
+* Stockage
+* Contrat de maintenance
+
+---
+
+CLIENT: Afriquia Gaz
+Project Date: 07/02/2025
+Locations:
+
+* Casablanca
+* Tanger
+* Jorf Elmelha
+* Sidi Kacem
+
+Services Provided:
+
+* Fourniture, installation et mise en service des équipements audiovisuels, informatiques et de connectivité
+* Écrans, décodeurs, supports, câblage, unités centrales, moniteurs
+* Solutions de supervision vidéo, modules SFP, boîtiers FTTH, câbles fibre optique
+* Installation et fixation sur supports dédiés
+* Raccordement aux sources vidéo
+* Tests de bon fonctionnement et configuration complète
+
+---
+
+CLIENT: Salam Gaz
+Project Date: 30/05/2024
+Locations:
+
+* Marrakech
+* Tanger
+* Fès
+* Taza
+* Oujda
+* Errachidia
+* Tétouan
+
+Services Provided:
+
+* Salle de supervision
+* CCTV
+* Actif et Précâblage
+
+---
+
+CLIENT: Salam Gaz
+Project Date: 03/03/2025
+Location:
+
+* Tétouan
+
+Services Provided:
+
+* Fournitures et travaux d'installation de moniteurs de supervision vidéosurveillance
+* Livraison et déballage des moniteurs professionnels
+* Fixation murale ou sur support
+* Raccordement aux postes de supervision NVR
+* Paramétrage des affichages et rotation des caméras
+
+---
+
+CLIENT: Salam Gaz
+Project Date: 15/05/2025
+
+Services Provided:
+
+* Aménagement de la salle informatique
+* Fermeture de la fenêtre conforme aux normes
+* Finitions par peinture
+* Installation de climatiseurs en redondance
+* Contrôle d'accès par badge et empreinte digitale
+* Logiciel de supervision des accès
+
+---
+
+CLIENT: Somas
+Project Date: 01/06/2024
+Location:
+
+* Mohammedia
+
+Services Provided:
+
+* Système de vidéosurveillance IP avec analyse intelligente
+* Installation hors réseau électrique avec alimentation autonome
+
+---
+
+CLIENT: Afriquia SMDC
+Project Status: Phase de réalisation
+Locations:
+
+* Meknès
+* Agadir
+* El Jadida
+* Sidi Bouatman
+* Tanger
+* Jorf Lasfar
+* Mohammedia
+
+Services Provided:
+
+* Pointage et gestion de présence
+
+---
+
+CLIENT: STORY RABAT
+Project Date: 08/02/2024
+
+Services Provided:
+
+* Fournitures et mise en service des équipements de vidéosurveillance
+* Installation de haut-parleurs extérieurs, amplificateur et microphonie sans fil
+* Fourniture, pose et mise en service de télévision et vidéoprojecteurs
+* Mise en service du vidéoprojecteur EPSON EB-W06 WXGA
+
+---
+
+CLIENT: STORY RABAT
+Project Date: 03/01/2025
+
+Services Provided:
+
+* Mise en service de disques durs de surveillance
+* Installation des disques dans les enregistreurs NVR/DVR
+* Connexion SATA et tests d'enregistrement en continu
+* Contrôle des paramètres SMART
+
+---
+
+CLIENT: Cabinet Dr Hanane Benkhedra
+Project Date: 23/01/2025
+
+Services Provided:
+
+* Mise en service de poste informatique tout-en-un
+* Vérification des composants matériels
+* Installation du système d'exploitation
+* Paramétrage réseau et accès distant
+* Installation d'imprimantes
+* Mise en service de Microsoft Windows
+
+---
+
+CLIENT: Intelligence Mental Robotique
+Project Date: 12/03/2025
+
+Services Provided:
+
+* Mise en service du matériel informatique
+* Fourniture et installation
+* Configuration et tests de bon fonctionnement
+* Validation sur site
+
+---
+
+CLIENT: Prison Local Khémisset
+Project Date: 22/04/2025
+Location:
+
+* Khémisset
+
+Services Provided:
+
+* Fourniture et pose d'équipements de vidéosurveillance
+* Fixation et orientation selon le plan de couverture
+* Raccordement réseau et alimentation
+* Configuration IP et intégration NVR
+* Paramétrage des zones de détection
+* Installation du switch et de l'onduleur
+
+---
+
+CLIENT: Tarec
+Project Date: 22/04/2025
+
+Services Provided:
+
+* Fourniture et installation d'une nouvelle infrastructure IT
+* Serveurs et équipements de stockage
+* Postes de travail
+* Équipements réseau (switchs, routeurs, points d'accès Wi-Fi)
+* Matériel de sécurité
+* Formation du personnel
+
+---

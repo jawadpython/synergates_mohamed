@@ -1,0 +1,298 @@
+/**
+ * responsive.css — Mobile-first layout hardening (loads after tailwind-built + styles)
+ * Breakpoint reference: 320 / 480 / 640 / 768 / 1024 / 1280
+ */
+
+/* --------------------------------------------------------------------------
+   Base: box model, overflow, readable text (mobile-first)
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    width: 100%;
+    overflow-x: clip;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: clip;
+    position: relative;
+}
+
+/* Main content column: flex children don’t blow out width */
+#main-content,
+main {
+    min-width: 0;
+}
+
+/* Fluid media */
+img,
+video,
+embed,
+object,
+picture,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+/* Long words / URLs */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+td,
+th {
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+}
+
+/* Max-width containers: always fill available width up to cap */
+.max-w-7xl.mx-auto,
+.max-w-6xl.mx-auto,
+.max-w-5xl.mx-auto,
+.max-w-4xl.mx-auto,
+.max-w-3xl.mx-auto,
+.max-w-2xl.mx-auto,
+.max-w-screen-2xl.mx-auto {
+    width: 100%;
+}
+
+/* Flex / grid: allow shrinking (prevents overflow) */
+.min-w-0,
+.flex-1,
+.flex-\[1\] {
+    min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Navigation — mobile sheet, touch targets, safe area
+   -------------------------------------------------------------------------- */
+.site-nav {
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
+}
+
+#mobile-menu {
+    max-height: min(85vh, 32rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+@media (max-width: 1023.98px) {
+    .nav-mobile-btn {
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #mobile-menu a.block,
+    #mobile-menu .block {
+        min-height: 2.75rem;
+        display: flex;
+        align-items: center;
+    }
+
+    #mobile-menu button.lang-btn {
+        min-height: 2.75rem;
+        min-width: 2.75rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Forms — full width on narrow viewports, comfortable tap
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="tel"],
+    form input[type="url"],
+    form input[type="search"],
+    form input[type="number"],
+    form select,
+    form textarea {
+        max-width: 100%;
+    }
+
+    form button[type="submit"],
+    form .button,
+    .w-full.bg-blue-600,
+    .w-full[class*="rounded"] {
+        min-height: 2.75rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   CTA strips, buttons, links in content
+   -------------------------------------------------------------------------- */
+@media (max-width: 639.98px) {
+    .cta-strip-premium .cta-strip-btn,
+    .cta-strip-premium a.inline-flex {
+        min-height: 2.75rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flex.flex-col.gap-4 > a.inline-flex,
+    .flex.flex-col.gap-3 > a.inline-flex {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+footer .max-w-7xl {
+    width: 100%;
+}
+
+footer .grid {
+    min-width: 0;
+}
+
+@media (max-width: 767.98px) {
+    footer .grid > div {
+        min-width: 0;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Long content: allow horizontal scroll without breaking page width
+   -------------------------------------------------------------------------- */
+.prose,
+article .max-w-4xl,
+article .max-w-3xl,
+.blog-content {
+    max-width: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .prose,
+    .blog-article-body,
+    article {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .prose table {
+        display: table;
+        width: max(100%, 32rem);
+        max-width: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Modals
+   -------------------------------------------------------------------------- */
+.client-modal {
+    max-width: min(640px, 100vw - 2rem);
+}
+
+/* --------------------------------------------------------------------------
+   Floating contact / back-to-top — respect safe areas (notches)
+   -------------------------------------------------------------------------- */
+.floating-contact {
+    bottom: max(5.75rem, calc(4.5rem + env(safe-area-inset-bottom, 0px)));
+    right: max(1.25rem, env(safe-area-inset-right, 0px));
+}
+
+@media (max-width: 639.98px) {
+    .floating-contact {
+        bottom: max(5.25rem, calc(4rem + env(safe-area-inset-bottom, 0px)));
+        right: max(1rem, env(safe-area-inset-right, 0px));
+    }
+}
+
+.home-wow-to-top {
+    bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
+    right: max(1.25rem, env(safe-area-inset-right, 0px));
+}
+
+/* --------------------------------------------------------------------------
+   Hero: avoid overflow on very small / short viewports
+   -------------------------------------------------------------------------- */
+.home-wow-hero,
+.page-hero {
+    min-width: 0;
+}
+
+@media (max-width: 479.98px) {
+    .home-hero-headline,
+    .home-hero-headline.font-display {
+        font-size: clamp(1.5rem, 6.5vw + 0.5rem, 2.35rem) !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Typography scale — slightly smaller base on tiny screens (320)
+   -------------------------------------------------------------------------- */
+@media (max-width: 374.98px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Breakpoint utilities (min-width = progressive enhancement)
+   -------------------------------------------------------------------------- */
+/* 480px: comfortable two-column stats */
+@media (min-width: 480px) {
+    .grid.grid-cols-2 {
+        min-width: 0;
+    }
+}
+
+/* 768px: tablet — most Tailwind md: already applied in HTML */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    .max-w-7xl.mx-auto.px-4,
+    .max-w-7xl.mx-auto.px-4.sm\\:px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+/* 1280px: cap line length in wide readers if needed */
+@media (min-width: 1280px) {
+    .prose.max-w-none {
+        max-width: 75ch;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Print
+   -------------------------------------------------------------------------- */
+@media print {
+    .floating-contact,
+    .home-wow-to-top,
+    .site-nav,
+    #mobile-menu {
+        display: none !important;
+    }
+
+    body {
+        overflow: visible !important;
+    }
+}

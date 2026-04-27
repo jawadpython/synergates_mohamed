@@ -1,0 +1,12 @@
+{
+  "apartments": {"1":{"left":68,"top":60},"2":{"left":20,"top":45},"3":{"left":45,"top":15},"4":{"left":5,"top":55},"5":{"left":42,"top":82}},
+  "conference-rooms": [{"left":5,"top":8},{"left":90,"top":8}],
+  "classroom-hub": [{"left":5,"top":8},{"left":90,"top":8},{"left":5,"top":88},{"left":90,"top":88}],
+  "hotels": [{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48},{"left":35,"top":48},{"left":65,"top":48},{"left":92,"top":48}],
+  "factories": [{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48},{"left":35,"top":48}],
+  "offices": [{"left":5,"top":8},{"left":20,"top":8},{"left":35,"top":8},{"left":50,"top":8},{"left":65,"top":8},{"left":80,"top":8},{"left":92,"top":8},{"left":5,"top":48}],
+  "gas-stations": [{"left":5,"top":8},{"left":20,"top":8},{"left":35,"top":8},{"left":50,"top":8},{"left":65,"top":8},{"left":80,"top":8},{"left":92,"top":8}],
+  "schools": [{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48},{"left":35,"top":48}],
+  "warehouses": [{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8}],
+  "construction-site": [{"left":5,"top":8},{"left":35,"top":8},{"left":65,"top":8},{"left":92,"top":8},{"left":5,"top":48},{"left":35,"top":48}]
+}
