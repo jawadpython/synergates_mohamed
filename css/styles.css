@@ -439,6 +439,7 @@ html.i18n-ready body {
    SITE NAVBAR – Fixed size, same links on all pages
    ============================================ */
 body .site-nav {
+    --site-nav-h: 4rem;
     min-height: 4rem;
     height: 4rem;
     transition: box-shadow 0.2s ease, background-color 0.25s ease;
@@ -504,6 +505,494 @@ body .site-nav.bg-white.shadow-lg {
 }
 #mobile-menu a:hover {
     background-color: #f3f4f6;
+}
+
+/* --- Solutions mega: Hikvision-inspired (clean columns, sector rail, feature card) --- */
+body nav.site-nav {
+    overflow: visible;
+}
+.nav-link.smega-trigger {
+    position: relative;
+    padding-bottom: 0.2rem;
+    transition: color 0.2s ease, font-weight 0.2s ease, box-shadow 0.2s ease;
+}
+body nav.site-nav.smega-open .nav-link.smega-trigger {
+    color: #1d4ed8;
+    font-weight: 600;
+    box-shadow: inset 0 -2px 0 0 #1d4ed8;
+}
+.smega-panel {
+    --smega-line: #e5e5e5;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 30;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--smega-line);
+    box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.12);
+    max-height: min(calc(44rem + 4cm), calc(100vh - var(--site-nav-h) - 0.5rem));
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-0.25rem);
+    transform-origin: top center;
+    transition: opacity 0.2s ease, transform 0.22s ease, visibility 0.2s;
+}
+.smega-panel::before {
+    display: none;
+}
+body nav.site-nav.smega-open .smega-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.smega-panel__inner {
+    padding-top: 1.5rem;
+    padding-bottom: 1.75rem;
+}
+@media (min-width: 1024px) {
+    .smega-panel__inner {
+        padding-top: 1.75rem;
+        padding-bottom: 2rem;
+    }
+}
+.smega-panel__scroll {
+    max-height: min(calc(44rem + 4cm), calc(100vh - var(--site-nav-h) - 0.5rem));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #c4c4c4 #f5f5f5;
+}
+.smega-panel__scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.smega-panel__scroll::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+.smega-panel__scroll::-webkit-scrollbar-thumb {
+    background: #c4c4c4;
+    border-radius: 3px;
+}
+@media (max-width: 767.98px) {
+    .smega-panel {
+        display: none !important;
+    }
+}
+.smega-grid {
+    display: grid;
+    grid-template-columns: minmax(11.5rem, 14.5rem) minmax(0, 1fr) minmax(15rem, 20.5rem);
+    gap: 0 2.5rem;
+    align-items: start;
+    column-gap: 2.5rem;
+    row-gap: 1.25rem;
+}
+@media (min-width: 1280px) {
+    .smega-grid {
+        grid-template-columns: minmax(13rem, 16rem) minmax(0, 1fr) minmax(16rem, 22rem);
+    }
+}
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    .smega-grid {
+        grid-template-columns: minmax(10.5rem, 12.5rem) minmax(0, 1fr);
+        column-gap: 1.75rem;
+    }
+    .smega-aside {
+        grid-column: 1 / -1;
+    }
+}
+.smega-cats-col {
+    background: #f5f5f5;
+    border: 1px solid #e8e8e8;
+    border-radius: 0.4rem;
+    padding: 0.65rem 0.4rem 0.65rem 0.5rem;
+    align-self: stretch;
+}
+.smega-cats-label {
+    font-family: Montserrat, system-ui, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6b6b6b;
+    margin: 0 0 0.6rem 0.35rem;
+    line-height: 1.2;
+}
+.smega-cats {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    border: none;
+    background: transparent;
+    border-radius: 0;
+}
+.smega-cat {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    font-family: Montserrat, system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #2d2d2d;
+    padding: 0.5rem 0.6rem 0.5rem 0.5rem;
+    border-radius: 0.3rem;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    margin: 0;
+    transition: background 0.15s, color 0.15s;
+}
+.smega-cat:hover {
+    background: #ebebeb;
+    color: #111827;
+}
+.smega-cat.is-active,
+.smega-cat:focus-visible {
+    background: #e0e0e0;
+    color: #111827;
+    font-weight: 600;
+    border-color: transparent;
+    box-shadow: none;
+    outline: none;
+}
+.smega-main {
+    min-height: 9rem;
+    position: relative;
+    padding: 0.15rem 0 0 0;
+    border-left: 1px solid #ececec;
+    margin-left: -1px;
+    padding-left: 1.25rem;
+}
+@media (min-width: 1280px) {
+    .smega-main {
+        padding-left: 1.5rem;
+    }
+}
+.smega-lead {
+    font-family: Montserrat, system-ui, sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    color: #6b6b6b;
+    font-weight: 400;
+    margin: 0 0 0.9rem 0;
+    padding: 0;
+    border: none;
+    max-width: 48em;
+}
+.smega-col-title {
+    font-family: Montserrat, system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 0.65rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+.smega-pane {
+    display: none;
+    animation: smegaPaneIn 0.2s ease;
+}
+.smega-pane.is-active {
+    display: block;
+}
+@media (prefers-reduced-motion: reduce) {
+    .smega-pane,
+    .smega-panel,
+    .smega-card__img img {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+    }
+    body nav.site-nav.smega-open .smega-panel {
+        transform: none;
+    }
+}
+@keyframes smegaPaneIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.smega-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.smega-links--2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.25rem;
+    column-gap: 1.5rem;
+}
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    .smega-links--2col {
+        grid-template-columns: 1fr;
+    }
+}
+.smega-links--2col.smega-links--tight {
+    font-size: 0.85rem;
+}
+.smega-a {
+    display: block;
+    font-family: Montserrat, system-ui, sans-serif;
+    font-size: 0.9rem;
+    color: #2d2d2d;
+    text-decoration: none;
+    padding: 0.35rem 0;
+    line-height: 1.45;
+    border: none;
+    border-radius: 0;
+    transition: color 0.15s;
+}
+.smega-a::before {
+    display: none;
+}
+.smega-a:hover,
+.smega-a:focus-visible {
+    color: #1d4ed8;
+    background: transparent;
+    outline: none;
+}
+.smega-aside {
+    min-width: 0;
+    display: flex;
+}
+.smega-aside .smega-card {
+    width: 100%;
+}
+.smega-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #d8d8d8;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: #eef1f6;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+}
+.smega-card:hover {
+    border-color: #b8c4d4;
+    box-shadow: 0 8px 24px -10px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+}
+.smega-card__img {
+    position: relative;
+    aspect-ratio: 16/9.5;
+    background: #dde3ec;
+    overflow: hidden;
+}
+.smega-card__img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(30, 41, 59, 0.2) 100%);
+    pointer-events: none;
+    transition: opacity 0.25s;
+}
+.smega-card:hover .smega-card__img::after {
+    opacity: 0.85;
+}
+.smega-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.smega-card:hover .smega-card__img img {
+    transform: scale(1.03);
+}
+.smega-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1rem 1rem 0.65rem;
+    background: #eef1f6;
+}
+.smega-card__title {
+    font-family: Montserrat, system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #111827;
+    margin: 0 0 0.45rem 0;
+    line-height: 1.25;
+}
+.smega-card__text {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: #5a5a5a;
+    margin: 0 0 0.75rem 0;
+    flex: 1;
+}
+.smega-card__go {
+    font-family: Montserrat, system-ui, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #1d4ed8;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0 0 0.1rem 0;
+    transition: color 0.2s, gap 0.2s;
+}
+.smega-card:hover .smega-card__go {
+    color: #1e40af;
+    gap: 0.5rem;
+}
+.smega-card__dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 0.75rem 0.8rem;
+    background: #e3e8f0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.smega-card__dots span {
+    display: block;
+    width: 1.4rem;
+    height: 3px;
+    border-radius: 2px;
+    background: #b4bcc8;
+    transition: background 0.2s, width 0.2s, transform 0.2s;
+}
+.smega-card__dots span.is-active {
+    width: 1.6rem;
+    background: #1d4ed8;
+    transform: scaleY(1.1);
+}
+.smega-card__dots span:focus-visible {
+    outline: 2px solid #1d4ed8;
+    outline-offset: 2px;
+}
+#mobile-menu .smobile {
+    border: 1px solid #e2e8f0;
+    background: #fafbfc;
+    border-radius: 0.6rem;
+    margin: 0;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    overflow: hidden;
+}
+#mobile-menu .smobile[open] {
+    border-color: #bfdbfe;
+    box-shadow: 0 4px 14px -4px rgba(15, 23, 42, 0.1);
+}
+#mobile-menu .smobile__summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: #334155;
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: Montserrat, system-ui, sans-serif;
+    border-radius: 0.6rem;
+    padding: 0.7rem 1rem;
+    transition: background 0.2s, color 0.2s;
+}
+#mobile-menu .smobile--py-sm .smobile__summary {
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+}
+#mobile-menu .smobile--py-md .smobile__summary {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+}
+#mobile-menu .smobile--is-current .smobile__summary {
+    color: #1d4ed8;
+    background: #eff6ff;
+    font-weight: 600;
+}
+#mobile-menu .smobile[open] .smobile__summary {
+    background: #f1f5f9;
+    border-bottom: 1px solid #e2e8f0;
+    border-radius: 0.6rem 0.6rem 0 0;
+}
+#mobile-menu .smobile[open] .smobile__chev {
+    transform: rotate(180deg);
+}
+#mobile-menu .smobile__chev {
+    font-size: 0.7rem;
+    color: #64748b;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#mobile-menu .smobile__summary::-webkit-details-marker {
+    display: none;
+}
+#mobile-menu .smobile__body {
+    padding: 0.65rem 0.5rem 0.75rem 0.9rem;
+    margin: 0 0 0.25rem 0;
+    border-left: 3px solid #bfdbfe;
+    background: #fff;
+}
+#mobile-menu .smobile[open] .smobile__body {
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+#mobile-menu .smobile__toplink {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1d4ed8;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    font-family: Montserrat, system-ui, sans-serif;
+}
+#mobile-menu .smobile__stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+#mobile-menu .smobile__link {
+    display: block;
+    font-size: 0.85rem;
+    color: #475569;
+    text-decoration: none;
+    font-family: Montserrat, system-ui, sans-serif;
+    padding: 0.45rem 0.5rem;
+    border-radius: 0.4rem;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+#mobile-menu .smobile__link--strong {
+    color: #1d4ed8;
+    font-weight: 600;
+    margin-top: 0.35rem;
+    padding-top: 0.55rem;
+    border-top: 1px dashed #e2e8f0;
+}
+#mobile-menu .smobile__link:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+    border-color: #e2e8f0;
 }
 
 /* ============================================
@@ -1059,9 +1548,8 @@ nav.nav-over-hero.nav-scrolled {
     isolation: isolate;
 }
 
-nav.nav-over-hero.nav-scrolled .max-w-7xl {
-    transform: translateZ(0);
-}
+/* Do NOT add transform to .max-w-7xl here: it creates a containing block and breaks
+   position:fixed for the Solutions mega panel (dropdown would be clipped / wrong width). */
 
 nav.nav-over-hero.nav-scrolled .nav-link,
 nav.nav-over-hero.nav-scrolled .nav-mobile-btn,

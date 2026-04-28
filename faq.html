@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/tailwind-built.css?v=1.0.63">
-    <link rel="stylesheet" href="css/styles.css?v=1.0.88">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.92">
     <link rel="stylesheet" href="css/responsive.css?v=1.0.0">
     <link rel="stylesheet" href="css/floating-contact.css?v=1.2.0">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -32,7 +32,7 @@
                 </div>
                 <div class="nav-desktop hidden md:flex items-center space-x-5 flex-nowrap">
                     <a href="index.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.home">Accueil</a>
-                    <a href="solutions.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.solutions">Solutions</a>
+                    <a href="solutions.html" id="smega-trigger" class="nav-link smega-trigger text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.solutions">Solutions</a>
                     <a href="projects.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.projects">Projets</a>
                     <a href="about.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.about">À propos</a>
                     <a href="blog.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.blog">Blog</a>
@@ -50,10 +50,121 @@
                 </button>
             </div>
         </div>
+                <div class="smega-panel" id="smega-panel" role="region" aria-label="Solutions" aria-hidden="true" hidden>
+            <div class="smega-panel__scroll">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 smega-panel__inner">
+                    <div class="smega-grid">
+                        <div class="smega-cats-col">
+                            <p class="smega-cats-label" data-i18n="solutions.megaByDomain">Par domaine</p>
+                            <ul class="smega-cats" role="tablist" aria-label="Catégories">
+                                <li><button type="button" class="smega-cat is-active" data-smega="r" id="smega-cat-r" role="tab" aria-selected="true" aria-controls="smega-p-r" tabindex="0">Résidences &amp; hôtels</button></li>
+                                <li><button type="button" class="smega-cat" data-smega="t" id="smega-cat-t" role="tab" aria-selected="false" aria-controls="smega-p-t" tabindex="-1">Bureaux &amp; retail</button></li>
+                                <li><button type="button" class="smega-cat" data-smega="i" id="smega-cat-i" role="tab" aria-selected="false" aria-controls="smega-p-i" tabindex="-1">Industrie &amp; logistique</button></li>
+                                <li><button type="button" class="smega-cat" data-smega="f" id="smega-cat-f" role="tab" aria-selected="false" aria-controls="smega-p-f" tabindex="-1">Infrastructures &amp; mobilité</button></li>
+                                <li><button type="button" class="smega-cat" data-smega="e" id="smega-cat-e" role="tab" aria-selected="false" aria-controls="smega-p-e" tabindex="-1">Énergie &amp; sites sensibles</button></li>
+                            </ul>
+                        </div>
+                        <div class="smega-main">
+                            <div class="smega-pane is-active" data-smega="r" id="smega-p-r" role="tabpanel" aria-labelledby="smega-cat-r" tabindex="0">
+                                <p class="smega-lead">Résidentiel, hôtels — accès, vidéo, supervision unifiée.</p>
+                                <h4 class="smega-col-title" data-i18n="solutions.megaScenarios">Scénarios</h4>
+                                <ul class="smega-links">
+                                    <li><a href="solution-detail.html?scenario=apartments" class="smega-a" data-i18n="solutions.apartments">Appartements</a></li>
+                                    <li><a href="solution-detail.html?scenario=hotels" class="smega-a" data-i18n="solutions.hotels">Hôtels</a></li>
+                                </ul>
+                            </div>
+                            <div class="smega-pane" data-smega="t" id="smega-p-t" role="tabpanel" aria-labelledby="smega-cat-t" hidden>
+                                <p class="smega-lead">Bureaux, commerces, retail — flux et sûreté intérieure.</p>
+                                <h4 class="smega-col-title" data-i18n="solutions.megaScenarios">Scénarios</h4>
+                                <ul class="smega-links smega-links--2col">
+                                    <li><a href="solution-detail.html?scenario=offices" class="smega-a" data-i18n="solutions.offices">Bureaux</a></li>
+                                    <li><a href="solution-detail.html?scenario=stores" class="smega-a" data-i18n="solutions.stores">Magasins</a></li>
+                                    <li><a href="solution-detail.html?scenario=shopping-malls" class="smega-a" data-i18n="solutions.shoppingMalls">Centres commerciaux</a></li>
+                                    <li><a href="solution-detail.html?scenario=supermarkets" class="smega-a" data-i18n="solutions.supermarkets">Supermarchés</a></li>
+                                    <li><a href="solution-detail.html?scenario=car-dealerships" class="smega-a" data-i18n="solutions.carDealerships">Concessionnaires</a></li>
+                                    <li><a href="solution-detail.html?scenario=conference-rooms" class="smega-a" data-i18n="solutions.conferenceRooms">Salles de conférence</a></li>
+                                </ul>
+                            </div>
+                            <div class="smega-pane" data-smega="i" id="smega-p-i" role="tabpanel" aria-labelledby="smega-cat-i" hidden>
+                                <p class="smega-lead">Usines, entrepôts, chantiers — périmètre, flux, ATEX.</p>
+                                <h4 class="smega-col-title" data-i18n="solutions.megaScenarios">Scénarios</h4>
+                                <ul class="smega-links">
+                                    <li><a href="solution-detail.html?scenario=factories" class="smega-a" data-i18n="solutions.factories">Usines</a></li>
+                                    <li><a href="solution-detail.html?scenario=warehouses" class="smega-a" data-i18n="solutions.warehouses">Entrepôts</a></li>
+                                    <li><a href="solution-detail.html?scenario=construction-site" class="smega-a" data-i18n="solutions.constructionSite">Chantiers</a></li>
+                                    <li><a href="solution-detail.html?scenario=gas-stations" class="smega-a" data-i18n="solutions.gasStations">Stations-service</a></li>
+                                </ul>
+                            </div>
+                            <div class="smega-pane" data-smega="f" id="smega-p-f" role="tabpanel" aria-labelledby="smega-cat-f" hidden>
+                                <p class="smega-lead">Route, transport, enseignement, énergie — réseau &amp; supervision.</p>
+                                <h4 class="smega-col-title" data-i18n="solutions.megaScenarios">Scénarios</h4>
+                                <ul class="smega-links smega-links--2col smega-links--tight">
+                                    <li><a href="solution-detail.html?scenario=urban-roadways" class="smega-a" data-i18n="solutions.urbanRoadways">Voiries urbaines</a></li>
+                                    <li><a href="solution-detail.html?scenario=highways" class="smega-a" data-i18n="solutions.highways">Autoroutes</a></li>
+                                    <li><a href="solution-detail.html?scenario=bus-stop" class="smega-a" data-i18n="solutions.busStop">Arrêts de bus</a></li>
+                                    <li><a href="solution-detail.html?scenario=transit-bus-onboard" class="smega-a" data-i18n="solutions.transitBusOnboard">Bus embarqué</a></li>
+                                    <li><a href="solution-detail.html?scenario=parking-lots" class="smega-a" data-i18n="solutions.parkingLots">Parkings</a></li>
+                                    <li><a href="solution-detail.html?scenario=schools" class="smega-a" data-i18n="solutions.schools">Écoles</a></li>
+                                    <li><a href="solution-detail.html?scenario=classroom-hub" class="smega-a" data-i18n="solutions.classroomHub">Hub salle de classe</a></li>
+                                    <li><a href="solution-detail.html?scenario=monitoring-center" class="smega-a" data-i18n="solutions.monitoringCenter">PC de supervision</a></li>
+                                    <li><a href="solution-detail.html?scenario=electrical-substations" class="smega-a" data-i18n="solutions.electricalSubstations">Postes électriques</a></li>
+                                    <li><a href="solution-detail.html?scenario=solar-farms" class="smega-a" data-i18n="solutions.solarFarms">Centrales solaires</a></li>
+                                    <li><a href="solution-detail.html?scenario=hydroelectric-power-plants" class="smega-a" data-i18n="solutions.hydroelectricPowerPlants">Hydroélectricité</a></li>
+                                </ul>
+                            </div>
+                            <div class="smega-pane" data-smega="e" id="smega-p-e" role="tabpanel" aria-labelledby="smega-cat-e" hidden>
+                                <p class="smega-lead">Pétrole, pipelines, lignes HT — sites sensibles et inspection.</p>
+                                <h4 class="smega-col-title" data-i18n="solutions.megaScenarios">Scénarios</h4>
+                                <ul class="smega-links">
+                                    <li><a href="solution-detail.html?scenario=onshore-oilfields" class="smega-a" data-i18n="solutions.onshoreOilfields">Champs pétroliers</a></li>
+                                    <li><a href="solution-detail.html?scenario=offshore-oil-platform" class="smega-a" data-i18n="solutions.offshoreOilPlatform">Offshore</a></li>
+                                    <li><a href="solution-detail.html?scenario=pipeline-inspection" class="smega-a" data-i18n="solutions.pipelineInspection">Pipeline</a></li>
+                                    <li><a href="solution-detail.html?scenario=transmission-line-inspection" class="smega-a" data-i18n="solutions.transmissionLineInspection">Lignes HT</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <aside class="smega-aside" aria-label="Mise en avant">
+                            <a href="solutions.html#solutions-scenarios" class="smega-card">
+                                <div class="smega-card__img"><img id="smega-feature-img" src="images/solutions_frontimage/buldingimage.webp" alt="" width="560" height="360" loading="lazy" decoding="async"></div>
+                                <div class="smega-card__body">
+                                    <h3 class="smega-card__title" data-i18n="solutions.megaFeatureTitle">Tous les scénarios</h3>
+                                    <p class="smega-card__text" data-i18n="solutions.megaFeatureDesc">27+ scénarios — vidéo, réseau, accès, supervision.</p>
+                                    <span class="smega-card__go"><span data-i18n="solutions.megaFeatureCta">Parcourir le catalogue</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                                </div>
+                                <div class="smega-card__dots" role="presentation" aria-hidden="true">
+                                    <span data-smega-dot="r" class="is-active"></span>
+                                    <span data-smega-dot="t"></span>
+                                    <span data-smega-dot="i"></span>
+                                    <span data-smega-dot="f"></span>
+                                    <span data-smega-dot="e"></span>
+                                </div>
+                            </a>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-4 pt-2 pb-4 space-y-1">
                 <a href="index.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.home">Accueil</a>
-                <a href="solutions.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.solutions">Solutions</a>
+                <details class="smobile smobile--py-md" id="smobile-solutions" data-smenu="1">
+                    <summary class="smobile__summary">
+                        <span data-i18n="common.solutions">Solutions</span>
+                        <i class="fas fa-chevron-down smobile__chev" aria-hidden="true"></i>
+                    </summary>
+                    <div class="smobile__body">
+                        <a href="solutions.html" class="smobile__toplink" data-i18n="solutions.megaAllSolutions">Toutes les solutions</a>
+                        <div class="smobile__stack">
+                            <a href="solution-detail.html?scenario=apartments" class="smobile__link" data-i18n="solutions.apartments">Appartements</a>
+                            <a href="solution-detail.html?scenario=factories" class="smobile__link" data-i18n="solutions.factories">Usines</a>
+                            <a href="solution-detail.html?scenario=offices" class="smobile__link" data-i18n="solutions.offices">Bureaux</a>
+                            <a href="solutions.html#solutions-scenarios" class="smobile__link smobile__link--strong" data-i18n="solutions.megaOpenCatalogue">Catalogue complet</a>
+                        </div>
+                    </div>
+                </details>
+
                 <a href="projects.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.projects">Projets</a>
                 <a href="about.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.about">À propos</a>
                 <a href="blog.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.blog">Blog</a>
@@ -188,7 +299,7 @@
 
     <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');</script>
     <script src="js/i18n.js?v=1.0.2"></script>
-    <script src="js/main.js?v=1.0.19"></script>
+    <script src="js/main.js?v=1.0.23"></script>
     <script src="js/prefetch-solutions.js?v=1.0.10"></script>
     <script>
         (function() {

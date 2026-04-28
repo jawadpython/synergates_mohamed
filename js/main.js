@@ -92,6 +92,148 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
 
+    // Solutions mega v2: panel is direct child of nav; .smega-open on nav; categories in panel
+    (function initSmegaV2() {
+        const nav = document.querySelector('nav.site-nav');
+        const panel = document.getElementById('smega-panel');
+        const trigger = document.getElementById('smega-trigger');
+        if (!nav || !panel || !trigger) return;
+        const mqDesktop = window.matchMedia('(min-width: 768px)');
+        const mqHover = window.matchMedia('(hover: hover)');
+        const catBtns = panel.querySelectorAll('.smega-cat[data-smega]');
+        const panes = panel.querySelectorAll('.smega-pane[data-smega]');
+        if (!catBtns.length) return;
+
+        var smegaFeatureImg = panel.querySelector('#smega-feature-img');
+        /* Same thumbnail assets as solutions.html scenario cards (images/solutions_frontimage/) */
+        var SMEGA_CARD_IMAGES = {
+            r: 'images/solutions_frontimage/buldingimage.webp',
+            t: 'images/solutions_frontimage/Office%20Buildings.png',
+            i: 'images/solutions_frontimage/Factories.png',
+            f: 'images/solutions_frontimage/Urban%20roadways.png',
+            e: 'images/solutions_frontimage/Onshore%20Oilfields.png',
+        };
+
+        trigger.setAttribute('aria-haspopup', 'true');
+        trigger.setAttribute('aria-controls', 'smega-panel');
+
+        function setOpen(open) {
+            nav.classList.toggle('smega-open', open);
+            panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+            if (open) panel.removeAttribute('hidden');
+            else panel.setAttribute('hidden', '');
+            trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        function showCategory(key) {
+            catBtns.forEach((btn) => {
+                const on = btn.getAttribute('data-smega') === key;
+                btn.classList.toggle('is-active', on);
+                btn.setAttribute('aria-selected', on ? 'true' : 'false');
+                btn.setAttribute('tabindex', on ? '0' : '-1');
+            });
+            panes.forEach((pane) => {
+                const on = pane.getAttribute('data-smega') === key;
+                pane.classList.toggle('is-active', on);
+                if (on) pane.removeAttribute('hidden');
+                else pane.setAttribute('hidden', '');
+            });
+            if (smegaFeatureImg && SMEGA_CARD_IMAGES[key]) {
+                var nextSrc = SMEGA_CARD_IMAGES[key];
+                if (smegaFeatureImg.getAttribute('src') !== nextSrc) {
+                    smegaFeatureImg.setAttribute('src', nextSrc);
+                }
+            }
+            panel.querySelectorAll('.smega-card__dots [data-smega-dot]').forEach(function (dot) {
+                var on = dot.getAttribute('data-smega-dot') === key;
+                dot.classList.toggle('is-active', on);
+            });
+        }
+
+        setOpen(false);
+        showCategory('r');
+
+        catBtns.forEach((btn) => {
+            const key = btn.getAttribute('data-smega');
+            function onPick() {
+                if (key) showCategory(key);
+            }
+            btn.addEventListener('mouseenter', onPick);
+            btn.addEventListener('focus', onPick);
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                onPick();
+            });
+        });
+
+        function canUseHoverNav() {
+            return mqDesktop.matches && mqHover.matches;
+        }
+        function canUseTouchNav() {
+            return mqDesktop.matches && !mqHover.matches;
+        }
+
+        trigger.addEventListener('mouseenter', function () {
+            if (canUseHoverNav()) setOpen(true);
+        });
+        panel.addEventListener('mouseenter', function () {
+            if (canUseHoverNav()) setOpen(true);
+        });
+        nav.addEventListener('mouseleave', function () {
+            if (!canUseHoverNav()) return;
+            if (nav.contains(document.activeElement)) return;
+            setOpen(false);
+        });
+
+        trigger.addEventListener('focus', function () {
+            if (mqDesktop.matches) setOpen(true);
+        });
+        panel.addEventListener('focusin', function () {
+            if (mqDesktop.matches) setOpen(true);
+        });
+        nav.addEventListener('focusout', function (e) {
+            if (!nav.classList.contains('smega-open') || !mqDesktop.matches) return;
+            var rt = e.relatedTarget;
+            if (!rt || !nav.contains(rt)) setOpen(false);
+        });
+
+        trigger.addEventListener('click', function (e) {
+            if (!canUseTouchNav()) return;
+            if (!nav.classList.contains('smega-open')) {
+                e.preventDefault();
+                setOpen(true);
+            }
+        });
+
+        document.addEventListener(
+            'pointerdown',
+            function (e) {
+                if (!canUseTouchNav() || !nav.classList.contains('smega-open')) return;
+                if (nav.contains(e.target)) return;
+                setOpen(false);
+            },
+            true
+        );
+
+        function addMql(mq, fn) {
+            if (mq.addEventListener) mq.addEventListener('change', fn);
+            else if (mq.addListener) mq.addListener(fn);
+        }
+        addMql(mqDesktop, function () {
+            setOpen(false);
+        });
+        addMql(mqHover, function () {
+            setOpen(false);
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && nav.classList.contains('smega-open')) {
+                setOpen(false);
+                trigger.focus();
+            }
+        });
+    })();
+
     // Close mobile menu when clicking on a link
     const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
     if (mobileMenuLinks) {
