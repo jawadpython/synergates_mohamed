@@ -4691,7 +4691,6 @@ img {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
 }
-
 .home-wow.home-premium .home-cta-primary {
     color: #f8fafc;
     background: linear-gradient(165deg, #38bdf8 0%, #2563eb 48%, #1d4ed8 100%);
