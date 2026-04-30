@@ -1,6 +1,8 @@
 /**
  * responsive.css — Mobile-first layout hardening (loads after tailwind-built + styles)
  * Breakpoint reference: 320 / 480 / 640 / 768 / 1024 / 1280
+ *
+ * v1.0.5 — Phone scroll: no global smooth-scroll; drop blur/deco motion on narrow viewports
  */
 
 /* --------------------------------------------------------------------------
@@ -17,7 +19,12 @@ html {
     text-size-adjust: 100%;
     width: 100%;
     overflow-x: clip;
-    scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+    html {
+        scroll-behavior: smooth;
+    }
 }
 
 body {
@@ -26,6 +33,15 @@ body {
     max-width: 100%;
     overflow-x: clip;
     position: relative;
+}
+
+/* Grids inside max-width shells must shrink (prevents rare horizontal blowout) */
+.max-w-7xl .grid,
+.max-w-6xl .grid,
+.max-w-5xl .grid,
+.max-w-4xl .grid,
+.max-w-3xl .grid {
+    min-width: 0;
 }
 
 /* Main content column: flex children don’t blow out width */
@@ -47,6 +63,16 @@ svg {
 
 iframe {
     max-width: 100%;
+}
+
+pre {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+code {
+    word-break: break-word;
 }
 
 /* Long words / URLs */
@@ -90,11 +116,55 @@ th {
     padding-right: env(safe-area-inset-right, 0);
 }
 
+@media (max-width: 767.98px) {
+    /* Fixed 4rem nav height + nav-scrolled isolation broke mobile drawer taps; grow with open sheet */
+    body .site-nav {
+        height: auto;
+        min-height: 4rem;
+    }
+    nav.nav-over-hero.nav-scrolled {
+        isolation: auto;
+    }
+    /* Top bar: logo + menu — never push page wider than viewport */
+    .site-nav .max-w-7xl {
+        min-width: 0;
+    }
+    .site-nav .max-w-7xl > .flex {
+        min-width: 0;
+    }
+    .site-nav .max-w-7xl > .flex > .flex.items-center.flex-shrink-0 {
+        min-width: 0;
+        max-width: calc(100% - 3.25rem);
+    }
+    .site-nav .nav-logo {
+        max-height: 2.25rem;
+        width: auto;
+        max-width: min(46vw, 11rem);
+        object-fit: contain;
+    }
+}
+
 #mobile-menu {
     max-height: min(85vh, 32rem);
+    overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+}
+
+/* Drawer open: sit above hero/overlays; pair with .is-mobile-menu-open on nav (main.js) */
+#mobile-menu:not(.hidden) {
+    position: relative;
+    z-index: 70;
+}
+
+@media (max-width: 767.98px) {
+    nav.site-nav.fixed.is-mobile-menu-open {
+        z-index: 100 !important;
+    }
+    .site-nav .smega-panel {
+        pointer-events: none !important;
+    }
 }
 
 @media (max-width: 1023.98px) {
@@ -117,6 +187,13 @@ th {
         min-height: 2.75rem;
         min-width: 2.75rem;
     }
+
+    /* Faster taps, no double-tap zoom delay on nav controls */
+    .site-nav button,
+    .site-nav a.nav-link,
+    #mobile-menu .smobile__summary {
+        touch-action: manipulation;
+    }
 }
 
 /* --------------------------------------------------------------------------
@@ -132,6 +209,19 @@ th {
     form select,
     form textarea {
         max-width: 100%;
+    }
+
+    /* iOS Safari: inputs < 16px trigger zoom — keep comfortable tap + no layout jump */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="search"],
+    input[type="number"],
+    input[type="password"],
+    select,
+    textarea {
+        font-size: 1rem;
     }
 
     form button[type="submit"],
@@ -254,6 +344,22 @@ article .max-w-3xl,
 }
 
 /* --------------------------------------------------------------------------
+   About — thermography / certificates (tight phones)
+   -------------------------------------------------------------------------- */
+@media (max-width: 479.98px) {
+    body.about-page.inner-page .about-page-thermo__panel {
+        padding: 1.25rem 1rem;
+    }
+    body.about-page.inner-page .about-page-thermo__head .font-display {
+        font-size: clamp(1.35rem, 6vw + 0.35rem, 1.875rem);
+    }
+    body.about-page.inner-page .about-page-thermo__benefit {
+        padding: 0.65rem 0.75rem;
+        gap: 0.65rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
    Breakpoint utilities (min-width = progressive enhancement)
    -------------------------------------------------------------------------- */
 /* 480px: comfortable two-column stats */
@@ -278,6 +384,102 @@ article .max-w-3xl,
         max-width: 75ch;
         margin-left: auto;
         margin-right: auto;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Phone scroll performance (compositor-heavy: backdrop-blur, blend modes, scroll anim)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+    /* Premium home: fixed nav must not sample the page through blur while scrolling */
+    body.home-premium-xp nav.nav-over-hero:not(.nav-scrolled) {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    /* Top readout bar: moving gradient + width during scroll = extra layer work */
+    .home-wow-scroll-progress {
+        animation: none !important;
+        background-size: 100% 100% !important;
+        box-shadow: none !important;
+    }
+    body.home-editorial.home-premium-xp #home-wow-scroll-progress.home-wow-scroll-progress {
+        box-shadow: none !important;
+    }
+
+    /* Hero: Ken Burns + will-change on full-bleed images is costly on mobile GPUs */
+    .home-premium .home-hero-slide > img {
+        will-change: auto !important;
+    }
+    .home-premium .home-hero-slide.is-active > img {
+        animation: none !important;
+        transform: translateZ(0) scale(1.05);
+    }
+
+    /* Hero chrome: frosted pill behind dots */
+    .home-premium .home-hero-elegant .home-hero-slides-nav {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    /* Ambient mesh / aurora: continuous animations + blend during full-page repaints */
+    .home-premium .home-hero-mesh,
+    .home-wow.home-premium .home-hero-mesh {
+        animation: none !important;
+    }
+    .home-premium .home-hero-aurora,
+    .home-wow.home-premium .home-hero-aurora {
+        animation: none !important;
+        mix-blend-mode: normal;
+        opacity: 0.22;
+    }
+
+    .home-wow-final-shimmer {
+        animation: none !important;
+    }
+
+    body.home-editorial.home-premium-xp .home-hero-scroll-line {
+        animation: none !important;
+        opacity: 0.8;
+        transform: scaleY(1);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Solution scenarios — compact hotspot labels + catalog CTA (phones only; md+ unchanged)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+    #diagram-image-wrap .solution-hotspot-btn,
+    #scenario-image-wrap .solution-hotspot-btn {
+        gap: 0.28rem;
+        padding: 0.3rem 0.48rem 0.3rem 0.34rem;
+        max-width: min(68vw, 9.75rem);
+        border-radius: 0.5rem;
+        font-size: 0.5625rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        line-height: 1.22;
+    }
+
+    #diagram-image-wrap .solution-hotspot-badge,
+    #scenario-image-wrap .solution-hotspot-badge {
+        min-width: 1.0625rem;
+        height: 1.0625rem;
+        padding: 0 0.14rem;
+        border-radius: 0.3rem;
+        font-size: 0.5rem;
+    }
+
+    body.solutions-page.inner-page .solution-scenario-card__cta {
+        margin-top: 0.45rem;
+        padding-top: 0.5rem;
+        font-size: 0.58rem;
+        letter-spacing: 0.08em;
+        gap: 0.3rem;
+    }
+
+    body.solutions-page.inner-page .solution-scenario-card__cta i {
+        font-size: 0.52rem;
     }
 }
 

@@ -63,23 +63,37 @@ document.addEventListener('DOMContentLoaded', async function() {
     })();
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    
+
+    function syncMobileMenuButtonIcon(btn, isOpen) {
+        if (!btn) return;
+        var menuSvg = btn.querySelector('.nav-mobile-btn__svg--menu');
+        var closeSvg = btn.querySelector('.nav-mobile-btn__svg--close');
+        if (menuSvg && closeSvg) {
+            menuSvg.classList.toggle('hidden', !!isOpen);
+            closeSvg.classList.toggle('hidden', !isOpen);
+            return;
+        }
+        var icon = btn.querySelector('i.fas');
+        if (icon) {
+            if (!isOpen) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        }
+    }
+
     if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.setAttribute('aria-controls', 'mobile-menu');
         mobileMenuBtn.setAttribute('aria-haspopup', 'true');
+        var navElForMenu = mobileMenu.closest('nav.site-nav');
         function setMenuOpen(isOpen) {
             mobileMenu.classList.toggle('hidden', !isOpen);
             mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (icon) {
-                if (!isOpen) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                } else {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                }
-            }
+            if (navElForMenu) navElForMenu.classList.toggle('is-mobile-menu-open', !!isOpen);
+            syncMobileMenuButtonIcon(mobileMenuBtn, isOpen);
         }
         setMenuOpen(false);
         mobileMenuBtn.addEventListener('click', function () {
@@ -90,22 +104,91 @@ document.addEventListener('DOMContentLoaded', async function() {
                 setMenuOpen(false);
             }
         });
+
+        /* Mobile drawer: Solutions <details> — pointerdown for touch; click covers keyboard (no pointerdown) */
+        var smobileToggledByPointer = false;
+        mobileMenu.addEventListener(
+            'pointerdown',
+            function (e) {
+                if (e.button != null && e.button !== 0) return;
+                var summary = e.target && e.target.closest && e.target.closest('.smobile__summary');
+                if (!summary || !mobileMenu.contains(summary)) return;
+                var details = summary.closest('details.smobile');
+                if (!details || !mobileMenu.contains(details)) return;
+                e.preventDefault();
+                smobileToggledByPointer = true;
+                details.open = !details.open;
+                setTimeout(function () {
+                    smobileToggledByPointer = false;
+                }, 0);
+            },
+            true
+        );
+        mobileMenu.addEventListener(
+            'click',
+            function (e) {
+                var summary = e.target && e.target.closest && e.target.closest('.smobile__summary');
+                if (!summary || !mobileMenu.contains(summary)) return;
+                var details = summary.closest('details.smobile');
+                if (!details || !mobileMenu.contains(details)) return;
+                e.preventDefault();
+                if (!smobileToggledByPointer) {
+                    details.open = !details.open;
+                }
+            },
+            true
+        );
     }
 
-    // Solutions mega v2: panel is direct child of nav; .smega-open on nav; categories in panel
-    (function initSmegaV2() {
+    // Desktop nav megas: Solutions + simple page megas; nav[data-nav-mega] drives CSS visibility
+    (function initNavMegas() {
         const nav = document.querySelector('nav.site-nav');
         const panel = document.getElementById('smega-panel');
         const trigger = document.getElementById('smega-trigger');
+        const nmegaPanels = document.querySelectorAll('.nmega-panel[data-mega-key]');
+        const nmegaTriggers = document.querySelectorAll('a.nav-mega-trigger[data-mega-key]');
         if (!nav || !panel || !trigger) return;
+
         const mqDesktop = window.matchMedia('(min-width: 768px)');
         const mqHover = window.matchMedia('(hover: hover)');
         const catBtns = panel.querySelectorAll('.smega-cat[data-smega]');
         const panes = panel.querySelectorAll('.smega-pane[data-smega]');
-        if (!catBtns.length) return;
+
+        trigger.setAttribute('aria-haspopup', 'true');
+        trigger.setAttribute('aria-controls', 'smega-panel');
+        trigger.setAttribute('data-mega-key', 'solutions');
+        nmegaTriggers.forEach(function (t) {
+            var k = t.getAttribute('data-mega-key');
+            if (k) {
+                t.setAttribute('aria-haspopup', 'true');
+                t.setAttribute('aria-controls', 'mega-panel-' + k);
+            }
+        });
+
+        function setNavMega(mode) {
+            var m = mode || '';
+            nav.setAttribute('data-nav-mega', m);
+            var solOpen = m === 'solutions';
+            panel.setAttribute('aria-hidden', solOpen ? 'false' : 'true');
+            if (solOpen) panel.removeAttribute('hidden');
+            else panel.setAttribute('hidden', '');
+            trigger.setAttribute('aria-expanded', solOpen ? 'true' : 'false');
+
+            nmegaPanels.forEach(function (p) {
+                var k = p.getAttribute('data-mega-key');
+                var on = k && m === k;
+                p.setAttribute('aria-hidden', on ? 'false' : 'true');
+                if (on) p.removeAttribute('hidden');
+                else p.setAttribute('hidden', '');
+            });
+            nmegaTriggers.forEach(function (t) {
+                var k = t.getAttribute('data-mega-key');
+                var on = k && m === k;
+                t.setAttribute('aria-expanded', on ? 'true' : 'false');
+            });
+        }
 
         var smegaFeatureImg = panel.querySelector('#smega-feature-img');
-        /* Same thumbnail assets as solutions.html scenario cards (images/solutions_frontimage/) */
         var SMEGA_CARD_IMAGES = {
             r: 'images/solutions_frontimage/buldingimage.webp',
             t: 'images/solutions_frontimage/Office%20Buildings.png',
@@ -114,26 +197,16 @@ document.addEventListener('DOMContentLoaded', async function() {
             e: 'images/solutions_frontimage/Onshore%20Oilfields.png',
         };
 
-        trigger.setAttribute('aria-haspopup', 'true');
-        trigger.setAttribute('aria-controls', 'smega-panel');
-
-        function setOpen(open) {
-            nav.classList.toggle('smega-open', open);
-            panel.setAttribute('aria-hidden', open ? 'false' : 'true');
-            if (open) panel.removeAttribute('hidden');
-            else panel.setAttribute('hidden', '');
-            trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
         function showCategory(key) {
-            catBtns.forEach((btn) => {
-                const on = btn.getAttribute('data-smega') === key;
+            if (!catBtns.length) return;
+            catBtns.forEach(function (btn) {
+                var on = btn.getAttribute('data-smega') === key;
                 btn.classList.toggle('is-active', on);
                 btn.setAttribute('aria-selected', on ? 'true' : 'false');
                 btn.setAttribute('tabindex', on ? '0' : '-1');
             });
-            panes.forEach((pane) => {
-                const on = pane.getAttribute('data-smega') === key;
+            panes.forEach(function (pane) {
+                var on = pane.getAttribute('data-smega') === key;
                 pane.classList.toggle('is-active', on);
                 if (on) pane.removeAttribute('hidden');
                 else pane.setAttribute('hidden', '');
@@ -150,11 +223,11 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
         }
 
-        setOpen(false);
-        showCategory('r');
+        setNavMega('');
+        if (catBtns.length) showCategory('r');
 
-        catBtns.forEach((btn) => {
-            const key = btn.getAttribute('data-smega');
+        catBtns.forEach(function (btn) {
+            var key = btn.getAttribute('data-smega');
             function onPick() {
                 if (key) showCategory(key);
             }
@@ -166,51 +239,83 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
         });
 
-        function canUseHoverNav() {
-            return mqDesktop.matches && mqHover.matches;
-        }
+        /** Desktop width: open megas on hover/focus (no (hover:hover) requirement — many PCs report hover:none). */
         function canUseTouchNav() {
             return mqDesktop.matches && !mqHover.matches;
         }
+        function megaOpen() {
+            return nav.getAttribute('data-nav-mega') || '';
+        }
+        function megaHoverDesktop() {
+            return mqDesktop.matches;
+        }
 
         trigger.addEventListener('mouseenter', function () {
-            if (canUseHoverNav()) setOpen(true);
+            if (megaHoverDesktop()) setNavMega('solutions');
         });
         panel.addEventListener('mouseenter', function () {
-            if (canUseHoverNav()) setOpen(true);
+            if (megaHoverDesktop()) setNavMega('solutions');
+        });
+        /* Each primary nav link must open its mega on hover (not only focus/panel enter). */
+        nmegaTriggers.forEach(function (t) {
+            t.addEventListener('mouseenter', function () {
+                var k = t.getAttribute('data-mega-key');
+                if (megaHoverDesktop() && k) setNavMega(k);
+            });
+        });
+        nmegaPanels.forEach(function (p) {
+            p.addEventListener('mouseenter', function () {
+                var k = p.getAttribute('data-mega-key');
+                if (megaHoverDesktop() && k) setNavMega(k);
+            });
         });
         nav.addEventListener('mouseleave', function () {
-            if (!canUseHoverNav()) return;
+            if (!megaHoverDesktop()) return;
             if (nav.contains(document.activeElement)) return;
-            setOpen(false);
+            setNavMega('');
         });
 
         trigger.addEventListener('focus', function () {
-            if (mqDesktop.matches) setOpen(true);
+            if (mqDesktop.matches) setNavMega('solutions');
         });
         panel.addEventListener('focusin', function () {
-            if (mqDesktop.matches) setOpen(true);
+            if (mqDesktop.matches) setNavMega('solutions');
+        });
+        nmegaTriggers.forEach(function (t) {
+            t.addEventListener('focus', function () {
+                var k = t.getAttribute('data-mega-key');
+                if (mqDesktop.matches && k) setNavMega(k);
+            });
         });
         nav.addEventListener('focusout', function (e) {
-            if (!nav.classList.contains('smega-open') || !mqDesktop.matches) return;
+            if (!megaOpen() || !mqDesktop.matches) return;
             var rt = e.relatedTarget;
-            if (!rt || !nav.contains(rt)) setOpen(false);
+            if (!rt || !nav.contains(rt)) setNavMega('');
         });
 
         trigger.addEventListener('click', function (e) {
             if (!canUseTouchNav()) return;
-            if (!nav.classList.contains('smega-open')) {
+            if (megaOpen() !== 'solutions') {
                 e.preventDefault();
-                setOpen(true);
+                setNavMega('solutions');
             }
+        });
+        nmegaTriggers.forEach(function (t) {
+            t.addEventListener('click', function (e) {
+                if (!canUseTouchNav()) return;
+                var k = t.getAttribute('data-mega-key');
+                if (!k || megaOpen() === k) return;
+                e.preventDefault();
+                setNavMega(k);
+            });
         });
 
         document.addEventListener(
             'pointerdown',
             function (e) {
-                if (!canUseTouchNav() || !nav.classList.contains('smega-open')) return;
+                if (!mqDesktop.matches || !megaOpen()) return;
                 if (nav.contains(e.target)) return;
-                setOpen(false);
+                setNavMega('');
             },
             true
         );
@@ -220,16 +325,23 @@ document.addEventListener('DOMContentLoaded', async function() {
             else if (mq.addListener) mq.addListener(fn);
         }
         addMql(mqDesktop, function () {
-            setOpen(false);
+            setNavMega('');
         });
         addMql(mqHover, function () {
-            setOpen(false);
+            setNavMega('');
         });
 
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && nav.classList.contains('smega-open')) {
-                setOpen(false);
-                trigger.focus();
+            if (e.key !== 'Escape' || !megaOpen()) return;
+            var prev = megaOpen();
+            setNavMega('');
+            if (prev === 'solutions') trigger.focus();
+            else if (prev === 'home') {
+                var h = document.getElementById('mega-trigger-home');
+                if (h) h.focus();
+            } else {
+                var link = nav.querySelector('a.nav-mega-trigger[data-mega-key="' + prev + '"]');
+                if (link) link.focus();
             }
         });
     })();
@@ -241,11 +353,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             link.addEventListener('click', function () {
                 mobileMenu.classList.add('hidden');
                 mobileMenuBtn?.setAttribute('aria-expanded', 'false');
-                const icon = mobileMenuBtn?.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+                mobileMenu?.closest('nav.site-nav')?.classList.remove('is-mobile-menu-open');
+                syncMobileMenuButtonIcon(mobileMenuBtn, false);
             });
         });
     }
@@ -411,17 +520,34 @@ document.addEventListener('DOMContentLoaded', async function() {
         const progress = document.getElementById('home-wow-scroll-progress');
         const toTop = document.getElementById('home-wow-to-top');
         let wowScrollRaf = 0;
+        var wowLastPctQuant = -1;
+        var wowToTopShown = false;
         function onWowScroll() {
             if (wowScrollRaf) return;
             wowScrollRaf = requestAnimationFrame(function() {
                 wowScrollRaf = 0;
-                const scrollY = window.scrollY || window.pageYOffset;
-                const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-                const pct = (scrollY / max) * 100;
-                if (progress) progress.style.width = pct + '%';
+                var scrollY = window.scrollY || window.pageYOffset;
+                var max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+                var pct = (scrollY / max) * 100;
+                var narrow = window.innerWidth < 768;
+                if (progress) {
+                    if (narrow) {
+                        var q = Math.round(pct * 4) / 4;
+                        if (q !== wowLastPctQuant) {
+                            wowLastPctQuant = q;
+                            progress.style.width = q + '%';
+                        }
+                    } else {
+                        progress.style.width = pct + '%';
+                    }
+                }
                 if (toTop) {
-                    if (scrollY > 420) toTop.classList.add('is-visible');
-                    else toTop.classList.remove('is-visible');
+                    var show = scrollY > 420;
+                    if (show !== wowToTopShown) {
+                        wowToTopShown = show;
+                        if (show) toTop.classList.add('is-visible');
+                        else toTop.classList.remove('is-visible');
+                    }
                 }
             });
         }

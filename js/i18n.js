@@ -29,7 +29,7 @@
      * Load translation file. Uses window.__SITE_BASE__ (set in each HTML) for cPanel/subfolders,
      * else falls back to pathname-based directory. Logs URL and errors so console shows something.
      */
-    async function loadTranslations(lang) {
+    async function fetchLangData(lang) {
         const fileName = 'lang-' + lang + '.json';
         let base = window.__SITE_BASE__;
         if (typeof base !== 'string' || !base.length) {
@@ -44,19 +44,24 @@
             const response = await fetch(url, { cache: 'no-store' });
             if (!response.ok) {
                 if (typeof console !== 'undefined' && console.warn) console.warn('i18n: HTTP ' + response.status, url);
-                if (lang !== 'en') return loadTranslations('en');
-                return {};
+                return null;
             }
             const data = await response.json();
-            return data && typeof data === 'object' ? data : {};
+            return data && typeof data === 'object' ? data : null;
         } catch (err) {
             if (typeof console !== 'undefined' && console.warn) console.warn('i18n: Failed to load', url, err.message || err);
             if (window.location.protocol === 'file:') {
                 if (typeof console !== 'undefined' && console.warn) console.warn('i18n: Run a local server for translations to work.');
             }
-            if (lang !== 'en') return loadTranslations('en');
-            return {};
+            return null;
         }
+    }
+
+    async function loadTranslations(lang) {
+        const data = await fetchLangData(lang);
+        if (data) return data;
+        if (lang !== 'en') return loadTranslations('en');
+        return {};
     }
 
     /**
@@ -138,7 +143,6 @@
         // Update language toggle buttons
         document.querySelectorAll('[data-lang-btn]').forEach(btn => {
             const lang = btn.getAttribute('data-lang-btn');
-            btn.classList.toggle('font-semibold', lang === currentLang);
             btn.classList.toggle('text-blue-600', lang === currentLang);
             btn.classList.toggle('opacity-70', lang !== currentLang);
         });

@@ -22,8 +22,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/tailwind-built.css?v=1.0.63">
-    <link rel="stylesheet" href="css/styles.css?v=1.0.92">
-    <link rel="stylesheet" href="css/responsive.css?v=1.0.0">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.102">
+    <link rel="stylesheet" href="css/responsive.css?v=1.0.5">
     <link rel="stylesheet" href="css/floating-contact.css?v=1.2.0">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -43,13 +43,13 @@
                     </a>
                 </div>
                 <div class="nav-desktop hidden md:flex items-center space-x-5 flex-nowrap">
-                    <a href="index.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.home">Accueil</a>
+                    <a href="index.html" id="mega-trigger-home" class="nav-link nav-mega-trigger text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-mega-key="home" data-i18n="common.home">Accueil</a>
                     <a href="solutions.html" id="smega-trigger" class="nav-link smega-trigger text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.solutions">Solutions</a>
-                    <a href="projects.html" class="nav-link text-blue-600 font-medium whitespace-nowrap" data-i18n="common.projects">Projets</a>
-                    <a href="about.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.about">À propos</a>
-                    <a href="blog.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.blog">Blog</a>
-                    <a href="contact.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.contact">Contact</a>
-                    <a href="faq.html" class="nav-link text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-i18n="common.faq">FAQ</a>
+                    <a href="projects.html" id="mega-trigger-projects" class="nav-link nav-mega-trigger text-blue-600 font-medium whitespace-nowrap" data-mega-key="projects" data-i18n="common.projects">Projets</a>
+                    <a href="about.html" id="mega-trigger-about" class="nav-link nav-mega-trigger text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-mega-key="about" data-i18n="common.about">À propos</a>
+                    <a href="blog.html" id="mega-trigger-blog" class="nav-link nav-mega-trigger text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-mega-key="blog" data-i18n="common.blog">Blog</a>
+                    <a href="contact.html" id="mega-trigger-contact" class="nav-link nav-mega-trigger text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-mega-key="contact" data-i18n="common.contact">Contact</a>
+                    <a href="faq.html" id="mega-trigger-faq" class="nav-link nav-mega-trigger text-gray-700 hover:text-gray-900 font-medium transition-colors whitespace-nowrap" data-mega-key="faq" data-i18n="common.faq">FAQ</a>
                     <div class="flex items-center gap-2 ml-1 flex-shrink-0" role="group" aria-label="Language">
                         <button type="button" data-lang-btn="en" class="lang-btn px-2 py-1 text-sm rounded hover:bg-gray-100">EN</button>
                         <span class="text-gray-400">|</span>
@@ -57,12 +57,15 @@
                     </div>
                     <a href="tel:+212522096855" class="nav-link ml-2 text-gray-700 hover:text-gray-900 font-medium flex-shrink-0 whitespace-nowrap"><i class="fas fa-phone mr-1"></i><span class="nav-phone">+212 522 09 68 55</span></a>
                 </div>
-                <button id="mobile-menu-btn" class="nav-mobile-btn md:hidden focus:outline-none p-2" aria-label="Toggle menu">
-                    <i class="fas fa-bars text-2xl"></i>
+                <button type="button" id="mobile-menu-btn" class="nav-mobile-btn md:hidden focus:outline-none p-2" aria-label="Toggle menu">
+                    <span class="nav-mobile-btn__icons" aria-hidden="true">
+                        <svg class="nav-mobile-btn__svg nav-mobile-btn__svg--menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="5" width="20" height="3.2" rx="1.6"/><rect x="2" y="10.4" width="20" height="3.2" rx="1.6"/><rect x="2" y="15.8" width="20" height="3.2" rx="1.6"/></svg>
+                        <svg class="nav-mobile-btn__svg nav-mobile-btn__svg--close hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                    </span>
                 </button>
             </div>
         </div>
-                <div class="smega-panel" id="smega-panel" role="region" aria-label="Solutions" aria-hidden="true" hidden>
+                                        <div class="smega-panel" id="smega-panel" role="region" aria-label="Solutions" aria-hidden="true" hidden>
             <div class="smega-panel__scroll">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 smega-panel__inner">
                     <div class="smega-grid">
@@ -153,12 +156,184 @@
                             </a>
                         </aside>
                     </div>
+                    <div class="smega-actions" role="navigation" aria-label="Solutions">
+                        <a href="solutions.html" class="smega-action smega-action--ghost" data-i18n="solutions.megaAllSolutions">Toutes les solutions (vue d’ensemble)</a>
+                        <a href="solutions.html#solutions-scenarios" class="smega-action smega-action--primary" data-i18n="solutions.megaOpenCatalogue">Catalogue complet</a>
+                    </div>
                 </div>
             </div>
         </div>
-
-
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+        <div class="smega-panel nmega-panel nmega-panel--simple" id="mega-panel-home" data-mega-key="home" role="region" aria-labelledby="nmega-home-title" aria-hidden="true" hidden>
+            <div class="smega-panel__scroll">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 smega-panel__inner nmega-panel__inner">
+                    <header class="nmega-panel__head">
+                        <p class="nmega-kicker" data-i18n="nav.megaHomeKicker">Accueil</p>
+                        <h3 class="nmega-title" id="nmega-home-title" data-i18n="nav.megaHomeTitle">SYNERGATES</h3>
+                        <p class="nmega-lead" data-i18n="nav.megaHomeLead">Vue d’ensemble du site et accès aux sections clés.</p>
+                    </header>
+                    <div class="nmega-split">
+                        <div class="nmega-shortcuts nmega-shortcuts--elevated">
+                            <p class="nmega-col-label" data-i18n="nav.megaShortcutsLabel">Accès rapides</p>
+                            <ul class="nmega-links nmega-links--2col">
+                                <li class="nmega-li"><a href="index.html#main-content" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaHomeShortcutHero">Hero</span></a></li>
+                                <li class="nmega-li"><a href="index.html#home-trust" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaHomeShortcutTrust">Ils nous font confiance</span></a></li>
+                                <li class="nmega-li"><a href="index.html#home-services" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaHomeShortcutServices">Expertises</span></a></li>
+                                <li class="nmega-li"><a href="index.html#home-metrics" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaHomeShortcutMetrics">Chiffres clés</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="nmega-actions-wrap">
+                            <p class="nmega-actions-label" data-i18n="nav.megaActionsLabel">Actions</p>
+                            <div class="nmega-actions">
+                                <a href="index.html" class="nmega-btn nmega-btn--primary"><i class="fas fa-home nmega-btn__ico" aria-hidden="true"></i><span data-i18n="nav.megaHomeOverviewBtn">Page d’accueil</span></a>
+                                <a href="solutions.html" class="nmega-btn nmega-btn--outline"><i class="fas fa-th-large nmega-btn__ico" aria-hidden="true"></i><span data-i18n="nav.megaHomeSolutionsBtn">Voir les solutions</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="smega-panel nmega-panel nmega-panel--simple" id="mega-panel-projects" data-mega-key="projects" role="region" aria-labelledby="nmega-projects-title" aria-hidden="true" hidden>
+            <div class="smega-panel__scroll">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 smega-panel__inner nmega-panel__inner">
+                    <header class="nmega-panel__head">
+                        <p class="nmega-kicker" data-i18n="nav.megaProjectsKicker">Projets</p>
+                        <h3 class="nmega-title" id="nmega-projects-title" data-i18n="nav.megaProjectsTitle">Références & études de cas</h3>
+                        <p class="nmega-lead" data-i18n="nav.megaProjectsLead">Réalisations et références par secteur.</p>
+                    </header>
+                    <div class="nmega-split">
+                        <div class="nmega-shortcuts nmega-shortcuts--elevated">
+                            <p class="nmega-col-label" data-i18n="nav.megaShortcutsLabel">Accès rapides</p>
+                            <ul class="nmega-links">
+                                <li class="nmega-li"><a href="projects.html#main-content" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaProjectsShortcutHero">Page projets</span></a></li>
+                                <li class="nmega-li"><a href="projects.html#projects-feed" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaProjectsShortcutFeed">Réalisations & références</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="nmega-actions-wrap">
+                            <p class="nmega-actions-label" data-i18n="nav.megaActionsLabel">Actions</p>
+                            <div class="nmega-actions">
+                                <a href="projects.html" class="nmega-btn nmega-btn--primary"><i class="fas fa-folder-open nmega-btn__ico" aria-hidden="true"></i><span data-i18n="nav.megaProjectsOverviewBtn">Voir tous les projets</span></a>
+                                <a href="contact.html" class="nmega-btn nmega-btn--outline"><i class="fas fa-comments nmega-btn__ico" aria-hidden="true"></i><span data-i18n="nav.megaProjectsContactBtn">Parler d’un projet</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="smega-panel nmega-panel nmega-panel--simple" id="mega-panel-about" data-mega-key="about" role="region" aria-labelledby="nmega-about-title" aria-hidden="true" hidden>
+            <div class="smega-panel__scroll">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 smega-panel__inner nmega-panel__inner">
+                    <header class="nmega-panel__head">
+                        <p class="nmega-kicker" data-i18n="nav.megaAboutKicker">À propos</p>
+                        <h3 class="nmega-title" id="nmega-about-title" data-i18n="nav.megaAboutTitle">SYNERGATES</h3>
+                        <p class="nmega-lead" data-i18n="nav.megaAboutLead">Mission, valeurs et secteurs d’intervention.</p>
+                    </header>
+                    <div class="nmega-split">
+                        <div class="nmega-shortcuts nmega-shortcuts--elevated">
+                            <p class="nmega-col-label" data-i18n="nav.megaShortcutsLabel">Accès rapides</p>
+                            <ul class="nmega-links nmega-links--2col">
+                                <li class="nmega-li"><a href="about.html#main-content" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaAboutShortcutHero">Présentation</span></a></li>
+                                <li class="nmega-li"><a href="about.html#about-story" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaAboutShortcutStory">Notre histoire</span></a></li>
+                                <li class="nmega-li"><a href="about.html#about-metrics" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaAboutShortcutMetrics">Chiffres clés</span></a></li>
+                                <li class="nmega-li"><a href="about.html#about-mission" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaAboutShortcutMission">Mission & valeurs</span></a></li>
+                                <li class="nmega-li"><a href="about.html#about-expertise" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaAboutShortcutExpertise">Expertises</span></a></li>
+                                <li class="nmega-li"><a href="about.html#about-sectors" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaAboutShortcutSectors">Secteurs</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="nmega-actions-wrap">
+                            <p class="nmega-actions-label" data-i18n="nav.megaActionsLabel">Actions</p>
+                            <div class="nmega-actions">
+                                <a href="about.html" class="nmega-btn nmega-btn--primary"><i class="fas fa-building nmega-btn__ico" aria-hidden="true"></i><span data-i18n="nav.megaAboutOverviewBtn">Page À propos</span></a>
+                                <a href="contact.html" class="nmega-btn nmega-btn--outline"><i class="fas fa-envelope nmega-btn__ico" aria-hidden="true"></i><span data-i18n="nav.megaAboutContactBtn">Contact</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="smega-panel nmega-panel nmega-panel--simple" id="mega-panel-blog" data-mega-key="blog" role="region" aria-labelledby="nmega-blog-title" aria-hidden="true" hidden>
+            <div class="smega-panel__scroll">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 smega-panel__inner nmega-panel__inner">
+                    <header class="nmega-panel__head">
+                        <p class="nmega-kicker" data-i18n="nav.megaBlogKicker">Blog</p>
+                        <h3 class="nmega-title" id="nmega-blog-title" data-i18n="nav.megaBlogTitle">Actualités & conseils</h3>
+                        <p class="nmega-lead" data-i18n="nav.megaBlogLead">Articles et retours d’expérience.</p>
+                    </header>
+                    <div class="nmega-split">
+                        <div class="nmega-shortcuts nmega-shortcuts--elevated">
+                            <p class="nmega-col-label" data-i18n="nav.megaShortcutsLabel">Accès rapides</p>
+                            <ul class="nmega-links">
+                                <li class="nmega-li"><a href="blog.html#main-content" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaBlogShortcutHero">Liste des articles</span></a></li>
+                                <li class="nmega-li"><a href="blog.html#blog-grid" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaBlogShortcutGrid">Toutes les publications</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="nmega-actions-wrap">
+                            <p class="nmega-actions-label" data-i18n="nav.megaActionsLabel">Actions</p>
+                            <div class="nmega-actions">
+                                <a href="blog.html" class="nmega-btn nmega-btn--primary"><i class="fas fa-newspaper nmega-btn__ico" aria-hidden="true"></i><span data-i18n="nav.megaBlogOverviewBtn">Voir le blog</span></a>
+                                <a href="contact.html" class="nmega-btn nmega-btn--outline"><i class="fas fa-question-circle nmega-btn__ico" aria-hidden="true"></i><span data-i18n="nav.megaBlogContactBtn">Une question ?</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="smega-panel nmega-panel nmega-panel--simple" id="mega-panel-contact" data-mega-key="contact" role="region" aria-labelledby="nmega-contact-title" aria-hidden="true" hidden>
+            <div class="smega-panel__scroll">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 smega-panel__inner nmega-panel__inner">
+                    <header class="nmega-panel__head">
+                        <p class="nmega-kicker" data-i18n="nav.megaContactKicker">Contact</p>
+                        <h3 class="nmega-title" id="nmega-contact-title" data-i18n="nav.megaContactTitle">Devis & rendez-vous</h3>
+                        <p class="nmega-lead" data-i18n="nav.megaContactLead">Formulaire, chiffres et localisation.</p>
+                    </header>
+                    <div class="nmega-split">
+                        <div class="nmega-shortcuts nmega-shortcuts--elevated">
+                            <p class="nmega-col-label" data-i18n="nav.megaShortcutsLabel">Accès rapides</p>
+                            <ul class="nmega-links nmega-links--2col">
+                                <li class="nmega-li"><a href="contact.html#main-content" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaContactShortcutHero">En-tête</span></a></li>
+                                <li class="nmega-li"><a href="contact.html#contact-form" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaContactShortcutForm">Formulaire devis</span></a></li>
+                                <li class="nmega-li"><a href="contact.html#contact-metrics" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaContactShortcutMetrics">Chiffres</span></a></li>
+                                <li class="nmega-li"><a href="contact.html#contact-map" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaContactShortcutMap">Plan & adresse</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="nmega-actions-wrap">
+                            <p class="nmega-actions-label" data-i18n="nav.megaActionsLabel">Actions</p>
+                            <div class="nmega-actions">
+                                <a href="contact.html#contact-form" class="nmega-btn nmega-btn--primary"><i class="fas fa-file-signature nmega-btn__ico" aria-hidden="true"></i><span data-i18n="nav.megaContactQuoteBtn">Demander un devis</span></a>
+                                <a href="tel:+212522096855" class="nmega-btn nmega-btn--outline"><i class="fas fa-phone nmega-btn__ico" aria-hidden="true"></i><span data-i18n="nav.megaContactPhoneBtn">Appeler</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="smega-panel nmega-panel nmega-panel--simple" id="mega-panel-faq" data-mega-key="faq" role="region" aria-labelledby="nmega-faq-title" aria-hidden="true" hidden>
+            <div class="smega-panel__scroll">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 smega-panel__inner nmega-panel__inner">
+                    <header class="nmega-panel__head">
+                        <p class="nmega-kicker" data-i18n="nav.megaFaqKicker">FAQ</p>
+                        <h3 class="nmega-title" id="nmega-faq-title" data-i18n="nav.megaFaqTitle">Questions fréquentes</h3>
+                        <p class="nmega-lead" data-i18n="nav.megaFaqLead">Réponses organisées par thème.</p>
+                    </header>
+                    <div class="nmega-split">
+                        <div class="nmega-shortcuts nmega-shortcuts--elevated">
+                            <p class="nmega-col-label" data-i18n="nav.megaShortcutsLabel">Accès rapides</p>
+                            <ul class="nmega-links">
+                                <li class="nmega-li"><a href="faq.html#main-content" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaFaqShortcutHero">Introduction</span></a></li>
+                                <li class="nmega-li"><a href="faq.html#faq-items" class="nmega-a"><span class="nmega-a__text" data-i18n="nav.megaFaqShortcutList">Liste des questions</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="nmega-actions-wrap">
+                            <p class="nmega-actions-label" data-i18n="nav.megaActionsLabel">Actions</p>
+                            <div class="nmega-actions">
+                                <a href="faq.html" class="nmega-btn nmega-btn--primary"><i class="fas fa-list-ul nmega-btn__ico" aria-hidden="true"></i><span data-i18n="nav.megaFaqOverviewBtn">Voir la FAQ</span></a>
+                                <a href="contact.html" class="nmega-btn nmega-btn--outline"><i class="fas fa-paper-plane nmega-btn__ico" aria-hidden="true"></i><span data-i18n="nav.megaFaqContactBtn">Nous écrire</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-4 pt-2 pb-4 space-y-1">
                 <a href="index.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg" data-i18n="common.home">Accueil</a>
                 <details class="smobile smobile--py-md" id="smobile-solutions" data-smenu="1">
@@ -379,8 +554,8 @@
     </div>
 
     <script>window.__SITE_BASE__=window.location.origin+((window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1))||'/');</script>
-    <script src="js/i18n.js?v=1.0.2"></script>
-    <script src="js/main.js?v=1.0.23"></script>
+    <script src="js/i18n.js?v=1.0.4"></script>
+    <script src="js/main.js?v=1.0.30"></script>
     <script src="js/prefetch-solutions.js?v=1.0.10"></script>
     <script>
     (function(){
